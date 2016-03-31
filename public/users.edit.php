@@ -17,25 +17,32 @@
 	<?php include '../views/partials/header.php' ?>
 	<?php include '../views/partials/navbar.php' ?>
 	
- 	<div class="input-group">
-	 	<span class="input-group-addon"></span>
-	 	<input type="text" class="form-control" placeholder="(This will display the user's current username)" aria-describedby="basic-addon1">
-	</div>
+	<form action='' method='post'>
+	 	<div class="input-group">
+		 	<span class="input-group-addon"></span>
+		 	<input type="text" class="form-control" placeholder="(This will display the user's current username)" name='username' aria-describedby="basic-addon1">
+		</div>
 
-	<div class="input-group">
-	 	<span class="input-group-addon"></span>
-	 	<input type="text" class="form-control" placeholder="(And current email)" aria-describedby="basic-addon2">
-	</div>
+		<div class="input-group">
+		 	<span class="input-group-addon"></span>
+		 	<input type="text" class="form-control" placeholder="(And current email)" name='email' aria-describedby="basic-addon2">
+		</div>
 
-	<div class="input-group">
-	 	<span class="input-group-addon"></span>
-	 	<input type="text" class="form-control" placeholder="(And current password in password type)" aria-describedby="basic-addon3">
-	</div>
+		<div class="input-group">
+		 	<span class="input-group-addon"></span>
+		 	<input type="password" class="form-control" placeholder="(And current password in password type)" name='password' aria-describedby="basic-addon3">
+		</div>
 
-	<div class="input-group">
-	 	<span class="input-group-addon"></span>
-	 	<input type="text" class="form-control" placeholder="(And current description/bio)" aria-describedby="basic-addon4">
-	</div>
+		<div class="input-group">
+		 	<span class="input-group-addon"></span>
+		 	<input type="text" class="form-control" placeholder="(And current description/bio)" name='bio' aria-describedby="basic-addon4">
+		</div>
+
+		<div class='input-group'>
+			<input type='submit' class='form-control' value='Submit'>
+		</div>
+		
+	</form>
 
 	<?php include '../views/partials/footer.php' ?>
 
