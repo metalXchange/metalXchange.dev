@@ -30,13 +30,19 @@
 
 	<div class="input-group">
 	 	<span class="input-group-addon"></span>
-	 	<input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon3">
+	 	<input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon4">
 	</div>
 
 	<div class="input-group">
 	 	<span class="input-group-addon"></span>
-	 	<input type="text" class="form-control" placeholder="password" aria-describedby="basic-addon3">
+	 	<input type="text" class="form-control" placeholder="password" aria-describedby="basic-addon5">
 	</div>
+
+	<div class="input-group">
+	 	<span class="input-group-addon"></span>
+	 	<input type="text" class="form-control" placeholder="Bio/description" aria-describedby="basic-addon6">
+	</div>
+
 
  </body>
  </html>
