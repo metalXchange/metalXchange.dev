@@ -7,12 +7,16 @@
 
  <!doctype html>
 
- <html>
+ <html lang="en">
  <head>
- 	<title>user.create.php</title>
- 	<link rel="stylesheet" type="text/css" href="/css/bootstrap_css/bootstrap.css">
+ 	<meta charset="UTF-8">
+ 	<title>metalXchange: acoutrements for the heavy metal lifestyle</title>
+ 	<link rel="stylesheet" href="/css/main.css">
+ 	<link rel="stylesheet" href="/css/bootstrap.css">
  </head>
  <body>
+	<?php include '../views/partials/header.php' ?>
+	<?php include '../views/partials/navbar.php' ?>
  	<div class="input-group">
 	 	<span class="input-group-addon"></span>
 	 	<input type="text" class="form-control" placeholder="First name" aria-describedby="basic-addon1">
