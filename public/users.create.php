@@ -47,6 +47,16 @@
 	 	<input type="text" class="form-control" placeholder="Bio/description" aria-describedby="basic-addon6">
 	</div>
 
+	<?php include '../views/partials/footer.php' ?>
+
+	<script src="/js/jquery-1.12.0.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/main.js"></script>
+ 	<script>
+
+ 		// this will include any necessary embedded javascript
+
+ 	</script>
 
  </body>
  </html>
