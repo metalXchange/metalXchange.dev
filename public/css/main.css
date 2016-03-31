@@ -14,6 +14,16 @@
 	text-align: center;
 }
 
+.landing {
+	dislpay: flexbox;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.column {
+	
+}
+
 #logo {
 	height: 200px;
 	width: auto;
