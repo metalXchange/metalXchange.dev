@@ -15,12 +15,22 @@
  <body>
  	<div class="input-group">
 	 	<span class="input-group-addon"></span>
-	 	<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+	 	<input type="text" class="form-control" placeholder="First name" aria-describedby="basic-addon1">
 	</div>
 
 	<div class="input-group">
 	 	<span class="input-group-addon"></span>
-	 	<input type="text" class="form-control" placeholder="email" aria-describedby="basic-addon2">
+	 	<input type="text" class="form-control" placeholder="Last name" aria-describedby="basic-addon2">
+	</div>
+
+	<div class="input-group">
+	 	<span class="input-group-addon"></span>
+	 	<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon3">
+	</div>
+
+	<div class="input-group">
+	 	<span class="input-group-addon"></span>
+	 	<input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon3">
 	</div>
 
 	<div class="input-group">
