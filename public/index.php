@@ -13,8 +13,8 @@
  	<link rel="stylesheet" href="/css/bootstrap.css">
  </head>
  <body>
-	<?php include 'header.php' ?>
-	<?php include 'navbar.php' ?>
+	<?php include '../views/partials/header.php' ?>
+	<?php include '../views/partials/navbar.php' ?>
 
 	<main>
 <!-- 		<div class="landing">
@@ -95,9 +95,10 @@
  -->		
 	</main>
 
-	<?php include 'footer.php' ?>
+	<?php include '../views/partials/footer.php' ?>
 
-	<script src="/js/jquery-2.2.0.min.js"></script>
+	<script src="/js/jquery-1.12.0.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/main.js"></script>
  	<script>
 
