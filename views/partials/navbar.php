@@ -17,7 +17,7 @@
         <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
         <li><a href="#">Profile</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Items for sale/trade <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Guitars</a></li>
             <li><a href="#">Leather</a></li>
