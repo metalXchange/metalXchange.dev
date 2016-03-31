@@ -1,2 +1,30 @@
-/* This will be the main styling for metalXchange
-*/
+.footer {
+	width: 100%;
+	padding: 12px 12px 4px 12px;
+	background-color: #666;
+	color: white;
+	font-family: sans-serif;
+	font-size: 0.8em;
+}
+
+.titleGraphics {
+	width: 100%;
+	background-color: #666;
+	padding: 16px;
+	text-align: center;
+}
+
+.landing {
+	dislpay: flexbox;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.column {
+	
+}
+
+#logo {
+	height: 200px;
+	width: auto;
+}
