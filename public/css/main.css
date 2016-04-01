@@ -40,6 +40,16 @@ main {
 	justify-content: space-around;
 }
 
+.emph {
+	font-family: 'UnifrakturCook', cursive;
+	font-size: 4.0em;
+}
+
+.emph2 {
+	font-family: 'UnifrakturCook', cursive;
+	font-size: 0.5em;
+}
+
 #logo {
 	height: 120px;
 	width: auto;
@@ -52,5 +62,6 @@ main {
 #venue {
 	display: none;
 }
+
 
 /*CSS for radio button*/
