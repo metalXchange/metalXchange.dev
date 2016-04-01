@@ -17,35 +17,42 @@
  <body>
 	<?php include '../views/partials/header.php' ?>
 	<?php include '../views/partials/navbar.php' ?>
- 	<div class="input-group">
-	 	<span class="input-group-addon"></span>
-	 	<input type="text" class="form-control" placeholder="First name" aria-describedby="basic-addon1">
-	</div>
+ 	
+ 	<form action='' method='post'>
+ 		<div class="input-group">
+		 	<span class="input-group-addon"></span>
+		 	<input type="text" class="form-control" placeholder="First name" name='first_name' aria-describedby="basic-addon1">
+		</div>
 
-	<div class="input-group">
-	 	<span class="input-group-addon"></span>
-	 	<input type="text" class="form-control" placeholder="Last name" aria-describedby="basic-addon2">
-	</div>
+		<div class="input-group">
+		 	<span class="input-group-addon"></span>
+		 	<input type="text" class="form-control" placeholder="Last name" name='last_name' aria-describedby="basic-addon2">
+		</div>
 
-	<div class="input-group">
-	 	<span class="input-group-addon"></span>
-	 	<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon3">
-	</div>
+		<div class="input-group">
+		 	<span class="input-group-addon"></span>
+		 	<input type="text" class="form-control" placeholder="Username" name='username' aria-describedby="basic-addon3">
+		</div>
 
-	<div class="input-group">
-	 	<span class="input-group-addon"></span>
-	 	<input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon4">
-	</div>
+		<div class="input-group">
+		 	<span class="input-group-addon"></span>
+		 	<input type="text" class="form-control" placeholder="Email" name='email' aria-describedby="basic-addon4">
+		</div>
 
-	<div class="input-group">
-	 	<span class="input-group-addon"></span>
-	 	<input type="text" class="form-control" placeholder="password" aria-describedby="basic-addon5">
-	</div>
+		<div class="input-group">
+		 	<span class="input-group-addon"></span>
+		 	<input type="password" class="form-control" placeholder="Password" name='passowrd' aria-describedby="basic-addon5">
+		</div>
 
-	<div class="input-group">
-	 	<span class="input-group-addon"></span>
-	 	<input type="text" class="form-control" placeholder="Bio/description" aria-describedby="basic-addon6">
-	</div>
+		<div class="input-group">
+		 	<span class="input-group-addon"></span>
+		 	<input type="text" class="form-control" placeholder="Bio/description" name='bio' aria-describedby="basic-addon6">
+		</div>
+
+		<div class='input-group'>
+			<input type='submit' class='form-control' value='Submit'>
+		</div>
+	</form>
 
 	<?php include '../views/partials/footer.php' ?>
 

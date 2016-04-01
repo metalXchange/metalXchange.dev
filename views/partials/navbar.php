@@ -8,26 +8,26 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">metalXchange</a>
+      <a class="navbar-brand" href="/">metalXchange</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Profile</a></li>
+        <li class="active"><a href="../../index.php">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="../../users.show.php">Profile</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Items for sale/trade <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Guitars</a></li>
-            <li><a href="#">Leather</a></li>
-            <li><a href="#">Lycra</a></li>
-            <li><a href="#">Pyrotechnics</a></li>
-            <li><a href="#">Venues</a></li>
+            <li><a href="/ads.index.php">Guitars</a></li>
+            <li><a href="/ads.index.php">Leather</a></li>
+            <li><a href="/ads.index.php">Lycra</a></li>
+            <li><a href="/ads.index.php">Pyrotechnics</a></li>
+            <li><a href="/ads.index.php">Venues</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Create new item</a></li>
+            <li><a href="/ads.create.php">Create new item</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Edit existing item</a></li>
+            <li><a href="/ads.edit.php">Edit existing item</a></li>
           </ul>
         </li>
       </ul>
