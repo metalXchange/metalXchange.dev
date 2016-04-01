@@ -11,13 +11,14 @@
  	<title>metalXchange: acoutrements for the heavy metal lifestyle</title>
  	<link rel="stylesheet" href="/css/main.css">
  	<link rel="stylesheet" href="/css/bootstrap.css">
+ 	<link href='https://fonts.googleapis.com/css?family=UnifrakturCook:700' rel='stylesheet' type='text/css'>
  </head>
  <body>
 	<?php include '../views/partials/header.php' ?>
 	<?php include '../views/partials/navbar.php' ?>
 
 	<main>
-		<h2 class='headline'>Add an Item for Sale/Trade</h2>
+		<h1 class='emph'>Add an Item for Sale/Trade</h1>
 		<div class="container">
 			<div class="btn-group">
 				<button type="button" class="btn btn-default">Gear Type</button>
@@ -37,7 +38,7 @@
 
 			
 			<div id="guitars">
-				<h3 class='subhead'>Guitars</h3>
+				<h2 class='emph'>Guitars</h2>
 				<hr>
 				<div class="col-xs-12 col-sm-6 col-md-4">
 					<div class="btn-group">
@@ -88,7 +89,7 @@
 			</div> <!-- end of guitar class -->
 
 			<div id="leather">
-				<h3 class='subhead'>Leather</h3>
+				<h2 class='emph'>Leather</h2>
 				<hr>
 				<div class="col-xs-12 col-sm-6 col-md-4">
 					<div class="btn-group">
@@ -140,7 +141,7 @@
 			</div> <!-- end of leather class -->
 
 			<div id="lycra">
-				<h3 class='subhead'>Lycra</h3>
+				<h2 class='emph'>Lycra</h2>
 				<hr>
 				<div class="col-xs-12 col-sm-6 col-md-4">
 					<div class="btn-group">
@@ -192,7 +193,7 @@
 			</div> <!-- end of lycra class -->
 
 			<div id="pyro">
-				<h3 class='subhead'>Pyrotechnics</h3>
+				<h2 class='emph'>Pyrotechnics</h2>
 				<hr>
 				<div class="col-xs-12 col-sm-6 col-md-4">
 					<div class="btn-group">
@@ -244,7 +245,7 @@
 			</div> <!-- end of lycra class -->
 
 			<div id="venue">
-				<h3 class='subhead'>Venues</h3>
+				<h2 class='emph'>Venues</h2>
 				<hr>
 				<div class="col-xs-12 col-sm-6 col-md-4">
 					<div class="btn-group">
