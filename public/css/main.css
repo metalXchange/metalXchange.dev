@@ -1,4 +1,10 @@
+main {
+	padding: 6px;
+}
+
 .footer {
+	position: fixed;
+	bottom: 0px;
 	width: 100%;
 	padding: 12px 12px 4px 12px;
 	background-color: #666;
@@ -20,11 +26,31 @@
 	justify-content: flex-start;
 }
 
-.column {
-	
+.headline {
+
+}
+
+.input-group {
+	margin-top: 6px;
+}
+
+.price {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
 
 #logo {
 	height: 200px;
 	width: auto;
 }
+
+#guitars,
+#leather,
+#lycra,
+#pyro,
+#venue {
+	display: none;
+}
+
+/*CSS for radio button*/

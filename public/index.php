@@ -42,7 +42,7 @@
 			        <p><a href="#">Pants</a></p>
 			        <p><a href="#">Vests</a></p>
 			        <p><a href="#">Greaves / Boots</a></p>
-			        <p><a href="#">Cod Pieces</a></p>
+			        <p><a href="#">Codpieces</a></p>
 			        <p><a href="#" class="btn btn-default" role="button">Button</a></p>
 			      </div>
 			    </div>
