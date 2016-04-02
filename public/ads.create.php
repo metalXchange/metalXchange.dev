@@ -18,7 +18,7 @@
 	<?php include '../views/partials/navbar.php' ?>
 
 	<main>
-		<h1 class='emph'>Add an Item for Sale/Trade</h1>
+		<h1 class='headline'>Add an Item for Sale/Trade</h1>
 		<div class="container">
 			<div class="btn-group">
 				<button type="button" class="btn btn-default">Gear Type</button>
@@ -38,7 +38,7 @@
 
 			
 			<div id="guitars">
-				<h2 class='emph'>Guitars</h2>
+				<h2 class='headline'>Guitars</h2>
 				<hr>
 				<div class="col-xs-12 col-sm-6 col-md-4">
 					<div class="btn-group">
@@ -69,6 +69,15 @@
 						<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
 					</div>
 
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Item Description</h3>
+						</div>
+						<div class="panel-body">
+							<input type="text">
+						</div>
+					</div>
+
 					<div class="price">
 						<div class="input-group">
 							<span class="input-group-addon">$</span>
@@ -89,7 +98,7 @@
 			</div> <!-- end of guitar class -->
 
 			<div id="leather">
-				<h2 class='emph'>Leather</h2>
+				<h2 class='headline'>Leather</h2>
 				<hr>
 				<div class="col-xs-12 col-sm-6 col-md-4">
 					<div class="btn-group">
@@ -141,7 +150,7 @@
 			</div> <!-- end of leather class -->
 
 			<div id="lycra">
-				<h2 class='emph'>Lycra</h2>
+				<h2 class='headline'>Lycra</h2>
 				<hr>
 				<div class="col-xs-12 col-sm-6 col-md-4">
 					<div class="btn-group">
@@ -193,7 +202,7 @@
 			</div> <!-- end of lycra class -->
 
 			<div id="pyro">
-				<h2 class='emph'>Pyrotechnics</h2>
+				<h2 class='headline'>Pyrotechnics</h2>
 				<hr>
 				<div class="col-xs-12 col-sm-6 col-md-4">
 					<div class="btn-group">
@@ -245,7 +254,7 @@
 			</div> <!-- end of lycra class -->
 
 			<div id="venue">
-				<h2 class='emph'>Venues</h2>
+				<h2 class='headline'>Venues</h2>
 				<hr>
 				<div class="col-xs-12 col-sm-6 col-md-4">
 					<div class="btn-group">
