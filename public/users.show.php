@@ -1,7 +1,23 @@
 <?php 
 
-// detail display of a single user
+	function pageController() {
+		$profile = [
+			'user_id'=>666,
+			'join_date'=>2016-01-01,
+			'first_name'=>'Ozzy',
+			'last_name'=>'Osbourne',
+			'email'=>'ozzy@sharon.com',
+			'password'=>'ohgodpleasehelpme',
+			'band_name'=>'Black Sabbath',
+			'instrument'=>'vocals',
+			'soul_possesion'=>false,
+			'bio'=>'English singer, songwriter, and television personality. He rose to prominence in the early 1970s as the lead vocalist of the band Black Sabbath, widely considered to be the first heavy metal band. Osbourne was fired from Black Sabbath in 1979 and has since had a successful solo career, releasing 11 studio albums, the first seven of which were all awarded multi-platinum certifications in the U.S.',
+			'img'=>'/img/profile/OzzyOsbourne.jpg'
+		];
+		return $profile;
+	}
 
+	extract(pageController());
  ?>
 
 
@@ -18,15 +34,33 @@
 	<?php include '../views/partials/header.php' ?>
 	<?php include '../views/partials/navbar.php' ?>
 	
- 	<p>First name</p>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6">
+		 		<div class="panel panel-default">
+				<!-- Default panel contents -->
+					<div class="panel-heading"><h4 class='subhead'><?= $first_name . ' ' . $last_name ?></h4></div>
+				<!-- List group -->
+					<ul class="list-group">
+					<li class="list-group-item"><strong>User ID: </strong> <?= $user_id ?> </li>
+					<li class="list-group-item"><strong>Join date: </strong> <?= $join_date ?> </li>
+					<li class="list-group-item"><strong>Email address: </strong> <?= $email ?> </li>
+					<li class="list-group-item"><strong>Band Name: </strong> <?= $band_name ?> </li>
+					<li class="list-group-item"><strong>Instrument: </strong> <?= $instrument ?> </li>
+					<li class="list-group-item"><strong>In possesion of your soul?: </strong> <?php echo $soul_possesion ? 'yes' : 'no'; ?> </li>
+					</ul>
+				<!-- description and photo -->
+					<div class="panel-body">
+						<p><?= $bio ?></p>
+					</div>
+					<button type="submit" class="btn btn-default">Contact Seller</button>
+				</div> <!-- end panel -->
+			</div> <!-- end col-xs-12 col-sm-6 col-md-8 -->
 
- 	<p>Last name</p>
+			<div class="col-xs-12 col-sm-6 col-md-6">
+				<img class="image" src=<?=$img?> alt="">
+			</div> <!-- end col-xs-12 col-sm-6 col-md-8 -->
 
- 	<p>Username</p>
-
- 	<p>Email</p>
-
- 	<p>Bio/description</p>
+		</div> <!-- end row -->
 
  	<?php include '../views/partials/footer.php' ?>
 
