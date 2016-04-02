@@ -19,11 +19,11 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Items for sale/trade <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/ads.index.php">Guitars</a></li>
-            <li><a href="/ads.index.php">Leather</a></li>
-            <li><a href="/ads.index.php">Lycra</a></li>
-            <li><a href="/ads.index.php">Pyrotechnics</a></li>
-            <li><a href="/ads.index.php">Venues</a></li>
+            <li><a href="/ads.index.php?type=guitars">Guitars</a></li>
+            <li><a href="/ads.index.php?type=leather">Leather</a></li>
+            <li><a href="/ads.index.php?type=lycra">Lycra</a></li>
+            <li><a href="/ads.index.php?type=pyrotechnics">Pyrotechnics</a></li>
+            <li><a href="/ads.index.php?type=venue">Venues</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="/ads.create.php">Create new item</a></li>
             <li role="separator" class="divider"></li>
