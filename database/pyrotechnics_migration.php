@@ -4,27 +4,23 @@
 
 define('DB_HOST', '127.0.0.1');
 
-define('DB_NAME', 'parks_db');
+define('DB_NAME', 'metalXchange');
 
-define('DB_USER', 'parks_user');
+define('DB_USER', 'vagrant');
 
-define('DB_PASS', 'parks_user');
+define('DB_PASS', 'vagrant');
 
 require 'db_connect.php';
 
 
 
-$query = "DROP TABLE IF EXISTS nation_parks";
+$query = "DROP TABLE IF EXISTS pyrotechnics";
 
 $dbc->exec($query);
 
-$query = "CREATE TABLE nation_parks (
+$query = "CREATE TABLE pyrotechnics (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-	name VARCHAR(200) NOT NULL,
-	location VARCHAR(250) NOT NULL,
-	date_established DATE NOT NULL,
-	area_in_acres DOUBLE NOT NULL,
-	description TEXT NOT NULL,
+	-- I don't know exactly what each column will look like yet, but the table is created
 	PRIMARY KEY (id)
 	)";
 
