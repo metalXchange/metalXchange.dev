@@ -2,10 +2,11 @@
 
 	function pageController() {
 		$profile = [
-			'user_id'=>666,
+			'id'=>666,
 			'join_date'=>2016-01-01,
 			'first_name'=>'Ozzy',
 			'last_name'=>'Osbourne',
+			'user_name'=>'prince_of_darkness',
 			'email'=>'ozzy@sharon.com',
 			'password'=>'ohgodpleasehelpme',
 			'band_name'=>'Black Sabbath',
@@ -41,7 +42,9 @@
 					<div class="panel-heading"><h4 class='subhead'><?= $first_name . ' ' . $last_name ?></h4></div>
 				<!-- List group -->
 					<ul class="list-group">
-					<li class="list-group-item"><strong>User ID: </strong> <?= $user_id ?> </li>
+					<li class="list-group-item"><strong>User ID: </strong> <?= $id ?> </li>
+					<li class="list-group-item"><strong>User name: </strong> <?= $user_name ?> </li>
+					<li class="list-group-item"><strong>Password: </strong> <?= $password ?> </li>
 					<li class="list-group-item"><strong>Join date: </strong> <?= $join_date ?> </li>
 					<li class="list-group-item"><strong>Email address: </strong> <?= $email ?> </li>
 					<li class="list-group-item"><strong>Band Name: </strong> <?= $band_name ?> </li>
