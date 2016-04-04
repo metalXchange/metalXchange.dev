@@ -31,7 +31,7 @@ abstract class Model
     {
         if (!self::$dbc) {
             
-            self::$dbc = new PDO('mysql:host=127.0.0.1;dbname=codeup_test_db', 'codeup', 'codeup');
+            self::$dbc = new PDO('mysql:host=127.0.0.1;dbname=metalXchange', 'vagrant', 'vagrant');
 
             self::$dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
