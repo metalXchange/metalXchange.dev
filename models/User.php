@@ -10,12 +10,19 @@ class User extends Model
     protected function insert()
     {
      
-        $stmt = self::$dbc->prepare('INSERT INTO users (first_name, last_name, email, password) VALUES (:first_name, :last_name, :email, :password)');
+        $stmt = $dbc->prepare('INSERT INTO users (join_date, first_name, last_name, user_name, password, email, band_name, instrument, soul_possession, bio, image_url) VALUES (:join_date, :first_name, :last_name, :user_name, :password, :email, :band_name, :instrument, :soul_possession, :bio, :image_url)');
 
-        $stmt->bindValue(':first_name', $this->attributes['first_name'], PDO::PARAM_STR);
-        $stmt->bindValue(':last_name', $this->attributes['last_name'], PDO::PARAM_STR);
-        $stmt->bindValue(':email', $this->attributes['email'], PDO::PARAM_STR);
-        $stmt->bindValue(':password', $this->attributes['password'], PDO::PARAM_STR);
+        $stmt->bindValue(':join_date',  $item['join_date'],  PDO::PARAM_STR);
+        $stmt->bindValue(':first_name',  $item['first_name'],  PDO::PARAM_STR);
+        $stmt->bindValue(':last_name',  $item['last_name'],  PDO::PARAM_STR);
+        $stmt->bindValue(':user_name',  $item['user_name'],  PDO::PARAM_STR);
+        $stmt->bindValue(':password',  $item['password'],  PDO::PARAM_STR);
+        $stmt->bindValue(':email',  $item['email'],  PDO::PARAM_STR);
+        $stmt->bindValue(':band_name',  $item['band_name'],  PDO::PARAM_STR);
+        $stmt->bindValue(':instrument',  $item['instrument'],  PDO::PARAM_STR);
+        $stmt->bindValue(':soul_possession',  $item['soul_possession'],  PDO::PARAM_STR);
+        $stmt->bindValue(':bio',  $item['bio'],  PDO::PARAM_STR);
+        $stmt->bindValue(':image_url',  $item['image_url'],  PDO::PARAM_STR);
 
         $stmt->execute();
 
@@ -28,13 +35,20 @@ class User extends Model
     /** Update existing entry in the database */
     protected function update()
     {
-        $stmt = self::$dbc->prepare('UPDATE users set first_name = :first_name, last_name = :last_name, email = :email, password = :password where id = :id');
+        $stmt = self::$dbc->prepare('UPDATE users (id, join_date, first_name, last_name, user_name, password, email, band_name, instrument, soul_possession, bio, image_url) VALUES (:id, :join_date, :first_name, :last_name, :user_name, :password, :email, :band_name, :instrument, :soul_possession, :bio, :image_url)');
 
-        $stmt->bindValue(':first_name', $this->attributes['first_name'], PDO::PARAM_STR);
-        $stmt->bindValue(':last_name', $this->attributes['last_name'], PDO::PARAM_STR);
-        $stmt->bindValue(':email', $this->attributes['email'], PDO::PARAM_STR);
-        $stmt->bindValue(':password', $this->attributes['password'], PDO::PARAM_STR);
-        $stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_STR);
+        $stmt->bindValue(':id',  $item['id'],  PDO::PARAM_STR);
+        $stmt->bindValue(':join_date',  $item['join_date'],  PDO::PARAM_STR);
+        $stmt->bindValue(':first_name',  $item['first_name'],  PDO::PARAM_STR);
+        $stmt->bindValue(':last_name',  $item['last_name'],  PDO::PARAM_STR);
+        $stmt->bindValue(':user_name',  $item['user_name'],  PDO::PARAM_STR);
+        $stmt->bindValue(':password',  $item['password'],  PDO::PARAM_STR);
+        $stmt->bindValue(':email',  $item['email'],  PDO::PARAM_STR);
+        $stmt->bindValue(':band_name',  $item['band_name'],  PDO::PARAM_STR);
+        $stmt->bindValue(':instrument',  $item['instrument'],  PDO::PARAM_STR);
+        $stmt->bindValue(':soul_possession',  $item['soul_possession'],  PDO::PARAM_STR);
+        $stmt->bindValue(':bio',  $item['bio'],  PDO::PARAM_STR);
+        $stmt->bindValue(':image_url',  $item['image_url'],  PDO::PARAM_STR);
 
         $stmt->execute();
 
