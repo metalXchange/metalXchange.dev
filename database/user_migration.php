@@ -20,6 +20,7 @@ $dbc->exec($query);
 
 $query = "CREATE TABLE users (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	is_admin BOOLEAN NOT NULL,
 	join_date DATE NOT NULL,
 	first_name VARCHAR(100) NOT NULL,
 	last_name VARCHAR(150) NOT NULL,
