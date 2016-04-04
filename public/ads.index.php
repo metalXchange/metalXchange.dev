@@ -1,6 +1,7 @@
 <?php 
 
-	$headline = ucfirst($_GET['type']);
+	$temp = $_GET['type'];
+	$headline = ucfirst($temp);
 
 	$data = [
 			 'item1'=>[
