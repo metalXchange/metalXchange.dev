@@ -20,7 +20,15 @@ $dbc->exec($query);
 
 $query = "CREATE TABLE pyrotechnics (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-	-- I don't know exactly what each column will look like yet, but the table is created
+	user_name VARCHAR(24) NOT NULL,
+	impliment_type VARCHAR(24) NOT NULL,
+	brand VARCHAR(24) NOT NULL,
+	homemade boolean NOT NULL,
+	casualties INT NOT NULL,
+	item_description TEXT NOT NULL,
+	price DECIMAL,
+	trade VARCHAR(48),
+	image_url VARCHAR(64) NOT NULL,
 	PRIMARY KEY (id)
 	)";
 
