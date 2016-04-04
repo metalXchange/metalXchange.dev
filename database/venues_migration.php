@@ -20,7 +20,7 @@ $dbc->exec($query);
 
 $query = "CREATE TABLE venues (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-	user_id UNSIGNED NOT NULL,
+	user_id INT UNSIGNED NOT NULL,
 	user_name VARCHAR(24) NOT NULL,
 	venue_type VARCHAR(24) NOT NULL,
 	capacity INT NOT NULL,
