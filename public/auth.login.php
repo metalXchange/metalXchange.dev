@@ -2,8 +2,7 @@
 
 session_start();
 
-require '../utils/Input.php';
-require '../utils/Auth.php';
+require '../bootstrap.php';
 
 $username = Input::get('username');
 $password = Input::get('password');
@@ -11,7 +10,7 @@ $password = Input::get('password');
 if (Auth::isLoggedIn()) {
 	// redirect since they're already logged in	
 	header("Location: /ads.create.php");
-	die()
+	die();
 
 } elseif (Input::has('username') && Input::has('password')) {
 

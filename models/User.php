@@ -2,7 +2,6 @@
 
 // __DIR__ is a *magic constant* with the directory path containing this file.
 // This allows us to correctly require_once Model.php, no matter where this file is being required from.
-require_once __DIR__ . '/Model.php';
 
 class User extends Model
 {
@@ -108,12 +107,12 @@ class User extends Model
         return $array;
     }
 
-    public static function findByUsername($username)
+    public static function findUserByUsername($username)
     {
         self::dbConnect();
-        $select = "SELECT * from users where username = :username";
+        $select = "SELECT * from users where user_name = :user_name";
         $stmt = self::$dbc->prepare($select);
-        $stmt->bindValue(":username", $username, PDO::PARAM_STR);
+        $stmt->bindValue(":user_name", $username, PDO::PARAM_STR);
         $stmt->execute();
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);

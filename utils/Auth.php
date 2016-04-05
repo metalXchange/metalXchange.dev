@@ -1,7 +1,5 @@
 <?php
 
-require 'Log.php';
-
 class Auth
 {
   
@@ -25,10 +23,13 @@ class Auth
             $log->error($username . ' was not found');
             return false;
         }
-        // This function needs to query the database for the given username, then check the password against
-        // the given password.
+        
 
-        $passwordIsValid = password_verify($password, $user->password);
+        if ($password == $user->password) {
+            $passwordIsValid = true;
+        } else {
+            $passwordIsValid = false;
+        }
 
         if ($passwordIsValid) {
             $_SESSION['LOGGED_IN_USER'] = $username;
