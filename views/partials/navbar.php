@@ -30,6 +30,12 @@
             <li><a href="/ads.edit.php">Edit existing item</a></li>
           </ul>
         </li>
+        
+        <?php if (!isset($_SESSION['LOGGED_IN_USER'])) { ?>
+          <li><a href="../../auth.login.php">Login</a></li>
+        <?php } else { ?>
+          <li><a href="../../auth.logout.php">Logout</a></li>
+        <?php } ?>
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
