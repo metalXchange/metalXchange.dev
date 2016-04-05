@@ -1,6 +1,10 @@
 <?php 
 
-// log out method with redirect back to index
+require_once '../bootstrap.php';
+
+session_start();
+
+Auth::logout();
 
  ?>
 
