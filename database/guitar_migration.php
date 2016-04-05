@@ -7,7 +7,6 @@
 $query = "CREATE TABLE guitars (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	user_id INT UNSIGNED NOT NULL,
-	user_name VARCHAR(24) NOT NULL,
 	guitar_type VARCHAR(24) NOT NULL,
 	brand VARCHAR(24) NOT NULL,
 	num_strings INT NOT NULL,
