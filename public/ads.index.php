@@ -4,23 +4,17 @@
 
 	$table = $_GET['table'];
 	
-	if (Input::has('subcat')) {
-		
-		$subcat = $_GET['subcat'];
-	
-	} else {
-		$subcat = false;
-	}
+	$subcat = isset($_GET['subcat']) ? $_GET['subcat'] : '';
 
 	$headline = ucfirst($table);
 	
 
 
-	function pageController($table, $subcat = false)
+	function pageController($table, $subcat)
 	{
 		switch ($table) {
 			case 'guitars' : 
-				if ($subcat)
+				if ($subcat != '')
 				{
 					$data = Guitar::subcat($subcat);
 				} else
@@ -72,7 +66,6 @@
 
 		return array('data' => $data);
 	}
-	var_dump($subcat);
 
 	extract(pageController($table, $subcat));
  ?>
