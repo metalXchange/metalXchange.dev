@@ -105,4 +105,25 @@ class Venues extends Model
         }
         return $array;
     }
+
+    public static function subcat($subcategory)
+    {
+        self::dbConnect();
+
+        $stmt = self::$dbc->prepare("SELECT * FROM venues WHERE venue_type = :value");
+        $stmt->bindValue(':value', $subcategory,  PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $instance = null;
+        $array = [];
+        if ($result) {
+            foreach ($result as $key => $value) {
+                $instance = new static($value);
+                $array[] = $instance;
+            }
+        }
+        return $array;
+    }
+
 }

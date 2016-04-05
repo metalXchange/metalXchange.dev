@@ -1,43 +1,70 @@
-<?php 
+<?php
 
-	$temp = $_GET['type'];
-	$headline = ucfirst($temp);
+	require '../bootstrap.php';
 
-	function pageController() {
-		$data = [];
-		$data['items'] = [
-			'item1'=>[
-				'type'=>'Flying V\'s',
-				'brand'=>'Gibson',
-				'numStrings'=>6,
-				'numNecks'=>1,
-				'price'=>1200.99,
-				'trade'=>'nope',
-				'img'=>'/img/uploads/gtr_gibson_flying_v.jpg'
-				],
-			'item2'=>[
-				'type'=>'Random Pointy',
-				'brand'=>'B.C. Rich',
-				'numStrings'=>6,
-				'numNecks'=>1,
-				'price'=>500.00,
-				'trade'=>'possibly',
-				'img'=>'/img/uploads/gtr_bcrich_warlock.jpg'
-				],
-			'item3'=>[
-				'type'=>'Generally Scary',
-				'brand'=>'Custom',
-				'numStrings'=>7,
-				'numNecks'=>1,
-				'price'=>1500.00,
-				'trade'=>'nope',
-				'img'=>'/img/uploads/gtr_cockroach.jpg'
-				]
-		];
-		return $data;
+	$table = $_GET['table'];
+	$subcat = $_GET['subcat'];
+	$headline = ucfirst($table);
+	var_dump(isset($subcat));
+
+
+	function pageController($table, $subcat)
+	{
+		switch ($table) {
+			case 'guitars' : 
+				if (isset($subcat))
+				{
+					$data = Guitar::subcat($subcat);
+				} else
+				{
+					$data = Guitar::all();						
+				}
+				break;
+
+			case 'leather' :
+				if (isset($subcat))
+				{
+					$data = Leather::subcat($subcat);
+				} else
+				{
+					$data = Leather::all();
+				}
+				break;
+
+			case 'lycra' : 
+				if (isset($subcat))
+				{
+					$data = Lycra::subcat($subcat);
+				} else
+				{
+					$data = Lycra::all();
+				}
+				break;
+
+			case 'pyrotechnics' : 
+				if (isset($subcat))
+				{
+					$data = Pyrotechnics::subcat($subcat);
+				} else
+				{
+					$data = Pyrotechnics::all();
+				}
+				break;
+
+			case 'venues' : 
+				if (isset($subcat))
+				{
+					$data = Venues::subcat($subcat);
+				} else
+				{
+					$data = Venues::all();
+				}
+				break;
+		}
+
+		return array('data' => $data);
 	}
-	extract(pageController());
-
+	extract(pageController($table, $subcat));
  ?>
 
  <!DOCTYPE html>
@@ -56,21 +83,25 @@
 	<main>			
 		<h3 class='headline'><?= $headline ?></h3>
 		<hr>
-
-		<?php foreach($items as $item => $array) {?>
-			<div class='item'>
-				<div>
-					<h4><strong>Type: </strong><?=$array['type']?></h4>
-					<h4><strong>Brand: </strong><?=$array['brand']?></h4>
-					<h4><strong>No. of Strings: </strong><?=$array['numStrings']?></h4>
-					<h4><strong>No. of Necks: </strong><?=$array['numNecks']?></h4>
-					<h4><strong>Price: </strong>$<?=$array['price']?></h4>
-					<h4><strong>Trade?: </strong><?=$array['trade']?></h4>
-					<img class="image" src=<?=$array['img']?> alt="">
-				</div>
-			</div>
+		<?php if($table == 'guitars') { ?>
+		<?php include '../views/partials/gtr_index.php'; ?>
 		<?php } ?>
 
+		<?php if($table == 'leather') { ?>
+		<?php include '../views/partials/lth_index.php'; ?>
+		<?php } ?>
+
+		<?php if($table == 'lycra') { ?>
+		<?php include '../views/partials/lyc_index.php'; ?>
+		<?php } ?>
+
+		<?php if($table == 'pyrotechnics') { ?>
+		<?php include '../views/partials/pyr_index.php'; ?>
+		<?php } ?>
+
+		<?php if($table == 'venues') { ?>
+		<?php include '../views/partials/ven_index.php'; ?>
+		<?php } ?>
 	</main>
 
 	<?php include '../views/partials/footer.php' ?>

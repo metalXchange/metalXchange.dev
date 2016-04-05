@@ -1,21 +1,15 @@
-<?php 
+<?php
+
+	require '../bootstrap.php';
 
 	function pageController() {
-		$data = [
-			'headline'=>'A Guitar named Veronica',
-			'type'=>'Flying V\'s',
-			'brand'=>'Gibson',
-			'numStrings'=>6,
-			'numNecks'=>1,
-			'price'=>1200.99,
-			'trade'=>'nope',
-			'desc'=>'Three years old, loved like a baby, but I need to switch over to bass guitar to keep the band together. I\'ve got a lead on a wicked custom bass a friend of mine has, but I need to raise some cash; so I\'m going to have to let Veronica go.',
-			'img'=>'/img/uploads/gtr_gibson_flying_v_lg.jpg'
-		];
-		return $data;
-	}
 
-	extract(pageController());
+		$id = 03;
+
+		$profile = Guitar::find($id);
+
+		return $profile;
+	}
 
  ?>
 

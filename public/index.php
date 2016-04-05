@@ -17,82 +17,77 @@
 	<?php include '../views/partials/navbar.php' ?>
 
 	<main>
-<!-- 		<div class="landing">
- -->			
-			<div class="row">
-			  <div class="col-sm-4 col-md-2">
-			    <div class="thumbnail">
-			      <img src="/img/index_guitar.jpg" alt="...">
-			      <div class="caption">
-			        <h3>Guitars</h3>
-			        <p><a href="#">Flying V's</a></p>
-			        <p><a href="#">Random Pointy</a></p>
-			        <p><a href="#">Generally Scary</a></p>
-			        <p><a href="#">Novelty</a></p>
-			        <p><a href="#" class="btn btn-default" role="button">Button</a></p>
-			      </div>
-			    </div>
-			  </div>
+		<div class="row">
+		  <div class="col-sm-4 col-md-2">
+		    <div class="thumbnail">
+		      <img src="/img/index_guitar.jpg" alt="...">
+		      <div class="caption">
+		        <h3>Guitars</h3>
+		        <p><a href="/ads.index.php?table=guitars&subcat=flying_v">Flying V's</a></p>
+		        <p><a href="/ads.index.php?table=guitars&subcat=rand_point">Random Pointy</a></p>
+		        <p><a href="/ads.index.php?table=guitars&subcat=gen_scary">Generally Scary</a></p>
+		        <p><a href="/ads.index.php?table=guitars&subcat=novelty">Novelty</a></p>
+		        <p><a href="/ads.index.php?table=guitars" class="btn btn-default" role="button">See Category</a></p>
+		      </div>
+		    </div>
+		  </div>
 
-			  <div class="col-sm-4 col-md-2">
-			    <div class="thumbnail">
-			      <img src="/img/index_leather.jpg" alt="...">
-			      <div class="caption">
-			        <h3>Leathers</h3>
-			        <p><a href="#">Pants</a></p>
-			        <p><a href="#">Vests</a></p>
-			        <p><a href="#">Greaves / Boots</a></p>
-			        <p><a href="#">Codpieces</a></p>
-			        <p><a href="#" class="btn btn-default" role="button">Button</a></p>
-			      </div>
-			    </div>
-			  </div>
-				
-			  <div class="col-sm-4 col-md-2">
-			    <div class="thumbnail">
-			      <img src="/img/index_lycra.jpg" alt="...">
-			      <div class="caption">
-			        <h3>Lycra</h3>
-			        <p><a href="#">Pants</a></p>
-			        <p><a href="#">Vests</a></p>
-			        <p><a href="#">Gloves</a></p>
-			        <p><a href="#">Unisuits</a></p>
-			        <p><a href="#" class="btn btn-default" role="button">Button</a></p>
-			      </div>
-			    </div>
-			  </div>
+		  <div class="col-sm-4 col-md-2">
+		    <div class="thumbnail">
+		      <img src="/img/index_leather.jpg" alt="...">
+		      <div class="caption">
+		        <h3>Leathers</h3>
+		        <p><a href="/ads.index.php?table=leather&subcat=pants">Pants</a></p>
+		        <p><a href="/ads.index.php?table=leather&subcat=vests">Vests</a></p>
+		        <p><a href="/ads.index.php?table=leather&subcat=boots">Greaves / Boots</a></p>
+		        <p><a href="/ads.index.php?table=leather&subcat=codpieces">Codpieces</a></p>
+		        <p><a href="/ads.index.php?table=leather" class="btn btn-default" role="button">See Category</a></p>
+		      </div>
+		    </div>
+		  </div>
+			
+		  <div class="col-sm-4 col-md-2">
+		    <div class="thumbnail">
+		      <img src="/img/index_lycra.jpg" alt="...">
+		      <div class="caption">
+		        <h3>Lycra</h3>
+		        <p><a href="/ads.index.php?table=lycra&subcat=pants">Pants</a></p>
+		        <p><a href="/ads.index.php?table=lycra&subcat=fests">Vests</a></p>
+		        <p><a href="/ads.index.php?table=lycra&subcat=gloves">Gloves</a></p>
+		        <p><a href="/ads.index.php?table=lycra&subcat=unisuit">Unisuits</a></p>
+		        <p><a href="/ads.index.php?table=lycra" class="btn btn-default" role="button">See Category</a></p>
+		      </div>
+		    </div>
+		  </div>
 
-			  <div class="col-sm-4 col-md-2">
-			    <div class="thumbnail">
-			      <img src="/img/index_pyro.jpg" alt="...">
-			      <div class="caption">
-			        <h3>Pyrotechnics</h3>
-			        <p><a href="#">Smoke Pot</a></p>
-			        <p><a href="#">Concussion</a></p>
-			        <p><a href="#">Fireballs</a></p>
-			        <p><a href="#">Flame Projectors</a></p>
-			        <p><a href="#" class="btn btn-default" role="button">Button</a></p>
-			      </div>
-			    </div>
-			  </div>
+		  <div class="col-sm-4 col-md-2">
+		    <div class="thumbnail">
+		      <img src="/img/index_pyro.jpg" alt="...">
+		      <div class="caption">
+		        <h3>Pyrotechnics</h3>
+		        <p><a href="/ads.index.php?table=pyrotechnics&subcat=smoke_pot">Smoke Pot</a></p>
+		        <p><a href="/ads.index.php?table=pyrotechnics&subcat=concussion">Concussion</a></p>
+		        <p><a href="/ads.index.php?table=pyrotechnics&subcat=fireballs">Fireballs</a></p>
+		        <p><a href="/ads.index.php?table=pyrotechnics&subcat=flame_projectors">Flame Projectors</a></p>
+		        <p><a href="/ads.index.php?table=pyrotechnics" class="btn btn-default" role="button">See Category</a></p>
+		      </div>
+		    </div>
+		  </div>
 
-			  <div class="col-sm-4 col-md-2">
-			    <div class="thumbnail">
-			      <img src="/img/index_venue.jpg" alt="...">
-			      <div class="caption">
-			        <h3>Venues</h3>
-			        <p><a href="#">Outdoor</a></p>
-			        <p><a href="#">Dive Bar</a></p>
-			        <p><a href="#">Deserted Buildings</a></p>
-			        <p><a href="#">Someone's Basement</a></p>
-			        <p><a href="#" class="btn btn-default" role="button">Button</a></p>
-			      </div>
-			    </div>
-			  </div>
-
-			</div>
-<!-- 		</div>
- -->		
+		  <div class="col-sm-4 col-md-2">
+		    <div class="thumbnail">
+		      <img src="/img/index_venue.jpg" alt="...">
+		      <div class="caption">
+		        <h3>Venues</h3>
+		        <p><a href="/ads.index.php?table=venues&subcat=outdoor">Outdoor</a></p>
+		        <p><a href="/ads.index.php?table=venues&subcat=dive_bar">Dive Bar</a></p>
+		        <p><a href="/ads.index.php?table=venues&subcat=aband_bldg">Deserted Buildings</a></p>
+		        <p><a href="/ads.index.php?table=venues&subcat=basement">Someone's Basement</a></p>
+		        <p><a href="/ads.index.php?table=venues" class="btn btn-default" role="button">See Category</a></p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 	</main>
 
 	<?php include '../views/partials/footer.php' ?>
