@@ -107,4 +107,22 @@ class User extends Model
         }
         return $array;
     }
+
+    public static function findByUsername($username)
+    {
+        self::dbConnect();
+        $select = "SELECT * from users where username = :username";
+        $stmt = self::$dbc->prepare($select);
+        $stmt->bindValue(":username", $username, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // The following code will set the attributes on the calling object based on the result variable's contents
+        $instance = null;
+        if ($result) {
+            $instance = new static($result);
+        }
+        return $instance;
+    }
 }

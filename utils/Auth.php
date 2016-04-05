@@ -4,9 +4,6 @@ require 'Log.php';
 
 class Auth
 {
-    public static $password = '$2y$10$SLjwBwdOVvnMgWxvTI4Gb.YVcmDlPTpQystHMO2Kfyi/DS8rgA0Fm';
-    public static $username = 'guest';
-
   
     /**
      * Takes a username and password, if the username is 'guest' and the
@@ -19,14 +16,29 @@ class Auth
      */
     public static function attempt($username, $password)
     {
+        // log all attempts
         $log = new Log();
-        $passwordIsValid = password_verify($password, self::$password);
-        $usernameIsValid = ($username == self::$username);
-        if ($usernameIsValid && $passwordIsValid) {
+        
+        $user = User::findUserByUsername($username);
+
+        if(!$user) {
+            $log->error($username . ' was not found');
+            return false;
+        }
+        // This function needs to query the database for the given username, then check the password against
+        // the given password.
+
+        $passwordIsValid = password_verify($password, $user->password);
+
+        if ($passwordIsValid) {
             $_SESSION['LOGGED_IN_USER'] = $username;
+            $_SESSION['LOGGED_IN_USER_ID'] = $user->id;
+
             $log->info($username . ' logged in.');
+            return true;
         } elseif ($username != '') {
             $log->error($username . ' failed to login!');
+            return false;
         }
     }
 
