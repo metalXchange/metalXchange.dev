@@ -1,7 +1,6 @@
 <?php 
 
-	require '../models/BaseModel.php';
-	require '../models/User.php';
+	require '../bootstrap.php';
 
 	function pageController() {
 
