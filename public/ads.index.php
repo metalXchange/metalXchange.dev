@@ -3,16 +3,24 @@
 	require '../bootstrap.php';
 
 	$table = $_GET['table'];
-	$subcat = $_GET['subcat'];
+	
+	if (Input::has('subcat')) {
+		
+		$subcat = $_GET['subcat'];
+	
+	} else {
+		$subcat = false;
+	}
+
 	$headline = ucfirst($table);
-	var_dump(isset($subcat));
+	
 
 
-	function pageController($table, $subcat)
+	function pageController($table, $subcat = false)
 	{
 		switch ($table) {
 			case 'guitars' : 
-				if (isset($subcat))
+				if ($subcat)
 				{
 					$data = Guitar::subcat($subcat);
 				} else
@@ -64,6 +72,8 @@
 
 		return array('data' => $data);
 	}
+	var_dump($subcat);
+
 	extract(pageController($table, $subcat));
  ?>
 
