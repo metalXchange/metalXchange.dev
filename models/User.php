@@ -2,7 +2,7 @@
 
 // __DIR__ is a *magic constant* with the directory path containing this file.
 // This allows us to correctly require_once Model.php, no matter where this file is being required from.
-require_once __DIR__ . '/Model.php';
+require_once __DIR__ . '/BaseModel.php';
 
 class User extends Model
 {
@@ -73,14 +73,16 @@ class User extends Model
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        return $result;
+
         // @TODO: Store the result in a variable named $result
 
         // The following code will set the attributes on the calling object based on the result variable's contents
-        $instance = null;
-        if ($result) {
-            $instance = new static($result);
-        }
-        return $instance;
+        // $instance = null;
+        // if ($result) {
+        //     $instance = new static($result);
+        // }
+        // return $instance;
     }
 
     /**
