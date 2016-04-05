@@ -1,20 +1,14 @@
 <?php 
 
+	require '../models/BaseModel.php';
+	require '../models/User.php';
+
 	function pageController() {
-		$profile = [
-			'id'=>666,
-			'join_date'=>2016-01-01,
-			'first_name'=>'Ozzy',
-			'last_name'=>'Osbourne',
-			'user_name'=>'prince_of_darkness',
-			'email'=>'ozzy@sharon.com',
-			'password'=>'ohgodpleasehelpme',
-			'band_name'=>'Black Sabbath',
-			'instrument'=>'vocals',
-			'soul_possesion'=>false,
-			'bio'=>'English singer, songwriter, and television personality. He rose to prominence in the early 1970s as the lead vocalist of the band Black Sabbath, widely considered to be the first heavy metal band. Osbourne was fired from Black Sabbath in 1979 and has since had a successful solo career, releasing 11 studio albums, the first seven of which were all awarded multi-platinum certifications in the U.S.',
-			'img'=>'/img/profile/OzzyOsbourne.jpg'
-		];
+
+		$user_id = 06;
+
+		$profile = User::find($user_id);
+
 		return $profile;
 	}
 
@@ -44,12 +38,12 @@
 					<ul class="list-group">
 					<li class="list-group-item"><strong>User ID: </strong> <?= $id ?> </li>
 					<li class="list-group-item"><strong>User name: </strong> <?= $user_name ?> </li>
-					<li class="list-group-item"><strong>Password: </strong> <?= $password ?> </li>
+					<li class="list-group-item"><strong>Password: </strong> <?= $password ?></li>
 					<li class="list-group-item"><strong>Join date: </strong> <?= $join_date ?> </li>
 					<li class="list-group-item"><strong>Email address: </strong> <?= $email ?> </li>
 					<li class="list-group-item"><strong>Band Name: </strong> <?= $band_name ?> </li>
 					<li class="list-group-item"><strong>Instrument: </strong> <?= $instrument ?> </li>
-					<li class="list-group-item"><strong>In possesion of your soul?: </strong> <?php echo $soul_possesion ? 'yes' : 'no'; ?> </li>
+					<li class="list-group-item"><strong>In possesion of your soul?: </strong> <?php echo $soul_possession ? 'yes' : 'no'; ?> </li>
 					</ul>
 				<!-- description and photo -->
 					<div class="panel-body">
@@ -60,7 +54,7 @@
 			</div> <!-- end col-xs-12 col-sm-6 col-md-8 -->
 
 			<div class="col-xs-12 col-sm-6 col-md-6">
-				<img class="image" src=<?=$img?> alt="">
+				<img class="image" src=<?=$image_url?> alt="">
 			</div> <!-- end col-xs-12 col-sm-6 col-md-8 -->
 
 		</div> <!-- end row -->

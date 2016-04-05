@@ -3,8 +3,10 @@
 	$temp = $_GET['type'];
 	$headline = ucfirst($temp);
 
-	$data = [
-			 'item1'=>[
+	function pageController() {
+		$data = [];
+		$data['items'] = [
+			'item1'=>[
 				'type'=>'Flying V\'s',
 				'brand'=>'Gibson',
 				'numStrings'=>6,
@@ -13,7 +15,7 @@
 				'trade'=>'nope',
 				'img'=>'/img/uploads/gtr_gibson_flying_v.jpg'
 				],
-			 'item2'=>[
+			'item2'=>[
 				'type'=>'Random Pointy',
 				'brand'=>'B.C. Rich',
 				'numStrings'=>6,
@@ -22,7 +24,7 @@
 				'trade'=>'possibly',
 				'img'=>'/img/uploads/gtr_bcrich_warlock.jpg'
 				],
-			 'item3'=>[
+			'item3'=>[
 				'type'=>'Generally Scary',
 				'brand'=>'Custom',
 				'numStrings'=>7,
@@ -31,7 +33,10 @@
 				'trade'=>'nope',
 				'img'=>'/img/uploads/gtr_cockroach.jpg'
 				]
-			];
+		];
+		return $data;
+	}
+	extract(pageController());
 
  ?>
 
@@ -52,7 +57,7 @@
 		<h3 class='headline'><?= $headline ?></h3>
 		<hr>
 
-		<?php foreach($data as $item => $array) {?>
+		<?php foreach($items as $item => $array) {?>
 			<div class='item'>
 				<div>
 					<h4><strong>Type: </strong><?=$array['type']?></h4>

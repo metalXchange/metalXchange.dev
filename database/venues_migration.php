@@ -7,11 +7,10 @@
 $query = "CREATE TABLE venues (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	user_id INT UNSIGNED NOT NULL,
-	user_name VARCHAR(24) NOT NULL,
 	venue_type VARCHAR(24) NOT NULL,
 	capacity INT NOT NULL,
 	lighting VARCHAR(48) NOT NULL,
-	pa_system VARCHAR(48) NOT NULL,
+	pa_systems VARCHAR(48) NOT NULL,
 	beverages VARCHAR(48) NOT NULL,
 	item_description TEXT NOT NULL,
 	price DECIMAL,
