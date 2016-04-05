@@ -15,8 +15,8 @@ class Log
     public function __construct($prefix = 'log')
     {
         date_default_timezone_set('America/Chicago');
-        // $this->setFilename( (Not sure about filepath yet) . $prefix . '-' . date('Y-m-d') . '.log');
-        $this->handle   = fopen($this->filename, 'a');
+        $this->setFilename('../storage/' . $prefix . '-' . date('Y-m-d') . '.log');
+        $this->handle = fopen($this->filename, 'a');
     }
 
 

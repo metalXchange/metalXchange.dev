@@ -1,6 +1,29 @@
 <?php 
 
-// login form with authorization for creating/editing list items
+session_start();
+
+require '../bootstrap.php';
+
+$username = Input::get('username');
+$password = Input::get('password');
+
+if (Auth::isLoggedIn()) {
+	// redirect since they're already logged in	
+	header("Location: /ads.create.php");
+	die();
+
+} elseif (Input::has('username') && Input::has('password')) {
+
+	if(Auth::attempt($username, $password)) {
+		header("Location: /ads.create.php");
+		die();
+	} else {
+		$message = "Login unsuccessful. Please check both your username and password";
+	}
+	
+}
+	
+
 
  ?>
 
@@ -18,7 +41,7 @@
 	<?php include '../views/partials/header.php' ?>
 	<?php include '../views/partials/navbar.php' ?>
  	
- 	<form action='' method='post'>
+ 	<form action='auth.login.php' method='post'>
 
 		<div class="input-group">
 		 	<span class="input-group-addon"></span>
