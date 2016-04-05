@@ -1,20 +1,20 @@
 <?php
 
-$items = array(
-	array ('key'=>'value', ),
+define('DB_HOST', '127.0.0.1');
 
-);
+define('DB_NAME', 'metalXchange');
 
+define('DB_USER', 'vagrant');
 
-$stmt = $dbc->prepare('INSERT INTO table_name (column_name, ) VALUES (:column_name, )');
+define('DB_PASS', 'vagrant');
 
-foreach ($items as $item) {
-    $stmt->bindValue(':column_name',  $item['column_name'],  PDO::PARAM_STR);
+require_once 'db_connect.php';
 
-    $stmt->execute();
-}
-
-echo $dbc->getAttribute(PDO::ATTR_CONNECTION_STATUS) . "\n";
-
+require_once 'user_seeder.php';
+require_once 'guitar_seeder.php';
+require_once 'leather_seeder.php';
+require_once 'lycra_seeder.php';
+require_once 'pyrotechnics_seeder.php';
+require_once 'venues_seeder.php';
 
 ?>
