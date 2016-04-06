@@ -1,6 +1,32 @@
 <?php 
 
-// form for creating a new user
+session_start();
+
+require '../bootstrap.php';
+
+if (Auth::isLoggedIn()) {
+	// redirect since they're already logged in	
+	header("Location: /users.show.php");
+	die();
+} elseif (Input::has('first_name') && Input::has('last_name') && Input::has('user_name') && Input::has('email') && Input::has('password') && Input::has('band_name') && Input::has('instrument') && Input::has('soul_possession')) {
+
+	$user = new User();
+
+	$user->first_name = Input::get('first_name');
+	$user->last_name = Input::get('last_name');
+	$user->user_name = Input::get('user_name');
+	$user->email = Input::get('email');
+	$user->password = Input::get('password');
+	$user->bio = Input::get('bio');
+	$user->band_name = Input::get('band_name');
+	$user->instrument = Input::get('instrument');
+	$user->soul_possession = Input::get('soul_possession');
+
+	$user->save();
+
+	header("Location: /auth.login.php");
+
+}
 
  ?>
 
@@ -31,7 +57,7 @@
 
 		<div class="input-group">
 		 	<span class="input-group-addon"></span>
-		 	<input type="text" class="form-control" placeholder="Username" name='username' aria-describedby="basic-addon3">
+		 	<input type="text" class="form-control" placeholder="Username" name='user_name' aria-describedby="basic-addon3">
 		</div>
 
 		<div class="input-group">
@@ -41,13 +67,26 @@
 
 		<div class="input-group">
 		 	<span class="input-group-addon"></span>
-		 	<input type="password" class="form-control" placeholder="Password" name='passowrd' aria-describedby="basic-addon5">
+		 	<input type="password" class="form-control" placeholder="Password" name='password' aria-describedby="basic-addon5">
 		</div>
 
 		<div class="input-group">
 		 	<span class="input-group-addon"></span>
 		 	<input type="text" class="form-control" placeholder="Bio/description" name='bio' aria-describedby="basic-addon6">
 		</div>
+
+		<div class="input-group">
+		 	<span class="input-group-addon"></span>
+		 	<input type="text" class="form-control" placeholder="Band name" name='band_name' aria-describedby="basic-addon6">
+		</div>
+
+		<div class="input-group">
+		 	<span class="input-group-addon"></span>
+		 	<input type="text" class="form-control" placeholder="Instrument" name='instrument' aria-describedby="basic-addon6">
+		</div>
+
+		<input type="radio" name="soul_possession" value=1>Yes<br>
+  		<input type="radio" name="soul_possession" value=0>No<br>
 
 		<div class='input-group'>
 			<input type='submit' class='form-control' value='Submit'>

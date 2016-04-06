@@ -3,8 +3,10 @@
 	require '../bootstrap.php';
 
 	$table = $_GET['table'];
+
 	$subcat = isset($_GET['subcat']) ? $_GET['subcat'] : '';
 	$headline = ucfirst($table);	
+
 
 	function pageController($table, $subcat)
 	{
@@ -62,7 +64,6 @@
 
 		return array('data' => $data);
 	}
-	var_dump($subcat);
 
 	extract(pageController($table, $subcat));
  ?>

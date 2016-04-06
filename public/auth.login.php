@@ -9,13 +9,13 @@ $password = Input::get('password');
 
 if (Auth::isLoggedIn()) {
 	// redirect since they're already logged in	
-	header("Location: /user.show.php");
+	header("Location: /users.show.php");
 	die();
 
 } elseif (Input::has('username') && Input::has('password')) {
 
 	if(Auth::attempt($username, $password)) {
-		header("Location: /user.show.php");
+		header("Location: /users.show.php");
 		die();
 	} else {
 		$message = "Login unsuccessful. Please check both your username and password";
@@ -58,6 +58,9 @@ if (Auth::isLoggedIn()) {
 		</div>
 
 	</form>
+
+
+	<a href="users.create.php">Create a new user profile.</a>
 
 	<?php include '../views/partials/footer.php' ?>
 
