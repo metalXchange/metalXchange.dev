@@ -9,10 +9,10 @@ class Venues extends Model
     /** Insert a new entry into the database */
     protected function insert()
     {
-        $stmt = $dbc->prepare('INSERT INTO venues (user_id, venue_type, capacity, lighting, pa_systems, beverages, item_description, price, trade, image_url) VALUES (:user_id, :venue_type, :capacity, :lighting, :pa_systems, :beverages, :item_description, :price, :trade, :image_url)');
+        $stmt = $dbc->prepare('INSERT INTO venues (user_id, type, capacity, lighting, pa_systems, beverages, item_description, price, trade, image_url) VALUES (:user_id, :type, :capacity, :lighting, :pa_systems, :beverages, :item_description, :price, :trade, :image_url)');
 
         $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);
-        $stmt->bindValue(':venue_type',  $item['venue_type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':type',  $item['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':capacity',  $item['capacity'],  PDO::PARAM_STR);
         $stmt->bindValue(':lighting',  $item['lighting'],  PDO::PARAM_STR);
         $stmt->bindValue(':pa_systems',  $item['pa_systems'],  PDO::PARAM_STR);
@@ -33,10 +33,10 @@ class Venues extends Model
     /** Update existing entry in the database */
     protected function update()
     {
-        $stmt = self::$dbc->prepare('UPDATE venues (user_id, venue_type, capacity, lighting, pa_systems, beverages, item_description, price, trade, image_url) VALUES (:user_id, :venue_type, :capacity, :lighting, :pa_systems, :beverages, :item_description, :price, :trade, :image_url)');
+        $stmt = self::$dbc->prepare('UPDATE venues (user_id, type, capacity, lighting, pa_systems, beverages, item_description, price, trade, image_url) VALUES (:user_id, :type, :capacity, :lighting, :pa_systems, :beverages, :item_description, :price, :trade, :image_url)');
 
         $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);
-        $stmt->bindValue(':venue_type',  $item['venue_type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':type',  $item['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':capacity',  $item['capacity'],  PDO::PARAM_STR);
         $stmt->bindValue(':lighting',  $item['lighting'],  PDO::PARAM_STR);
         $stmt->bindValue(':pa_systems',  $item['pa_systems'],  PDO::PARAM_STR);
@@ -110,7 +110,7 @@ class Venues extends Model
     {
         self::dbConnect();
 
-        $stmt = self::$dbc->prepare("SELECT * FROM venues WHERE venue_type = :value");
+        $stmt = self::$dbc->prepare("SELECT * FROM venues WHERE type = :value");
         $stmt->bindValue(':value', $subcategory,  PDO::PARAM_STR);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -5,7 +5,7 @@
 				<div class="panel-heading"><h4 class='subhead'>Headline goes here...</h4></div>
 			<!-- List group -->
 				<ul class="list-group">
-				<li class="list-group-item"><strong>Type: </strong> <?= $garment_type ?> </li>
+				<li class="list-group-item"><strong>Type: </strong> <?= $type ?> </li>
 				<li class="list-group-item"><strong>Size: </strong> <?= $size ?> </li>
 				<li class="list-group-item"><strong>Color: </strong> <?= $color ?> </li>
 				<li class="list-group-item"><strong>Animal Print? </strong> <?= $animal_stripe ?> </li>

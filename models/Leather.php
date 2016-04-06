@@ -9,10 +9,10 @@ class Leather extends Model
     /** Insert a new entry into the database */
     protected function insert()
     {
-        $stmt = $dbc->prepare('INSERT INTO leather (user_id, garment_type, size, color, spikes, item_description, price, trade, image_url) VALUES (:user_id, :garment_type, :size, :color, :spikes, :item_description, :price, :trade, :image_url)');
+        $stmt = $dbc->prepare('INSERT INTO leather (user_id, type, size, color, spikes, item_description, price, trade, image_url) VALUES (:user_id, :type, :size, :color, :spikes, :item_description, :price, :trade, :image_url)');
 
         $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);
-        $stmt->bindValue(':garment_type',  $item['garment_type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':type',  $item['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':size',  $item['size'],  PDO::PARAM_STR);
         $stmt->bindValue(':color',  $item['color'],  PDO::PARAM_STR);
         $stmt->bindValue(':spikes',  $item['spikes'],  PDO::PARAM_STR);
@@ -32,10 +32,10 @@ class Leather extends Model
     /** Update existing entry in the database */
     protected function update()
     {
-        $stmt = self::$dbc->prepare('UPDATE leather (user_id, garment_type, size, color, spikes, item_description, price, trade, image_url) VALUES (:user_id, :garment_type, :size, :color, :spikes, :item_description, :price, :trade, :image_url)');
+        $stmt = self::$dbc->prepare('UPDATE leather (user_id, type, size, color, spikes, item_description, price, trade, image_url) VALUES (:user_id, :type, :size, :color, :spikes, :item_description, :price, :trade, :image_url)');
 
         $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);
-        $stmt->bindValue(':garment_type',  $item['garment_type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':type',  $item['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':size',  $item['size'],  PDO::PARAM_STR);
         $stmt->bindValue(':color',  $item['color'],  PDO::PARAM_STR);
         $stmt->bindValue(':spikes',  $item['spikes'],  PDO::PARAM_STR);
@@ -108,7 +108,7 @@ class Leather extends Model
     {
         self::dbConnect();
 
-        $stmt = self::$dbc->prepare("SELECT * FROM leather WHERE garment_type = :value");
+        $stmt = self::$dbc->prepare("SELECT * FROM leather WHERE type = :value");
         $stmt->bindValue(':value', $subcategory,  PDO::PARAM_STR);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

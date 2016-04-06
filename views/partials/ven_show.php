@@ -5,7 +5,7 @@
 				<div class="panel-heading"><h4 class='subhead'>Headline goes here...</h4></div>
 			<!-- List group -->
 				<ul class="list-group">
-				<li class="list-group-item"><strong>Type: </strong> <?= $venue_type ?> </li>
+				<li class="list-group-item"><strong>Type: </strong> <?= $type ?> </li>
 				<li class="list-group-item"><strong>Capacity: </strong> <?= $capacity ?> </li>
 				<li class="list-group-item"><strong>Lighting? </strong> <?= $lighting ?> </li>
 				<li class="list-group-item"><strong>P.A. System? </strong> <?= $pa_systems ?> </li>
