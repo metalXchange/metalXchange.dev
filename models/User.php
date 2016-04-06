@@ -40,10 +40,9 @@ class User extends Model
     /** Update existing entry in the database */
     protected function update()
     {
-        $stmt = self::$dbc->prepare('UPDATE users (id, join_date, first_name, last_name, user_name, password, email, band_name, instrument, soul_possession, bio, image_url) VALUES (:id, :join_date, :first_name, :last_name, :user_name, :password, :email, :band_name, :instrument, :soul_possession, :bio, :image_url)');
+        $stmt = self::$dbc->prepare('UPDATE users set first_name = :first_name, last_name = :last_name, user_name = :user_name, password = :password, email = :email, band_name = :band_name, instrument = :instrument, soul_possession = :soul_possession, bio = :bio, image_url = :image_url WHERE id = :id');
 
-        $stmt->bindValue(':id',  $this->attributes['id'],  PDO::PARAM_STR);
-        $stmt->bindValue(':join_date',  $this->attributes['join_date'],  PDO::PARAM_STR);
+        $stmt->bindValue(':id',  $this->attributes['id'],  PDO::PARAM_INT);
         $stmt->bindValue(':first_name',  $this->attributes['first_name'],  PDO::PARAM_STR);
         $stmt->bindValue(':last_name',  $this->attributes['last_name'],  PDO::PARAM_STR);
         $stmt->bindValue(':user_name',  $this->attributes['user_name'],  PDO::PARAM_STR);
