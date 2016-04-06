@@ -3,24 +3,14 @@
 	require '../bootstrap.php';
 
 	$table = $_GET['table'];
-	
-	if (Input::has('subcat')) {
-		
-		$subcat = $_GET['subcat'];
-	
-	} else {
-		$subcat = false;
-	}
+	$subcat = isset($_GET['subcat']) ? $_GET['subcat'] : '';
+	$headline = ucfirst($table);	
 
-	$headline = ucfirst($table);
-	
-
-
-	function pageController($table, $subcat = false)
+	function pageController($table, $subcat)
 	{
 		switch ($table) {
 			case 'guitars' : 
-				if ($subcat)
+				if ($subcat != '')
 				{
 					$data = Guitar::subcat($subcat);
 				} else
@@ -30,7 +20,7 @@
 				break;
 
 			case 'leather' :
-				if (isset($subcat))
+				if ($subcat != '')
 				{
 					$data = Leather::subcat($subcat);
 				} else
@@ -40,7 +30,7 @@
 				break;
 
 			case 'lycra' : 
-				if (isset($subcat))
+				if ($subcat != '')
 				{
 					$data = Lycra::subcat($subcat);
 				} else
@@ -50,7 +40,7 @@
 				break;
 
 			case 'pyrotechnics' : 
-				if (isset($subcat))
+				if ($subcat != '')
 				{
 					$data = Pyrotechnics::subcat($subcat);
 				} else
@@ -60,7 +50,7 @@
 				break;
 
 			case 'venues' : 
-				if (isset($subcat))
+				if ($subcat != '')
 				{
 					$data = Venues::subcat($subcat);
 				} else

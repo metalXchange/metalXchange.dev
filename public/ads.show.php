@@ -2,14 +2,34 @@
 
 	require '../bootstrap.php';
 
-	function pageController() {
+	$table = $_GET['table'];
+	$id = $_GET['id'];
 
-		$id = 03;
+	function pageController($table, $id) {
 
-		$profile = Guitar::find($id);
+		$itemDisplay = [];
+		switch ($table) {
+			case 'guitars' : 
+				$itemDisplay = Guitar::find($id);
+				break;
+			case 'leather' : 
+				$itemDisplay = Leather::find($id);
+				break;
+			case 'lycra' : 
+				$itemDisplay = Lycra::find($id);
+				break;
+			case 'pyrotechnics' : 
+				$itemDisplay = Pyrotechnics::find($id);
+				break;
+			case 'venues' : 
+				$itemDisplay = Venues::find($id);
+				break;
+		}
 
-		return $profile;
+		return $itemDisplay;
 	}
+
+	extract(pageController($table, $id));
 
  ?>
 
@@ -26,46 +46,37 @@
 	<?php include '../views/partials/header.php' ?>
 	<?php include '../views/partials/navbar.php' ?>
 
-		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6">
-		 		<div class="panel panel-default">
-				<!-- Default panel contents -->
-					<div class="panel-heading"><h4 class='subhead'><?= $headline ?></h4></div>
-				<!-- List group -->
-					<ul class="list-group">
-					<li class="list-group-item"><strong>Type: </strong> <?= $type ?> </li>
-					<li class="list-group-item"><strong>Brand: </strong> <?= $brand ?> </li>
-					<li class="list-group-item"><strong>No. of Strings: </strong> <?= $numStrings ?> </li>
-					<li class="list-group-item"><strong>No. of Necks: </strong> <?= $numNecks ?> </li>
-					<li class="list-group-item"><strong>Price: </strong> $<?= $price ?> </li>
-					<li class="list-group-item"><strong>Trade?: </strong> <?= $trade ?> </li>
-					</ul>
-				<!-- description and photo -->
-					<div class="panel-body">
-						<p><?=$desc?></p>
-					</div>
-					<button type="submit" class="btn btn-default">Contact Seller</button>
-				</div> <!-- end panel -->
-			</div> <!-- end col-xs-12 col-sm-6 col-md-8 -->
+	<?php if($table == 'guitars') { ?>
+	<?php include '../views/partials/gtr_show.php'; ?>
+	<?php } ?>
 
-			<div class="col-xs-12 col-sm-6 col-md-6">
-				<img class="image" src=<?=$img?> alt="">
-			</div> <!-- end col-xs-12 col-sm-6 col-md-8 -->
+	<?php if($table == 'leather') { ?>
+	<?php include '../views/partials/lth_show.php'; ?>
+	<?php } ?>
 
-		</div> <!-- end row -->
+	<?php if($table == 'lycra') { ?>
+	<?php include '../views/partials/lyc_show.php'; ?>
+	<?php } ?>
 
+	<?php if($table == 'pyrotechnics') { ?>
+	<?php include '../views/partials/pyr_show.php'; ?>
+	<?php } ?>
+
+	<?php if($table == 'venues') { ?>
+	<?php include '../views/partials/ven_show.php'; ?>
+	<?php } ?>
 
 	<?php include '../views/partials/footer.php' ?>
 
-		<script src="/js/jquery-1.12.0.min.js"></script>
-		<script src="/js/bootstrap.min.js"></script>
-		<script src="/js/main.js"></script>
-	 	<script>
-	 		"use strict";
+	<script src="/js/jquery-1.12.0.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/main.js"></script>
+ 	<script>
+ 		"use strict";
 
-	 		// this is where any embedded js will be included
+ 		// this is where any embedded js will be included
 
- 		</script>
+	</script>
 
 	</body>
 </html>
