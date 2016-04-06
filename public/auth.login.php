@@ -59,6 +59,9 @@ if (Auth::isLoggedIn()) {
 
 	</form>
 
+
+	<a href="users.create.php">Create a new user profile.</a>
+
 	<?php include '../views/partials/footer.php' ?>
 
 	<script src="/js/jquery-1.12.0.min.js"></script>
