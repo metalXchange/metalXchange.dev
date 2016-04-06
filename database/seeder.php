@@ -1,14 +1,8 @@
 <?php
 
-define('DB_HOST', '127.0.0.1');
+require_once '../bootstrap.php';
 
-define('DB_NAME', 'metalXchange');
-
-define('DB_USER', 'vagrant');
-
-define('DB_PASS', 'vagrant');
-
-require_once 'db_connect.php';
+require 'db_connect.php';
 
 require_once 'user_seeder.php';
 require_once 'guitar_seeder.php';
