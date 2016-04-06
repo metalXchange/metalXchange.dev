@@ -9,10 +9,10 @@ class Lycra extends Model
     /** Insert a new entry into the database */
     protected function insert()
     {
-        $stmt = $dbc->prepare('INSERT INTO lycra (user_id, garment_type, size, color, animal_stripe, item_description, price, trade, image_url) VALUES (:user_id, :garment_type, :size, :color, :animal_stripe, :item_description, :price, :trade, :image_url)');
+        $stmt = $dbc->prepare('INSERT INTO lycra (user_id, type, size, color, animal_stripe, item_description, price, trade, image_url) VALUES (:user_id, :type, :size, :color, :animal_stripe, :item_description, :price, :trade, :image_url)');
 
         $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);
-        $stmt->bindValue(':garment_type',  $item['garment_type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':type',  $item['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':size',  $item['size'],  PDO::PARAM_STR);
         $stmt->bindValue(':color',  $item['color'],  PDO::PARAM_STR);
         $stmt->bindValue(':animal_stripe',  $item['animal_stripe'],  PDO::PARAM_STR);
@@ -32,10 +32,10 @@ class Lycra extends Model
     /** Update existing entry in the database */
     protected function update()
     {
-        $stmt = self::$dbc->prepare('UPDATE lycra (user_id, garment_type, size, color, animal_stripe, item_description, price, trade, image_url) VALUES (:user_id, :garment_type, :size, :color, :animal_stripe, :item_description, :price, :trade, :image_url)');
+        $stmt = self::$dbc->prepare('UPDATE lycra (user_id, type, size, color, animal_stripe, item_description, price, trade, image_url) VALUES (:user_id, :type, :size, :color, :animal_stripe, :item_description, :price, :trade, :image_url)');
 
         $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);
-        $stmt->bindValue(':garment_type',  $item['garment_type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':type',  $item['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':size',  $item['size'],  PDO::PARAM_STR);
         $stmt->bindValue(':color',  $item['color'],  PDO::PARAM_STR);
         $stmt->bindValue(':animal_stripe',  $item['animal_stripe'],  PDO::PARAM_STR);
@@ -108,7 +108,7 @@ class Lycra extends Model
     {
         self::dbConnect();
 
-        $stmt = self::$dbc->prepare("SELECT * FROM lycra WHERE garment_type = :value");
+        $stmt = self::$dbc->prepare("SELECT * FROM lycra WHERE type = :value");
         $stmt->bindValue(':value', $subcategory,  PDO::PARAM_STR);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

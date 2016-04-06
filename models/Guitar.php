@@ -9,10 +9,10 @@ class Guitar extends Model
     /** Insert a new entry into the database */
     protected function insert()
     {
-        $stmt = $dbc->prepare('INSERT INTO guitars (user_id, guitar_type, brand, num_strings, num_necks, item_description, price, trade, image_url) VALUES (:user_id, :guitar_type, :brand, :num_strings, :num_necks, :item_description, :price, :trade, :image_url)');
+        $stmt = $dbc->prepare('INSERT INTO guitars (user_id, type, brand, num_strings, num_necks, item_description, price, trade, image_url) VALUES (:user_id, :type, :brand, :num_strings, :num_necks, :item_description, :price, :trade, :image_url)');
 
         $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);
-        $stmt->bindValue(':guitar_type',  $item['guitar_type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':type',  $item['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':brand',  $item['brand'],  PDO::PARAM_STR);
         $stmt->bindValue(':num_strings',  $item['num_strings'],  PDO::PARAM_STR);
         $stmt->bindValue(':num_necks',  $item['num_necks'],  PDO::PARAM_STR);
@@ -32,10 +32,10 @@ class Guitar extends Model
     /** Update existing entry in the database */
     protected function update()
     {
-        $stmt = self::$dbc->prepare('UPDATE guitars (user_id, guitar_type, brand, num_strings, num_necks, item_description, price, trade, image_url) VALUES (:user_id, :guitar_type, :brand, :num_strings, :num_necks, :item_description, :price, :trade, :image_url)');
+        $stmt = self::$dbc->prepare('UPDATE guitars (user_id, type, brand, num_strings, num_necks, item_description, price, trade, image_url) VALUES (:user_id, :type, :brand, :num_strings, :num_necks, :item_description, :price, :trade, :image_url)');
 
         $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);
-        $stmt->bindValue(':guitar_type',  $item['guitar_type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':type',  $item['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':brand',  $item['brand'],  PDO::PARAM_STR);
         $stmt->bindValue(':num_strings',  $item['num_strings'],  PDO::PARAM_STR);
         $stmt->bindValue(':num_necks',  $item['num_necks'],  PDO::PARAM_STR);
@@ -109,7 +109,7 @@ class Guitar extends Model
     {
         self::dbConnect();
 
-        $stmt = self::$dbc->prepare("SELECT * FROM guitars WHERE guitar_type = :value");
+        $stmt = self::$dbc->prepare("SELECT * FROM guitars WHERE type = :value");
         $stmt->bindValue(':value', $subcategory,  PDO::PARAM_STR);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

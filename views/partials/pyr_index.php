@@ -1,7 +1,7 @@
 <?php foreach($data as $key => $value) {?>
 	<div class='item'>
 		<div>
-			<h4><strong>Type: </strong><?=$value->implement_type?></h4>
+			<h4><strong>Type: </strong><?=$value->type?></h4>
 			<h4><strong>brand: </strong><?=$value->brand?></h4>
 			<h4><strong>Homemade?: </strong><?=$value->homemade?></h4>
 			<h4><strong>Casualties?: </strong><?=$value->casualties?></h4>

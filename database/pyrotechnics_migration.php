@@ -7,7 +7,7 @@
 $query = "CREATE TABLE pyrotechnics (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	user_id INT UNSIGNED NOT NULL,
-	implement_type VARCHAR(24) NOT NULL,
+	type VARCHAR(24) NOT NULL,
 	brand VARCHAR(24) NOT NULL,
 	homemade boolean NOT NULL,
 	casualties VARCHAR(48),
