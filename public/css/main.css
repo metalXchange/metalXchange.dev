@@ -79,7 +79,7 @@ main {
 }
 
 .hidden {
-	display: hide;
+	display: none;
 }
 
 #logo {
