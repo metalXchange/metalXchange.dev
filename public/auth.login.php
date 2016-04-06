@@ -9,13 +9,13 @@ $password = Input::get('password');
 
 if (Auth::isLoggedIn()) {
 	// redirect since they're already logged in	
-	header("Location: /ads.create.php");
+	header("Location: /user.show.php");
 	die();
 
 } elseif (Input::has('username') && Input::has('password')) {
 
 	if(Auth::attempt($username, $password)) {
-		header("Location: /ads.create.php");
+		header("Location: /user.show.php");
 		die();
 	} else {
 		$message = "Login unsuccessful. Please check both your username and password";
