@@ -54,7 +54,9 @@
 					<div class="panel-body">
 						<p><?= $bio ?></p>
 					</div>
-					<button type="submit" class="btn btn-default">Contact Seller</button>
+					<form method='get' action='/users.edit.php'>
+						<button type="submit" class="btn btn-default">Edit profile</button>
+					</form>
 				</div> <!-- end panel -->
 			</div> <!-- end col-xs-12 col-sm-6 col-md-8 -->
 
@@ -64,7 +66,7 @@
 
 		</div> <!-- end row -->
 
- 	<?php include '../views/partials/footer.php' ?>
+ 	
 
 	<script src="/js/jquery-1.12.0.min.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
