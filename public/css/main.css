@@ -78,6 +78,10 @@ main {
 	padding-left: 18px;
 }
 
+.hidden {
+	display: hide;
+}
+
 #logo {
 	height: 120px;
 	width: auto;
@@ -90,6 +94,7 @@ main {
 #venue {
 	display: none;
 }
+
 
 
 /*CSS for radio button*/

@@ -3,11 +3,9 @@
 	require '../bootstrap.php';
 
 	$table = $_GET['table'];
-	
-	$subcat = isset($_GET['subcat']) ? $_GET['subcat'] : '';
 
-	$headline = ucfirst($table);
-	
+	$subcat = isset($_GET['subcat']) ? $_GET['subcat'] : '';
+	$headline = ucfirst($table);	
 
 
 	function pageController($table, $subcat)
@@ -24,7 +22,7 @@
 				break;
 
 			case 'leather' :
-				if (isset($subcat))
+				if ($subcat != '')
 				{
 					$data = Leather::subcat($subcat);
 				} else
@@ -34,7 +32,7 @@
 				break;
 
 			case 'lycra' : 
-				if (isset($subcat))
+				if ($subcat != '')
 				{
 					$data = Lycra::subcat($subcat);
 				} else
@@ -44,7 +42,7 @@
 				break;
 
 			case 'pyrotechnics' : 
-				if (isset($subcat))
+				if ($subcat != '')
 				{
 					$data = Pyrotechnics::subcat($subcat);
 				} else
@@ -54,7 +52,7 @@
 				break;
 
 			case 'venues' : 
-				if (isset($subcat))
+				if ($subcat != '')
 				{
 					$data = Venues::subcat($subcat);
 				} else

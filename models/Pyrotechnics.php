@@ -9,10 +9,10 @@ class Pyrotechnics extends Model
     /** Insert a new entry into the database */
     protected function insert()
     {
-        $stmt = $dbc->prepare('INSERT INTO pyrotechnics (user_id, implement_type, brand, homemade, casualties, item_description, price, trade, image_url) VALUES (:user_id, :implement_type, :brand, :homemade, :casualties, :item_description, :price, :trade, :image_url)');
+        $stmt = $dbc->prepare('INSERT INTO pyrotechnics (user_id, type, brand, homemade, casualties, item_description, price, trade, image_url) VALUES (:user_id, :type, :brand, :homemade, :casualties, :item_description, :price, :trade, :image_url)');
     
         $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);
-        $stmt->bindValue(':implement_type',  $item['implement_type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':type',  $item['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':brand',  $item['brand'],  PDO::PARAM_STR);
         $stmt->bindValue(':homemade',  $item['homemade'],  PDO::PARAM_STR);
         $stmt->bindValue(':casualties',  $item['casualties'],  PDO::PARAM_STR);
@@ -32,10 +32,10 @@ class Pyrotechnics extends Model
     /** Update existing entry in the database */
     protected function update()
     {
-        $stmt = self::$dbc->prepare('UPDATE pyrotechnics (user_id, implement_type, brand, homemade, casualties, item_description, price, trade, image_url) VALUES (:user_id, :implement_type, :brand, :homemade, :casualties, :item_description, :price, :trade, :image_url)');
+        $stmt = self::$dbc->prepare('UPDATE pyrotechnics (user_id, type, brand, homemade, casualties, item_description, price, trade, image_url) VALUES (:user_id, :type, :brand, :homemade, :casualties, :item_description, :price, :trade, :image_url)');
 
         $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);
-        $stmt->bindValue(':implement_type',  $item['implement_type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':type',  $item['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':brand',  $item['brand'],  PDO::PARAM_STR);
         $stmt->bindValue(':homemade',  $item['homemade'],  PDO::PARAM_STR);
         $stmt->bindValue(':casualties',  $item['casualties'],  PDO::PARAM_STR);
@@ -108,7 +108,7 @@ class Pyrotechnics extends Model
     {
         self::dbConnect();
 
-        $stmt = self::$dbc->prepare("SELECT * FROM pyrotechnics WHERE implement_type = :value");
+        $stmt = self::$dbc->prepare("SELECT * FROM pyrotechnics WHERE type = :value");
         $stmt->bindValue(':value', $subcategory,  PDO::PARAM_STR);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
