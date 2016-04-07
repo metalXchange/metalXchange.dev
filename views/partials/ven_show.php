@@ -18,7 +18,10 @@
 				<div class="panel-body">
 					<p><?=$item_description?></p>
 				</div>
-				<a href="/user.show.php?id=<?= $user_id ?>">Seller's Profile</a>
+				<div class='show_btn'>
+					<a href="/users.show.php?id=<?= $user_id ?>"><span class="badge">Seller's Profile</span></a>
+					<a href="/ads.index.php?table=<?= $table ?>"><span class="badge">Back to <?= $table ?></span></a>
+				</div>
 			</div> <!-- end panel -->
 		</div> <!-- end col-xs-12 col-sm-6 col-md-8 -->
 

@@ -4,7 +4,7 @@
 // This allows us to correctly require_once Model.php, no matter where this file is being required from.
 require_once __DIR__ . '/BaseModel.php';
 
-class Venues extends Model
+class Venues extends BaseModel
 {
     /** Insert a new entry into the database */
     protected function insert()

@@ -4,7 +4,7 @@
 // This allows us to correctly require_once Model.php, no matter where this file is being required from.
 require_once __DIR__ . '/BaseModel.php';
 
-class Guitar extends Model
+class Guitar extends BaseModel
 {
     /** Insert a new entry into the database */
     protected function insert()
@@ -14,8 +14,6 @@ class Guitar extends Model
             // TEMPORARY TEMPORARY TEMPORARY
         date_default_timezone_set('America/Chicago');
         $this->attributes['create_date'] = date('Y-m-d');
-
-
 
         $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
         $stmt->bindValue(':create_date',  $this->attributes['create_date'],  PDO::PARAM_STR);
