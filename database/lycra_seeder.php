@@ -7,7 +7,7 @@ $lycra = array(
 	array ('user_id'=>1, 'create_date' => '2016-01-01', 'type'=>'unisuit', 'headline'=>'Please take this from me!', 'size'=>'medium', 'color'=>'black and yellow', 'animal_stripe'=>'bumble bee', 'item_description'=>'Unisuit from Stryper... any takers? Please?', 'price'=>30, 'trade'=>1, 'trade_desc'=>'Anyone have some trinket from One Direction?', 'image_url'=>'/img/uploads/lyc_unisuit.jpg')
 );
 
-$stmt = $dbc->prepare('INSERT INTO lycra (user_id, type, headline, size, color, animal_stripe, item_description, price, trade, trade_desc, image_url) VALUES (:user_id, :type, :headline, :size, :color, :animal_stripe, :item_description, :price, :trade, :trade_desc, :image_url)');
+$stmt = $dbc->prepare('INSERT INTO lycra (user_id, create_date, type, headline, size, color, animal_stripe, item_description, price, trade, trade_desc, image_url) VALUES (:user_id, :create_date, :type, :headline, :size, :color, :animal_stripe, :item_description, :price, :trade, :trade_desc, :image_url)');
 
 foreach ($lycra as $item) {
     $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);

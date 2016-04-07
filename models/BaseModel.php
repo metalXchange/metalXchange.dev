@@ -1,6 +1,8 @@
 <?php
 
-abstract class Model
+require_once '../bootstrap.php';
+
+abstract class BaseModel
 {
     /** @var PDO|null Connection to the database */
     protected static $dbc = null;
@@ -31,7 +33,7 @@ abstract class Model
     {
         if (!self::$dbc) {
             
-            self::$dbc = new PDO('mysql:host=127.0.0.1;dbname=metalXchange', 'vagrant', 'vagrant');
+            self::$dbc = new PDO('mysql:host=' . $_ENV['DB_HOST'] .';dbname=' . $_ENV['DB_NAME'], $_ENV['DB_USER'], $_ENV['DB_PASS']);
 
             self::$dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
@@ -75,7 +77,6 @@ abstract class Model
 
     }
 
-
     public function delete()
     {
         $stmt = self::$dbc->prepare("DELETE FROM users WHERE id = :id");
@@ -85,6 +86,50 @@ abstract class Model
         $stmt->execute();
 
         // @TODO: You will need to iterate through all the attributes to build the prepared query
+    }
+
+
+    public static function uploadFile()
+    {
+        $message = null;
+
+        if(!empty($_FILES))
+        {
+            $valid = true;
+            if ($_FILES['image_url']['name'])
+            {
+                if (!$_FILES['image_url']['error'])
+                {
+                    $tempFile = $_FILES['image_url']['tmp_name'];
+                    $extension = pathinfo($_FILES['image_url']['name'], PATHINFO_EXTENSION);
+
+                    // validate size and extension
+                    if ($_FILES['image_url']['size'] > (1024000000))
+                    {
+                        $valid = false;
+                        $message = "File size too large; please submit files under 1MB.";
+                    }
+                    if ($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png' && $extension != 'gif')
+                    {
+                        $valid = false;
+                        $message = "Invalid file extension type.";
+                    }
+                    // If file makes to this point, send file to this directory:
+                    if($valid)
+                    {
+                        $saveSuccessful = move_uploaded_file($tempFile, '../public/img/uploads/' . $_FILES['image_url']['name']);
+                        
+                        if($saveSuccessful) {
+                            return '/img/uploads/' . $_FILES['image_url']['name'];
+                        }
+                    } else {
+                        $message = 'Error on file upload.';
+                    }
+                }
+            }
+        }
+
+        Log::error($message);
     }
 
     /**

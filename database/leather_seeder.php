@@ -8,7 +8,7 @@ $leather = array(
 	array ('user_id'=>6, 'create_date' => '2016-01-01', 'type'=>'boots', 'headline'=>'Not Nancy Sinatra\'s...', 'size'=>'10 narrow', 'color'=>'black', 'spikes'=>'you betcha', 'item_description'=>'Back-up boots... never really fit my style.', 'price'=>500, 'trade'=>0, 'trade_desc'=>'', 'image_url'=>'/img/uploads/lth_boots.jpeg')
 );
 
-$stmt = $dbc->prepare('INSERT INTO leather (user_id, type, headline, size, color, spikes, item_description, price, trade, trade_desc, image_url) VALUES (:user_id, :type, :headline, :size, :color, :spikes, :item_description, :price, :trade, :trade_desc, :image_url)');
+$stmt = $dbc->prepare('INSERT INTO leather (user_id, create_date, type, headline, size, color, spikes, item_description, price, trade, trade_desc, image_url) VALUES (:user_id, :create_date, :type, :headline, :size, :color, :spikes, :item_description, :price, :trade, :trade_desc, :image_url)');
 
 foreach ($leather as $item) {
     $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);

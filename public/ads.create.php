@@ -11,6 +11,7 @@
 
 	$errors = [];
 	var_dump($_POST);
+	var_dump($_FILES);
 
 	$category = Input::get('category');
 
@@ -20,6 +21,12 @@
 
 		try {
 			$type = Input::getString('gtr_type');
+		} catch (Exception $e) {
+			$errors[] = $e->getMessage();
+		}
+		
+		try {
+			$type = Input::getString('gtr_hdln');
 		} catch (Exception $e) {
 			$errors[] = $e->getMessage();
 		}
@@ -61,7 +68,7 @@
 		}
 
 		try {
-			$image_url = Input::getString('gtr_url');
+			$trade = Input::getNumber('gtr_trade_desc');
 		} catch (Exception $e) {
 			$errors[] = $e->getMessage();
 		}
@@ -69,19 +76,27 @@
 		$guitar = new Guitar();
 		$guitar->user_id = $_SESSION['LOGGED_IN_USER_ID'];
 		$guitar->type = Input::get('gtr_type');
+		$guitar->headline = Input::get('gtr_hdln');
 		$guitar->brand = Input::get('gtr_brand');
 		$guitar->num_strings = Input::get('num_strings');
 		$guitar->num_necks = Input::get('num_necks');
 		$guitar->item_description = Input::get('gtr_description');
 		$guitar->price = Input::get('gtr_price');
 		$guitar->trade = Input::get('gtr_trade');
-		$guitar->image_url = Input::get('gtr_url');
+		$guitar->trade_desc = Input::get('gtr_trade_desc');
+		$guitar->image_url = Guitar::uploadFile();
 		$guitar->save();
 
 	} else if($category == 'leather') {
 
 		try {
 			$type = Input::getString('lth_type');
+		} catch (Exception $e) {
+			$errors[] = $e->getMessage();
+		}
+		
+		try {
+			$type = Input::getString('lth_hdln');
 		} catch (Exception $e) {
 			$errors[] = $e->getMessage();
 		}
@@ -122,28 +137,32 @@
 			$errors[] = $e->getMessage();
 		}
 
-		try {
-			$image_url = Input::getString('lth_url');
-		} catch (Exception $e) {
-			$errors[] = $e->getMessage();
-		}
-
 		$leather = new Leather();
 		$leather->user_id = $_SESSION['LOGGED_IN_USER_ID'];
 		$leather->type = Input::get('lth_type');
+		$leather->headline = Input::get('lth_hdln');
 		$leather->size = Input::get('lth_size');
 		$leather->color = Input::get('lth_color');
 		$leather->spikes = Input::get('spikes');
 		$leather->item_description = Input::get('lth_description');
 		$leather->price = Input::get('lth_price');
 		$leather->trade = Input::get('lth_trade');
-		$leather->image_url = Input::get('lth_url');
+		$leather->trade_desc = Input::get('lth_trade_desc');
+		$leather->image_url = Leather::uploadFile();
+
+		// var_dump($leather);
 		$leather->save();
 
 	} else if($category == 'lycra') {
 
 		try {
 			$type = Input::getString('lyc_type');
+		} catch (Exception $e) {
+			$errors[] = $e->getMessage();
+		}
+		
+		try {
+			$type = Input::getString('lyc_hdln');
 		} catch (Exception $e) {
 			$errors[] = $e->getMessage();
 		}
@@ -184,28 +203,30 @@
 			$errors[] = $e->getMessage();
 		}
 
-		try {
-			$image_url = Input::getString('lyc_url');
-		} catch (Exception $e) {
-			$errors[] = $e->getMessage();
-		}
-
 		$lycra = new Lycra();
 		$lycra->user_id = $_SESSION['LOGGED_IN_USER_ID'];
 		$lycra->type = Input::get('lyc_type');
+		$lycra->headline = Input::get('lyc_hdln');
 		$lycra->size = Input::get('lyc_size');
 		$lycra->color = Input::get('lyc_color');
 		$lycra->animal_stripe = Input::get('animal_stripe');
 		$lycra->item_description = Input::get('lyc_description');
 		$lycra->price = Input::get('lyc_price');
 		$lycra->trade = Input::get('lyc_trade');
-		$lycra->image_url = Input::get('lyc_url');
+		$lycra->trade_desc = Input::get('lyc_trade_desc');
+		$lycra->image_url = Lycra::uploadFile();
 		$lycra->save();
 
 	} else if($category == 'pyrotechnics') {
 
 		try {
 			$type = Input::getString('pyr_type');
+		} catch (Exception $e) {
+			$errors[] = $e->getMessage();
+		}
+		
+		try {
+			$type = Input::getString('pyr_hdln');
 		} catch (Exception $e) {
 			$errors[] = $e->getMessage();
 		}
@@ -246,28 +267,30 @@
 			$errors[] = $e->getMessage();
 		}
 
-		try {
-			$image_url = Input::getString('pyr_url');
-		} catch (Exception $e) {
-			$errors[] = $e->getMessage();
-		}
-
 		$pyrotechnics = new Pyrotechnics();
 		$pyrotechnics->user_id = $_SESSION['LOGGED_IN_USER_ID'];
 		$pyrotechnics->type = Input::get('pyr_type');
+		$pyrotechnics->headline = Input::get('pyr_hdln');
 		$pyrotechnics->brand = Input::get('pyr_brand');
 		$pyrotechnics->homemade = Input::get('homemade');
 		$pyrotechnics->casualties = Input::get('casualties');
 		$pyrotechnics->item_description = Input::get('pyr_description');
 		$pyrotechnics->price = Input::get('pyr_price');
 		$pyrotechnics->trade = Input::get('pyr_trade');
-		$pyrotechnics->image_url = Input::get('pyr_url');
+		$pyrotechnics->trade_desc = Input::get('pyr_trade_desc');
+		$pyrotechnics->image_url = Pyrotechnics::uploadFile();
 		$pyrotechnics->save();
 
 	} else if($category == 'venues') {
 
 		try {
 			$type = Input::getString('ven_type');
+		} catch (Exception $e) {
+			$errors[] = $e->getMessage();
+		}
+		
+		try {
+			$type = Input::getString('ven_hdln');
 		} catch (Exception $e) {
 			$errors[] = $e->getMessage();
 		}
@@ -315,7 +338,7 @@
 		}
 
 		try {
-			$image_url = Input::getString('ven_url');
+			$trade = Input::getNumber('ven_trade_desc');
 		} catch (Exception $e) {
 			$errors[] = $e->getMessage();
 		}
@@ -323,6 +346,7 @@
 		$venues = new Venues();
 		$venues->user_id = $_SESSION['LOGGED_IN_USER_ID'];
 		$venues->type = Input::get('ven_type');
+		$venues->headline = Input::get('ven_hdln');
 		$venues->capacity = Input::get('capacity');
 		$venues->lighting = Input::get('homemade');
 		$venues->pa_systems = Input::get('pa_systems');
@@ -330,7 +354,8 @@
 		$venues->item_description = Input::get('ven_description');
 		$venues->price = Input::get('ven_price');
 		$venues->trade = Input::get('ven_trade');
-		$venues->image_url = Input::get('ven_url');
+		$venues->trade_desc = Input::get('ven_trade_desc');
+		$venues->image_url = Venues::uploadFile();
 		$venues->save();
 	}
 
@@ -369,8 +394,9 @@
 			</div>
 		</div>
 
-		<form method="POST">
-			<input name="category" type="text" value="" class="hidden">
+<!-- 		<form method="post">
+ -->		<form action="ads.create.php" method="post" enctype="multipart/form-data">
+ 			<input type="text" hidden name="category" class="hidden">
 			<div id="guitars">
 				<h2 class='headline'>Guitars</h2>
 				<hr>
@@ -385,6 +411,11 @@
 						  <option value="Novelty">Novelty</option>
 						</select>
 					</div>
+
+						<div class="input-group">
+							<span class="input-group-addon">Headline</span>
+							<input name="gtr_hdln" type="text" class="form-control" aria-label="Descriptive Headline">
+						</div>
 
 						<div class="input-group">
 							<span class="input-group-addon">Brand</span>
@@ -422,11 +453,11 @@
 								<span class="input-group-addon">.00</span>
 							</div>
 							<div class="input-group">
-							<span class="input-group-addon">
-							  <input name="gtr_trade" type="radio" aria-label="...">
-							</span>
-							<span class="input-group-addon" id="basic-addon1">Trade?</span>
-							<input name="gtr_trade_desc" type="text" class="form-control" aria-label="...">
+								<span class="input-group-addon">
+									<input name="gtr_trade" type="radio" aria-label="...">
+								</span>
+								<span class="input-group-addon" id="basic-addon1">Trade?</span>
+								<input name="gtr_trade_desc" type="text" class="form-control" aria-label="...">
 							</div><!-- /input-group -->
 							<button type="submit" class="btn btn-default">Submit</button>
 						</div>
@@ -447,6 +478,11 @@
 						 	<option value="Greaves / Boots">Greaves / Boots</option>
 						 	<option value="Codpieces">Codpieces</option>
 						</select>
+					</div>
+
+					<div class="input-group">
+						<span class="input-group-addon">Headline</span>
+						<input name="lth_hdln" type="text" class="form-control" aria-label="Descriptive Headline">
 					</div>
 
 					<div class="input-group">
@@ -473,11 +509,6 @@
 						</div>
 					</div>
 
-					<div class="input-group">
-						<span class="input-group-addon">Image</span>
-						<input name="lth_url" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-					</div>
-
 					<div class="price">
 						<div class="input-group">
 							<span class="input-group-addon">$</span>
@@ -485,11 +516,11 @@
 							<span class="input-group-addon">.00</span>
 						</div>
 						<div class="input-group">
-						<span class="input-group-addon">
-						  <input name="lth_trade" type="radio" aria-label="...">
-						</span>
-						<span class="input-group-addon" id="basic-addon1">Trade?</span>
-						<input name="lth_trade_desc" type="text" class="form-control" aria-label="...">
+							<span class="input-group-addon">
+								<input name="lth_trade" type="radio" aria-label="...">
+							</span>
+							<span class="input-group-addon" id="basic-addon1">Trade?</span>
+							<input name="lth_trade_desc" type="text" class="form-control" aria-label="...">
 						</div><!-- /input-group -->
 						<button type="submit" class="btn btn-default">Submit</button>
 					</div>
@@ -510,6 +541,11 @@
 						 	<option value="Gloves">Gloves</option>
 							<option value="Unisuits">Unisuits</option>
 						</select>
+					</div>
+
+					<div class="input-group">
+						<span class="input-group-addon">Headline</span>
+						<input name="lyc_hdln" type="text" class="form-control" aria-label="Descriptive Headline">
 					</div>
 
 					<div class="input-group">
@@ -536,11 +572,6 @@
 						</div>
 					</div>
 
-					<div class="input-group">
-						<span class="input-group-addon">Image</span>
-						<input name="lyc_url" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-					</div>
-
 					<div class="price">
 						<div class="input-group">
 							<span class="input-group-addon">$</span>
@@ -548,17 +579,17 @@
 							<span class="input-group-addon">.00</span>
 						</div>
 						<div class="input-group">
-						<span class="input-group-addon">
-						  <input name="lyc_trade" type="radio" aria-label="...">
-						</span>
-						<span class="input-group-addon" id="basic-addon1">Trade?</span>
-						<input name="lyc_trade_desc" type="text" class="form-control" aria-label="...">
+							<span class="input-group-addon">
+								<input name="lyc_trade" type="radio" aria-label="...">
+							</span>
+							<span class="input-group-addon" id="basic-addon1">Trade?</span>
+							<input name="lyc_trade_desc" type="text" class="form-control" aria-label="...">
 						</div><!-- /input-group -->
 						<button type="submit" class="btn btn-default">Submit</button>
 					</div>
 				</div>
 
-			</div> <!-- end of lycra class -->
+			</div> <!-- end of lycra div -->
 
 			<div id="pyro">
 				<h2 class='headline'>Pyrotechnics</h2>
@@ -573,6 +604,11 @@
 						 	<option value="Fireballs">Fireballs</option>
 						 	<option value="Flame Projectors">Flame Projectors</option>
 						</select>
+					</div>
+
+					<div class="input-group">
+						<span class="input-group-addon">Headline</span>
+						<input name="pyr_hdln" type="text" class="form-control" aria-label="Descriptive Headline">
 					</div>
 
 					<div class="input-group">
@@ -599,11 +635,6 @@
 						</div>
 					</div>
 
-					<div class="input-group">
-						<span class="input-group-addon">Image</span>
-						<input name="pyr_url" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-					</div>
-
 					<div class="price">
 						<div class="input-group">
 							<span class="input-group-addon">$</span>
@@ -615,13 +646,13 @@
 						  <input name="pyr_trade" type="radio" aria-label="...">
 						</span>
 						<span class="input-group-addon" id="basic-addon1">Trade?</span>
-						<input name="pyr_trade_desc" type="text" class="form-control" aria-label="...">
+							<input name="pyr_trade_desc" type="text" class="form-control" aria-label="...">
 						</div><!-- /input-group -->
 						<button type="submit" class="btn btn-default">Submit</button>
 					</div>
 				</div>
 
-			</div> <!-- end of lycra class -->
+			</div> <!-- end of lycra div -->
 
 			<div id="venue">
 				<h2 class='headline'>Venues</h2>
@@ -636,6 +667,11 @@
 							<option value="Abandoned Buildings">Abandoned Buildings</option>
 							<option value="Someone's Basement">Someone's Basement</option>
 						</select>
+					</div>
+
+					<div class="input-group">
+						<span class="input-group-addon">Headline</span>
+						<input name="ven_hdln" type="text" class="form-control" aria-label="Descriptive Headline">
 					</div>
 
 					<div class="input-group">
@@ -667,11 +703,6 @@
 						</div>
 					</div>
 
-					<div class="input-group">
-						<span class="input-group-addon">Image</span>
-						<input name="ven_url" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-					</div>
-
 					<div class="price">
 						<div class="input-group">
 							<span class="input-group-addon">$</span>
@@ -679,17 +710,23 @@
 							<span class="input-group-addon">.00</span>
 						</div>
 						<div class="input-group">
-						<span class="input-group-addon">
-						  <input name="ven_trade" type="radio" aria-label="...">
-						</span>
-						<span class="input-group-addon" id="basic-addon1">Trade?</span>
-						<input name="ven_trade_desc" type="text" class="form-control" aria-label="...">
+							<span class="input-group-addon">
+								<input name="ven_trade" type="radio" aria-label="...">
+							</span>
+							<span class="input-group-addon" id="basic-addon1">Trade?</span>
+							<input name="ven_trade_desc" type="text" class="form-control" aria-label="...">
 						</div><!-- /input-group -->
 						<button type="submit" class="btn btn-default">Submit</button>
 					</div>
 				</div>
 
 			</div> <!-- end of lycra class -->
+
+			<div id="fileUpload">
+				Select image to upload:
+			    <input type="file" name="image_url">
+<!-- 			    <input type="submit" value="Upload Image" name="submit">
+ -->		    </div>
 		</form>
 
 	</main>
@@ -707,6 +744,7 @@
 			var lyc = $("#lycra");
 			var pyr = $("#pyro");
 			var ven = $("#venue");
+			var iu = $("#fileUpload")
 
 			// set my event listeners
 
@@ -718,6 +756,7 @@
 					  $(lyc).hide();
 					  $(pyr).hide();
 					  $(ven).hide();
+					  $(iu).slideDown();
 					});
 					$('#tgr_lth').click(function() {
   					  $('.hidden').val('leather');
@@ -726,6 +765,7 @@
 					  $(lyc).hide();
 					  $(pyr).hide();
 					  $(ven).hide();
+					  $(iu).slideDown();
 					});
 					$('#tgr_lyc').click(function() {
   					  $('.hidden').val('lycra');
@@ -734,6 +774,7 @@
 					  $('#lycra').slideDown();
 					  $(pyr).hide();
 					  $(ven).hide();
+					  $(iu).slideDown();
 					});
 					$('#tgr_pyr').click(function() {
   					  $('.hidden').val('pyrotechnics');
@@ -742,6 +783,7 @@
 					  $(lyc).hide();
 					  $('#pyro').slideDown();
 					  $(ven).hide();
+					  $(iu).slideDown();
 					});
 					$('#tgr_ven').click(function() {
   					  $('.hidden').val('venues');
@@ -750,6 +792,7 @@
 					  $(lyc).hide();
 					  $(pyr).hide();
 					  $('#venue').slideDown();
+					  $(iu).slideDown();
 					});
 				});
 

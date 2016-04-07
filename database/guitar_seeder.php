@@ -8,7 +8,7 @@ $guitars = array(
 );
 
 
-$stmt = $dbc->prepare('INSERT INTO guitars (user_id, type, headline, brand, num_strings, num_necks, item_description, price, trade, trade_desc, image_url) VALUES (:user_id, :type, :headline, :brand, :num_strings, :num_necks, :item_description, :price, :trade, :trade_desc, :image_url)');
+$stmt = $dbc->prepare('INSERT INTO guitars (user_id, create_date, type, headline, brand, num_strings, num_necks, item_description, price, trade, trade_desc, image_url) VALUES (:user_id, :create_date, :type, :headline, :brand, :num_strings, :num_necks, :item_description, :price, :trade, :trade_desc, :image_url)');
 
 foreach ($guitars as $item) {
     $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);
