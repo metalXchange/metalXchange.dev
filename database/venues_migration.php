@@ -9,6 +9,7 @@ $query = "CREATE TABLE venues (
 	create_date DATE NOT NULL,
 	user_id INT UNSIGNED NOT NULL,
 	type VARCHAR(24) NOT NULL,
+	headline VARCHAR(36) NOT NULL,
 	capacity INT NOT NULL,
 	lighting VARCHAR(48) NOT NULL,
 	pa_systems VARCHAR(48) NOT NULL,
@@ -16,7 +17,7 @@ $query = "CREATE TABLE venues (
 	item_description TEXT NOT NULL,
 	price DECIMAL,
 	trade VARCHAR(48),
-	trade_description TEXT,
+	trade_desc TEXT,
 	image_url VARCHAR(64) NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (user_id) REFERENCES users (id)
