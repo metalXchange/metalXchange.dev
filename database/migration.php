@@ -2,13 +2,7 @@
 
 
 
-define('DB_HOST', '127.0.0.1');
-
-define('DB_NAME', 'metalXchange');
-
-define('DB_USER', 'vagrant');
-
-define('DB_PASS', 'vagrant');
+require_once '../bootstrap.php';
 
 require 'db_connect.php';
 

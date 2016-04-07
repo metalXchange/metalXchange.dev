@@ -1,11 +1,9 @@
 <?php 
 
 
-
-
-
 $query = "CREATE TABLE guitars (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	create_date DATE NOT NULL,
 	user_id INT UNSIGNED NOT NULL,
 	type VARCHAR(24) NOT NULL,
 	headline VARCHAR(36) NOT NULL,
