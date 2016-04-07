@@ -74,6 +74,7 @@
 							<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
 							<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
 							<a href="/ads.show.php?table=guitars&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
+							<a href="/ads.create.php?table=guitars&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
 							<hr>
 						</div>
 					<?php } ?>
@@ -87,6 +88,7 @@
 							<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
 							<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
 							<a href="/ads.show.php?table=leather&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
+							<a href="/ads.create.php?table=leather&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
 							<hr>
 						</div>
 					<?php } ?>
@@ -100,6 +102,7 @@
 							<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
 							<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
 							<a href="/ads.show.php?table=lycra&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
+							<a href="/ads.create.php?table=lycra&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
 							<hr>
 						</div>
 					<?php } ?>
@@ -113,6 +116,7 @@
 							<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
 							<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
 							<a href="/ads.show.php?table=pyrotechnics&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
+							<a href="/ads.create.php?table=pyrotechnics&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
 							<hr>
 						</div>
 					<?php } ?>
@@ -126,6 +130,7 @@
 							<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
 							<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
 							<a href="/ads.show.php?table=venues&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
+							<a href="/ads.create.php?table=venues&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
 							<hr>
 						</div>
 					<?php } ?>
