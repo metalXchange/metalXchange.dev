@@ -101,6 +101,28 @@ class Pyrotechnics extends BaseModel
         // return $instance;
     }
 
+
+    public static function findAdByUserID($userId)
+    {
+        self::dbConnect();
+        $select = "SELECT * from pyrotechnics where user_id = :user_id";
+        $stmt = self::$dbc->prepare($select);
+        $stmt->bindValue(":user_id", $userId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // The following code will set the attributes on the calling object based on the result variable's contents
+        // $instance = null;
+        // if ($result) {
+        //     $instance = new static($result);
+        // }
+        // return $instance;
+
+        return $result;
+    }
+    
+
     /**
      * Find all records in a table
      *
