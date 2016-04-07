@@ -8,7 +8,7 @@ $venues = array(
 	array ('user_id'=>5, 'create_date' => '2016-01-01', 'type'=>'basement' , 'headline'=>'My mom\'s basement', 'capacity'=>20, 'lighting'=>'Various desk lamps', 'pa_systems'=>'We\'ve got a karaoke machine you can patch into.', 'beverages'=>'', 'item_description'=>'Friendly duo looking to host totally rad bands in our basement; perfect for your first gig or an open mike competition doing Ratt covers…', 'price'=>50, 'trade'=>1, 'trade_desc'=>'Can we make out with your sister?', 'image_url'=>'/img/uploads/ven_ww_basement.jpg')
 );
 
-$stmt = $dbc->prepare('INSERT INTO venues (user_id, type, headline, capacity, lighting, pa_systems, beverages, item_description, price, trade, trade_desc, image_url) VALUES (:user_id, :type, :headline, :capacity, :lighting, :pa_systems, :beverages, :item_description, :price, :trade, :trade_desc, :image_url)');
+$stmt = $dbc->prepare('INSERT INTO venues (user_id, create_date, type, headline, capacity, lighting, pa_systems, beverages, item_description, price, trade, trade_desc, image_url) VALUES (:user_id, :create_date, :type, :headline, :capacity, :lighting, :pa_systems, :beverages, :item_description, :price, :trade, :trade_desc, :image_url)');
 
 foreach ($venues as $item) {
     $stmt->bindValue(':create_date', $item['create_date'], PDO::PARAM_STR);

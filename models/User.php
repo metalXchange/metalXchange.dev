@@ -4,7 +4,7 @@
 // This allows us to correctly require_once Model.php, no matter where this file is being required from.
 
 
-class User extends Model
+class User extends BaseModel
 {
     /** Insert a new entry into the database */
     protected function insert()

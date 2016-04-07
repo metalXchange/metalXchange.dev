@@ -8,7 +8,7 @@ $pyrotechnics = array(
 	array ('user_id'=>5, 'create_date' => '2016-01-01', 'type'=>'fire_projector', 'headline'=>'I am the Dragon Lord', 'brand'=>'Homemade', 'homemade'=>1, 'casualties'=>'A few... nothing to see here.', 'item_description'=>'My lawyer advised me it\'s best to plead the fifth on this...', 'price'=>500, 'trade'=>1, 'trade_desc'=>'An affidavit revoking any responsibility... and an iPad.', 'image_url'=>'/img/uploads/pyr_flameProjector.jpg')
 );
 
-$stmt = $dbc->prepare('INSERT INTO pyrotechnics (user_id, type, headline, brand, homemade, casualties, item_description, price, trade, trade_desc, image_url) VALUES (:user_id, :type, :headline, :brand, :homemade, :casualties, :item_description, :price, :trade, :trade_desc, :image_url)');
+$stmt = $dbc->prepare('INSERT INTO pyrotechnics (user_id, create_date, type, headline, brand, homemade, casualties, item_description, price, trade, trade_desc, image_url) VALUES (:user_id, :create_date, :type, :headline, :brand, :homemade, :casualties, :item_description, :price, :trade, :trade_desc, :image_url)');
 
 foreach ($pyrotechnics as $item) {
     $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);
