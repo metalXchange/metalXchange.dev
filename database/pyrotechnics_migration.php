@@ -10,7 +10,7 @@ $query = "CREATE TABLE pyrotechnics (
 	user_id INT UNSIGNED NOT NULL,
 	type VARCHAR(24) NOT NULL,
 	brand VARCHAR(24) NOT NULL,
-	homemade boolean NOT NULL,
+	homemade VARCHAR(48),
 	casualties VARCHAR(48),
 	item_description TEXT NOT NULL,
 	price DECIMAL,
