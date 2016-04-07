@@ -13,12 +13,14 @@ class Leather extends Model
 
         $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
         $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':headline',  $this->attributes['headline'],  PDO::PARAM_STR);
         $stmt->bindValue(':size',  $this->attributes['size'],  PDO::PARAM_STR);
         $stmt->bindValue(':color',  $this->attributes['color'],  PDO::PARAM_STR);
         $stmt->bindValue(':spikes',  $this->attributes['spikes'],  PDO::PARAM_STR);
         $stmt->bindValue(':item_description',  $this->attributes['item_description'],  PDO::PARAM_STR);
         $stmt->bindValue(':price',  $this->attributes['price'],  PDO::PARAM_STR);
         $stmt->bindValue(':trade',  $this->attributes['trade'],  PDO::PARAM_STR);
+        $stmt->bindValue(':trade_desc',  $this->attributes['trade_desc'],  PDO::PARAM_STR);
         $stmt->bindValue(':image_url',  $this->attributes['image_url'],  PDO::PARAM_STR);
 
         $stmt->execute();
@@ -36,12 +38,14 @@ class Leather extends Model
 
         $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
         $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':headline',  $this->attributes['headline'],  PDO::PARAM_STR);
         $stmt->bindValue(':size',  $this->attributes['size'],  PDO::PARAM_STR);
         $stmt->bindValue(':color',  $this->attributes['color'],  PDO::PARAM_STR);
         $stmt->bindValue(':spikes',  $this->attributes['spikes'],  PDO::PARAM_STR);
         $stmt->bindValue(':item_description',  $this->attributes['item_description'],  PDO::PARAM_STR);
         $stmt->bindValue(':price',  $this->attributes['price'],  PDO::PARAM_STR);
         $stmt->bindValue(':trade',  $this->attributes['trade'],  PDO::PARAM_STR);
+        $stmt->bindValue(':trade_desc',  $this->attributes['trade_desc'],  PDO::PARAM_STR);
         $stmt->bindValue(':image_url',  $this->attributes['image_url'],  PDO::PARAM_STR);
 
         $stmt->execute();
