@@ -51,7 +51,7 @@ class Lycra extends Model
             trade = :trade, 
             trade_desc = :trade_desc, 
             image_url = image_url: 
-            WHERE id = :id';
+            WHERE id = :id');
 
         $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':headline',  $this->attributes['headline'],  PDO::PARAM_STR);
