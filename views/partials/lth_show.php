@@ -2,7 +2,7 @@
 		<div class="col-xs-12 col-sm-6 col-md-6">
 	 		<div class="panel panel-default">
 			<!-- Default panel contents -->
-				<div class="panel-heading"><h4 class='subhead'>Headline goes here...</h4></div>
+				<div class="panel-heading"><h4 class='subhead'> <?= $headline ?> </h4></div>
 			<!-- List group -->
 				<ul class="list-group">
 				<li class="list-group-item"><strong>Type: </strong> <?= $type ?> </li>
@@ -11,6 +11,7 @@
 				<li class="list-group-item"><strong>Spikes? </strong> <?= $spikes ?> </li>
 				<li class="list-group-item"><strong>Price: </strong> $<?= $price ?> </li>
 				<li class="list-group-item"><strong>Trade?: </strong> <?= $trade ?> </li>
+				<li class="list-group-item"><strong>What for?: </strong> <?= $trade_desc ?> </li>
 				</ul>
 			<!-- description and photo -->
 				<div class="panel-body">

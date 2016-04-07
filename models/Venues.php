@@ -13,6 +13,7 @@ class Venues extends Model
 
         $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
         $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':headline',  $this->attributes['headline'],  PDO::PARAM_STR);
         $stmt->bindValue(':capacity',  $this->attributes['capacity'],  PDO::PARAM_STR);
         $stmt->bindValue(':lighting',  $this->attributes['lighting'],  PDO::PARAM_STR);
         $stmt->bindValue(':pa_systems',  $this->attributes['pa_systems'],  PDO::PARAM_STR);
@@ -20,6 +21,7 @@ class Venues extends Model
         $stmt->bindValue(':item_description',  $this->attributes['item_description'],  PDO::PARAM_STR);
         $stmt->bindValue(':price',  $this->attributes['price'],  PDO::PARAM_STR);
         $stmt->bindValue(':trade',  $this->attributes['trade'],  PDO::PARAM_STR);
+        $stmt->bindValue(':trade_desc',  $this->attributes['trade_desc'],  PDO::PARAM_STR);
         $stmt->bindValue(':image_url',  $this->attributes['image_url'],  PDO::PARAM_STR);
 
         $stmt->execute();
@@ -37,6 +39,7 @@ class Venues extends Model
 
         $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
         $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':headline',  $this->attributes['headline'],  PDO::PARAM_STR);
         $stmt->bindValue(':capacity',  $this->attributes['capacity'],  PDO::PARAM_STR);
         $stmt->bindValue(':lighting',  $this->attributes['lighting'],  PDO::PARAM_STR);
         $stmt->bindValue(':pa_systems',  $this->attributes['pa_systems'],  PDO::PARAM_STR);
@@ -44,6 +47,7 @@ class Venues extends Model
         $stmt->bindValue(':item_description',  $this->attributes['item_description'],  PDO::PARAM_STR);
         $stmt->bindValue(':price',  $this->attributes['price'],  PDO::PARAM_STR);
         $stmt->bindValue(':trade',  $this->attributes['trade'],  PDO::PARAM_STR);
+        $stmt->bindValue(':trade_desc',  $this->attributes['trade_desc'],  PDO::PARAM_STR);
         $stmt->bindValue(':image_url',  $this->attributes['image_url'],  PDO::PARAM_STR);
 
         $stmt->execute();

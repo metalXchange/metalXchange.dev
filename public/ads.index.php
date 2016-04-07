@@ -83,26 +83,27 @@
 
 	<main>			
 		<h3 class='headline'><?= $headline ?></h3>
-		<hr>
-		<?php if($table == 'guitars') { ?>
-		<?php include '../views/partials/gtr_index.php'; ?>
-		<?php } ?>
+		<div class='wrapper'>
+			<?php if($table == 'guitars') { ?>
+			<?php include '../views/partials/gtr_index.php'; ?>
+			<?php } ?>
 
-		<?php if($table == 'leather') { ?>
-		<?php include '../views/partials/lth_index.php'; ?>
-		<?php } ?>
+			<?php if($table == 'leather') { ?>
+			<?php include '../views/partials/lth_index.php'; ?>
+			<?php } ?>
 
-		<?php if($table == 'lycra') { ?>
-		<?php include '../views/partials/lyc_index.php'; ?>
-		<?php } ?>
+			<?php if($table == 'lycra') { ?>
+			<?php include '../views/partials/lyc_index.php'; ?>
+			<?php } ?>
 
-		<?php if($table == 'pyrotechnics') { ?>
-		<?php include '../views/partials/pyr_index.php'; ?>
-		<?php } ?>
+			<?php if($table == 'pyrotechnics') { ?>
+			<?php include '../views/partials/pyr_index.php'; ?>
+			<?php } ?>
 
-		<?php if($table == 'venues') { ?>
-		<?php include '../views/partials/ven_index.php'; ?>
-		<?php } ?>
+			<?php if($table == 'venues') { ?>
+			<?php include '../views/partials/ven_index.php'; ?>
+			<?php } ?>
+		</div>
 	</main>
 
 	<?php include '../views/partials/footer.php' ?>
