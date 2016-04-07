@@ -9,9 +9,16 @@ class Leather extends Model
     /** Insert a new entry into the database */
     protected function insert()
     {
-        $stmt = self::$dbc->prepare('INSERT INTO leather (user_id, type, size, color, spikes, item_description, price, trade, image_url) VALUES (:user_id, :type, :size, :color, :spikes, :item_description, :price, :trade, :image_url)');
+        $stmt = self::$dbc->prepare('INSERT INTO leather (user_id, create_date, type, headline, size, color, spikes, item_description, price, trade, trade_desc, image_url) VALUES (:user_id, :create_date, :type, :headline, :size, :color, :spikes, :item_description, :price, :trade, :trade_desc, :image_url)');
+
+        // TEMPORARY TEMPORARY TEMPORARY
+        date_default_timezone_set('America/Chicago');
+        $this->attributes['create_date'] = date('Y-m-d');
+
+
 
         $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
+        $stmt->bindValue(':create_date',  $this->attributes['create_date'],  PDO::PARAM_STR);
         $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':headline',  $this->attributes['headline'],  PDO::PARAM_STR);
         $stmt->bindValue(':size',  $this->attributes['size'],  PDO::PARAM_STR);
@@ -34,9 +41,9 @@ class Leather extends Model
     /** Update existing entry in the database */
     protected function update()
     {
-        $stmt = self::$dbc->prepare('UPDATE leather (user_id, type, size, color, spikes, item_description, price, trade, image_url) VALUES (:user_id, :type, :size, :color, :spikes, :item_description, :price, :trade, :image_url)');
+        $stmt = self::$dbc->prepare('UPDATE leather set type = :type, size = :size, color = :color, spikes = :spikes, item_description = :item_description, price = :price, trade = :trade, trade_desc = :trade_desc, image_url = :image_url) where id = :id');
 
-        $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
+        $stmt->bindValue(':id',  $this->attributes['id'],  PDO::PARAM_INT);
         $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':headline',  $this->attributes['headline'],  PDO::PARAM_STR);
         $stmt->bindValue(':size',  $this->attributes['size'],  PDO::PARAM_STR);
