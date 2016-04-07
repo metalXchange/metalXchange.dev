@@ -9,9 +9,17 @@ class Pyrotechnics extends Model
     /** Insert a new entry into the database */
     protected function insert()
     {
-        $stmt = self::$dbc->prepare('INSERT INTO pyrotechnics (user_id, type, brand, homemade, casualties, item_description, price, trade, image_url) VALUES (:user_id, :type, :brand, :homemade, :casualties, :item_description, :price, :trade, :image_url)');
+        $stmt = self::$dbc->prepare('INSERT INTO pyrotechnics (user_id, create_date, headline, type, brand, homemade, casualties, item_description, price, trade, trade_desc, image_url) VALUES (:user_id, :create_date, :headline, :type, :brand, :homemade, :casualties, :item_description, :price, :trade, :trade_desc, :image_url)');
     
+        // TEMPORARY TEMPORARY TEMPORARY
+        date_default_timezone_set('America/Chicago');
+        $this->attributes['create_date'] = date('Y-m-d');
+
+
+
+
         $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
+        $stmt->bindValue(':create_date',  $this->attributes['create_date'],  PDO::PARAM_STR);
         $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':headline',  $this->attributes['headline'],  PDO::PARAM_STR);
         $stmt->bindValue(':brand',  $this->attributes['brand'],  PDO::PARAM_STR);
@@ -34,9 +42,19 @@ class Pyrotechnics extends Model
     /** Update existing entry in the database */
     protected function update()
     {
-        $stmt = self::$dbc->prepare('UPDATE pyrotechnics (user_id, type, brand, homemade, casualties, item_description, price, trade, image_url) VALUES (:user_id, :type, :brand, :homemade, :casualties, :item_description, :price, :trade, :image_url)');
+        $stmt = self::$dbc->prepare('UPDATE pyrotechnics SET
+            type = :type,
+            headline = :headline, 
+            brand = :brand, 
+            homemade = :homemade, 
+            casualties = :casualties, 
+            item_description = :item_description, 
+            price = :price, 
+            trade = :trade,
+            trade_desc = :trade_desc, 
+            image_url = :image_url
+            WHERE id = :id');
 
-        $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
         $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':headline',  $this->attributes['headline'],  PDO::PARAM_STR);
         $stmt->bindValue(':brand',  $this->attributes['brand'],  PDO::PARAM_STR);

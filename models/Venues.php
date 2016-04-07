@@ -9,10 +9,17 @@ class Venues extends Model
     /** Insert a new entry into the database */
     protected function insert()
     {
-        $stmt = self::$dbc->prepare('INSERT INTO venues (user_id, type, capacity, lighting, pa_systems, beverages, item_description, price, trade, image_url) VALUES (:user_id, :type, :capacity, :lighting, :pa_systems, :beverages, :item_description, :price, :trade, :image_url)');
+        $stmt = self::$dbc->prepare('INSERT INTO venues (user_id, type, create_date, headline, capacity, lighting, pa_systems, beverages, item_description, price, trade, image_url) VALUES (:user_id, :type, :create_date, :headline, :capacity, :lighting, :pa_systems, :beverages, :item_description, :price, :trade, :image_url)');
+
+        // TEMPORARY TEMPORARY TEMPORARY
+        date_default_timezone_set('America/Chicago');
+        $this->attributes['create_date'] = date('Y-m-d');
+
+
 
         $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
         $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':create_date',  $this->attributes['create_date'],  PDO::PARAM_STR);
         $stmt->bindValue(':headline',  $this->attributes['headline'],  PDO::PARAM_STR);
         $stmt->bindValue(':capacity',  $this->attributes['capacity'],  PDO::PARAM_STR);
         $stmt->bindValue(':lighting',  $this->attributes['lighting'],  PDO::PARAM_STR);
@@ -35,9 +42,19 @@ class Venues extends Model
     /** Update existing entry in the database */
     protected function update()
     {
-        $stmt = self::$dbc->prepare('UPDATE venues (user_id, type, capacity, lighting, pa_systems, beverages, item_description, price, trade, image_url) VALUES (:user_id, :type, :capacity, :lighting, :pa_systems, :beverages, :item_description, :price, :trade, :image_url)');
+        $stmt = self::$dbc->prepare('UPDATE venues SET
+            type = :type, 
+            capacity = :capacity, 
+            lighting = :lighting, 
+            pa_systems = :pa_systems, 
+            beverages = :beverages, 
+            item_description = :item_description, 
+            price = :price, 
+            trade = :trade, 
+            trade_desc = :trade_desc,
+            image_url = :image_url
+            WHERE id = :id');
 
-        $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
         $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':headline',  $this->attributes['headline'],  PDO::PARAM_STR);
         $stmt->bindValue(':capacity',  $this->attributes['capacity'],  PDO::PARAM_STR);

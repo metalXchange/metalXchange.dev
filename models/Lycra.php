@@ -9,7 +9,13 @@ class Lycra extends Model
     /** Insert a new entry into the database */
     protected function insert()
     {
-        $stmt = self::$dbc->prepare('INSERT INTO lycra (user_id, type, size, color, animal_stripe, item_description, price, trade, image_url) VALUES (:user_id, :type, :size, :color, :animal_stripe, :item_description, :price, :trade, :image_url)');
+        $stmt = self::$dbc->prepare('INSERT INTO lycra (user_id, create_date, type, headline, size, color, animal_stripe, item_description, price, trade, trade_desc, image_url) VALUES (:user_id, :create_date, :type, :headline, :size, :color, :animal_stripe, :item_description, :price, :trade, :trade_desc, :image_url)');
+
+        // TEMPORARY TEMPORARY TEMPORARY
+        date_default_timezone_set('America/Chicago');
+        $this->attributes['create_date'] = date('Y-m-d');
+
+
 
         $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
         $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
@@ -17,6 +23,7 @@ class Lycra extends Model
         $stmt->bindValue(':size',  $this->attributes['size'],  PDO::PARAM_STR);
         $stmt->bindValue(':color',  $this->attributes['color'],  PDO::PARAM_STR);
         $stmt->bindValue(':animal_stripe',  $this->attributes['animal_stripe'],  PDO::PARAM_STR);
+        $stmt->bindValue(':create_date',  $this->attributes['create_date'],  PDO::PARAM_STR);
         $stmt->bindValue(':item_description',  $this->attributes['item_description'],  PDO::PARAM_STR);
         $stmt->bindValue(':price',  $this->attributes['price'],  PDO::PARAM_STR);
         $stmt->bindValue(':trade',  $this->attributes['trade'],  PDO::PARAM_STR);
@@ -34,9 +41,18 @@ class Lycra extends Model
     /** Update existing entry in the database */
     protected function update()
     {
-        $stmt = self::$dbc->prepare('UPDATE lycra (user_id, type, size, color, animal_stripe, item_description, price, trade, image_url) VALUES (:user_id, :type, :size, :color, :animal_stripe, :item_description, :price, :trade, :image_url)');
+        $stmt = self::$dbc->prepare('UPDATE lycra SET 
+            type = :type, 
+            size = :size, 
+            color = :color, 
+            animal_stripe = :animal_stripe, 
+            item_description = :item_description, 
+            price = :price,
+            trade = :trade, 
+            trade_desc = :trade_desc, 
+            image_url = image_url: 
+            WHERE id = :id');
 
-        $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
         $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
         $stmt->bindValue(':headline',  $this->attributes['headline'],  PDO::PARAM_STR);
         $stmt->bindValue(':size',  $this->attributes['size'],  PDO::PARAM_STR);
