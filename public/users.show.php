@@ -15,6 +15,12 @@
 		$user_id = $_SESSION['LOGGED_IN_USER_ID'];
 
 		$profile = User::find($user_id);
+		$profile['guitar_ads'] = Guitar::findAdByUserId($user_id);
+		$profile['leather_ads'] = Leather::findAdByUserId($user_id);
+		$profile['lycra_ads'] = Lycra::findAdByUserId($user_id);
+		$profile['pyrotechnics_ads'] = Pyrotechnics::findAdByUserId($user_id);
+		$profile['venues_ads'] = Venues::findAdByUserId($user_id);
+		var_dump($profile);
 		return $profile;
 	}
 
