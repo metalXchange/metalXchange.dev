@@ -9,17 +9,17 @@ class Pyrotechnics extends Model
     /** Insert a new entry into the database */
     protected function insert()
     {
-        $stmt = $dbc->prepare('INSERT INTO pyrotechnics (user_id, type, brand, homemade, casualties, item_description, price, trade, image_url) VALUES (:user_id, :type, :brand, :homemade, :casualties, :item_description, :price, :trade, :image_url)');
+        $stmt = self::$dbc->prepare('INSERT INTO pyrotechnics (user_id, type, brand, homemade, casualties, item_description, price, trade, image_url) VALUES (:user_id, :type, :brand, :homemade, :casualties, :item_description, :price, :trade, :image_url)');
     
-        $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);
-        $stmt->bindValue(':type',  $item['type'],  PDO::PARAM_STR);
-        $stmt->bindValue(':brand',  $item['brand'],  PDO::PARAM_STR);
-        $stmt->bindValue(':homemade',  $item['homemade'],  PDO::PARAM_STR);
-        $stmt->bindValue(':casualties',  $item['casualties'],  PDO::PARAM_STR);
-        $stmt->bindValue(':item_description',  $item['item_description'],  PDO::PARAM_STR);
-        $stmt->bindValue(':price',  $item['price'],  PDO::PARAM_STR);
-        $stmt->bindValue(':trade',  $item['trade'],  PDO::PARAM_STR);
-        $stmt->bindValue(':image_url',  $item['image_url'],  PDO::PARAM_STR);
+        $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
+        $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':brand',  $this->attributes['brand'],  PDO::PARAM_STR);
+        $stmt->bindValue(':homemade',  $this->attributes['homemade'],  PDO::PARAM_STR);
+        $stmt->bindValue(':casualties',  $this->attributes['casualties'],  PDO::PARAM_STR);
+        $stmt->bindValue(':item_description',  $this->attributes['item_description'],  PDO::PARAM_STR);
+        $stmt->bindValue(':price',  $this->attributes['price'],  PDO::PARAM_STR);
+        $stmt->bindValue(':trade',  $this->attributes['trade'],  PDO::PARAM_STR);
+        $stmt->bindValue(':image_url',  $this->attributes['image_url'],  PDO::PARAM_STR);
 
         $stmt->execute();
 
@@ -34,15 +34,15 @@ class Pyrotechnics extends Model
     {
         $stmt = self::$dbc->prepare('UPDATE pyrotechnics (user_id, type, brand, homemade, casualties, item_description, price, trade, image_url) VALUES (:user_id, :type, :brand, :homemade, :casualties, :item_description, :price, :trade, :image_url)');
 
-        $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);
-        $stmt->bindValue(':type',  $item['type'],  PDO::PARAM_STR);
-        $stmt->bindValue(':brand',  $item['brand'],  PDO::PARAM_STR);
-        $stmt->bindValue(':homemade',  $item['homemade'],  PDO::PARAM_STR);
-        $stmt->bindValue(':casualties',  $item['casualties'],  PDO::PARAM_STR);
-        $stmt->bindValue(':item_description',  $item['item_description'],  PDO::PARAM_STR);
-        $stmt->bindValue(':price',  $item['price'],  PDO::PARAM_STR);
-        $stmt->bindValue(':trade',  $item['trade'],  PDO::PARAM_STR);
-        $stmt->bindValue(':image_url',  $item['image_url'],  PDO::PARAM_STR);
+        $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
+        $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':brand',  $this->attributes['brand'],  PDO::PARAM_STR);
+        $stmt->bindValue(':homemade',  $this->attributes['homemade'],  PDO::PARAM_STR);
+        $stmt->bindValue(':casualties',  $this->attributes['casualties'],  PDO::PARAM_STR);
+        $stmt->bindValue(':item_description',  $this->attributes['item_description'],  PDO::PARAM_STR);
+        $stmt->bindValue(':price',  $this->attributes['price'],  PDO::PARAM_STR);
+        $stmt->bindValue(':trade',  $this->attributes['trade'],  PDO::PARAM_STR);
+        $stmt->bindValue(':image_url',  $this->attributes['image_url'],  PDO::PARAM_STR);
 
         $stmt->execute();
 

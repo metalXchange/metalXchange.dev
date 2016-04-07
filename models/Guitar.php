@@ -9,17 +9,17 @@ class Guitar extends Model
     /** Insert a new entry into the database */
     protected function insert()
     {
-        $stmt = $dbc->prepare('INSERT INTO guitars (user_id, type, brand, num_strings, num_necks, item_description, price, trade, image_url) VALUES (:user_id, :type, :brand, :num_strings, :num_necks, :item_description, :price, :trade, :image_url)');
+        $stmt = self::$dbc->prepare('INSERT INTO guitars (user_id, type, brand, num_strings, num_necks, item_description, price, trade, image_url) VALUES (:user_id, :type, :brand, :num_strings, :num_necks, :item_description, :price, :trade, :image_url)');
 
-        $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);
-        $stmt->bindValue(':type',  $item['type'],  PDO::PARAM_STR);
-        $stmt->bindValue(':brand',  $item['brand'],  PDO::PARAM_STR);
-        $stmt->bindValue(':num_strings',  $item['num_strings'],  PDO::PARAM_STR);
-        $stmt->bindValue(':num_necks',  $item['num_necks'],  PDO::PARAM_STR);
-        $stmt->bindValue(':item_description',  $item['item_description'],  PDO::PARAM_STR);
-        $stmt->bindValue(':price',  $item['price'],  PDO::PARAM_STR);
-        $stmt->bindValue(':trade',  $item['trade'],  PDO::PARAM_STR);
-        $stmt->bindValue(':image_url',  $item['image_url'],  PDO::PARAM_STR);
+        $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
+        $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':brand',  $this->attributes['brand'],  PDO::PARAM_STR);
+        $stmt->bindValue(':num_strings',  $this->attributes['num_strings'],  PDO::PARAM_STR);
+        $stmt->bindValue(':num_necks',  $this->attributes['num_necks'],  PDO::PARAM_STR);
+        $stmt->bindValue(':item_description',  $this->attributes['item_description'],  PDO::PARAM_STR);
+        $stmt->bindValue(':price',  $this->attributes['price'],  PDO::PARAM_STR);
+        $stmt->bindValue(':trade',  $this->attributes['trade'],  PDO::PARAM_STR);
+        $stmt->bindValue(':image_url',  $this->attributes['image_url'],  PDO::PARAM_STR);
 
         $stmt->execute();
 
@@ -34,15 +34,15 @@ class Guitar extends Model
     {
         $stmt = self::$dbc->prepare('UPDATE guitars (user_id, type, brand, num_strings, num_necks, item_description, price, trade, image_url) VALUES (:user_id, :type, :brand, :num_strings, :num_necks, :item_description, :price, :trade, :image_url)');
 
-        $stmt->bindValue(':user_id',  $item['user_id'],  PDO::PARAM_STR);
-        $stmt->bindValue(':type',  $item['type'],  PDO::PARAM_STR);
-        $stmt->bindValue(':brand',  $item['brand'],  PDO::PARAM_STR);
-        $stmt->bindValue(':num_strings',  $item['num_strings'],  PDO::PARAM_STR);
-        $stmt->bindValue(':num_necks',  $item['num_necks'],  PDO::PARAM_STR);
-        $stmt->bindValue(':item_description',  $item['item_description'],  PDO::PARAM_STR);
-        $stmt->bindValue(':price',  $item['price'],  PDO::PARAM_STR);
-        $stmt->bindValue(':trade',  $item['trade'],  PDO::PARAM_STR);
-        $stmt->bindValue(':image_url',  $item['image_url'],  PDO::PARAM_STR);
+        $stmt->bindValue(':user_id',  $this->attributes['user_id'],  PDO::PARAM_STR);
+        $stmt->bindValue(':type',  $this->attributes['type'],  PDO::PARAM_STR);
+        $stmt->bindValue(':brand',  $this->attributes['brand'],  PDO::PARAM_STR);
+        $stmt->bindValue(':num_strings',  $this->attributes['num_strings'],  PDO::PARAM_STR);
+        $stmt->bindValue(':num_necks',  $this->attributes['num_necks'],  PDO::PARAM_STR);
+        $stmt->bindValue(':item_description',  $this->attributes['item_description'],  PDO::PARAM_STR);
+        $stmt->bindValue(':price',  $this->attributes['price'],  PDO::PARAM_STR);
+        $stmt->bindValue(':trade',  $this->attributes['trade'],  PDO::PARAM_STR);
+        $stmt->bindValue(':image_url',  $this->attributes['image_url'],  PDO::PARAM_STR);
 
         $stmt->execute();
 
