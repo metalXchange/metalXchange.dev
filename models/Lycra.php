@@ -87,16 +87,14 @@ class Lycra extends BaseModel
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $result;
-
         // @TODO: Store the result in a variable named $result
 
         // The following code will set the attributes on the calling object based on the result variable's contents
-        // $instance = null;
-        // if ($result) {
-        //     $instance = new static($result);
-        // }
-        // return $instance;
+        $instance = null;
+        if ($result) {
+            $instance = new static($result);
+        }
+        return $instance;
     }
 
 
