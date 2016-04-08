@@ -456,7 +456,7 @@
 			<div id="guitars">
 				<h2 class='headline'>Guitar</h2>
 				<hr>
-				<div class="row"></div>
+				<div class="row">
 					<div class="col-xs-12 col-sm-6 col-md-4">
 						<div>
 							<label for="gtr_type">Types of Guitar</label>
@@ -468,50 +468,53 @@
 								<option value="Novelty">Novelty</option>
 							</select>
 						</div>
+
+						<div class="input-group">
+							<span class="input-group-addon">Headline</span>
+							<input name="gtr_hdln" type="text" value="<?= $guitar->headline ?>" class="form-control" aria-label="Descriptive Headline">
+						</div>
+
+						<div class="input-group">
+							<span class="input-group-addon">Brand</span>
+							<input name="gtr_brand" type="text" value="<?= $guitar->brand ?>" class="form-control" aria-label="Screen name displayed to public">
+						</div>
+
+						<div class="input-group">
+							<span class="input-group-addon">No. of Strings</span>
+							<input name="num_strings" type="text" value="<?= $guitar->num_strings ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+						</div>
+
+						<div class="input-group">
+							<span class="input-group-addon">No. of Necks</span>
+							<input name="num_necks" type="text" value="<?= $guitar->num_necks ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+						</div>
 					</div>
 
-				<div class="input-group">
-					<span class="input-group-addon">Headline</span>
-					<input name="gtr_hdln" type="text" value="<?= $guitar->headline ?>" class="form-control" aria-label="Descriptive Headline">
-				</div>
-
-				<div class="input-group">
-					<span class="input-group-addon">Brand</span>
-					<input name="gtr_brand" type="text" value="<?= $guitar->brand ?>" class="form-control" aria-label="Screen name displayed to public">
-				</div>
-
-				<div class="input-group">
-					<span class="input-group-addon">No. of Strings</span>
-					<input name="num_strings" type="text" value="<?= $guitar->num_strings ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
-				</div>
-
-				<div class="input-group">
-					<span class="input-group-addon">No. of Necks</span>
-					<input name="num_necks" type="text" value="<?= $guitar->num_necks ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
-				</div>
-
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">Item Description</h3>
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Item Description</h3>
+							</div>
+							<textarea class="description" name="gtr_description" type="text" value="<?= $guitar->item_description ?>"></textarea>
+						</div>
 					</div>
-					<div class="panel-body">
-						<input name="gtr_description" type="text" value="<?= $guitar->item_description ?>">
+
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div class="input-group">
+							<span class="input-group-addon">$</span>
+							<input name="gtr_price" type="text" value="<?= $guitar->price ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+							<span class="input-group-addon">.00</span>
+						</div>
+
+						<div class="input-group">
+							<span class="input-group-addon">
+								<input name="gtr_trade" type="radio" aria-label="..." value="<?= $guitar->trade ?>">
+							</span>
+							<span class="input-group-addon" id="basic-addon1">Trade?</span>
+							<input name="gtr_trade_desc" type="text" value="<?= $guitar->trade_desc ?>" class="form-control" aria-label="...">
+						</div>
 					</div>
-				</div>
-
-				<div class="input-group">
-					<span class="input-group-addon">$</span>
-					<input name="gtr_price" type="text" value="<?= $guitar->price ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
-					<span class="input-group-addon">.00</span>
-				</div>
-
-				<div class="input-group">
-					<span class="input-group-addon">
-						<input name="gtr_trade" type="radio" aria-label="..." value="<?= $guitar->trade ?>">
-					</span>
-					<span class="input-group-addon" id="basic-addon1">Trade?</span>
-					<input name="gtr_trade_desc" type="text" value="<?= $guitar->trade_desc ?>" class="form-control" aria-label="...">
-				</div>
+				</div> <!-- end row -->
 			</div> <!-- end of guitar div -->
 
 			<div id="leather">
@@ -695,7 +698,7 @@
 						  <input name="pyr_trade" type="radio" aria-label="..." value="<?= $pyrotechnics->trade ?>">
 						</span>
 						<span class="input-group-addon" id="basic-addon1">Trade?</span>
-							<input name="pyr_trade_desc" type="text" value="<?= $pyrotechnics->trade_desc ?>" class="form-control" aria-label="...">
+							<text name="pyr_trade_desc" type="text" value="<?= $pyrotechnics->trade_desc ?>" class="form-control" aria-label="...">
 						</div><!-- /input-group -->
 						<button type="submit" class="btn btn-default">Submit</button>
 					</div>
@@ -772,9 +775,11 @@
 			</div> <!-- end of lycra class -->
 
 			<div id="fileUpload">
-				Select image to upload:
-			    <input type="file" name="image_url">
-			    <div class='top_margin'>
+				<div class="img_upload">
+					Select image to upload:
+				    <input type="file" name="image_url">
+				</div>
+			    <div class='btn_submit'>
 				    <button type="submit" class="btn btn-default">Submit</button>
 			    </div>
 			</div>
