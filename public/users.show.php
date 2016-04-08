@@ -15,6 +15,12 @@
 		$user_id = $_SESSION['LOGGED_IN_USER_ID'];
 
 		$profile = User::find($user_id);
+		$profile['guitar_ads'] = Guitar::findAdByUserId($user_id);
+		$profile['leather_ads'] = Leather::findAdByUserId($user_id);
+		$profile['lycra_ads'] = Lycra::findAdByUserId($user_id);
+		$profile['pyrotechnics_ads'] = Pyrotechnics::findAdByUserId($user_id);
+		$profile['venues_ads'] = Venues::findAdByUserId($user_id);
+		
 		return $profile;
 	}
 
@@ -58,6 +64,79 @@
 						<button type="submit" class="btn btn-default">Edit profile</button>
 					</form>
 				</div> <!-- end panel -->
+
+
+				<?php if (!empty($guitar_ads)) { ?>
+					<?php foreach($guitar_ads as $key => $value) {?>
+						<div class='item'>
+							<h4 class='desc'><strong>Date created: </strong><?=$value['create_date']?></h4>
+							<h4 class='desc'><strong>Category: </strong>Guitars</h4>
+							<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
+							<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
+							<a href="/ads.show.php?table=guitars&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
+							<a href="/ads.create.php?table=guitars&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
+							<hr>
+						</div>
+					<?php } ?>
+				<?php } ?>
+
+				<?php if (!empty($leather_ads)) { ?>
+					<?php foreach($leather_ads as $key => $value) {?>
+						<div class='item'>
+							<h4 class='desc'><strong>Date created: </strong><?=$value['create_date']?></h4>
+							<h4 class='desc'><strong>Category: </strong>Leather</h4>
+							<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
+							<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
+							<a href="/ads.show.php?table=leather&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
+							<a href="/ads.create.php?table=leather&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
+							<hr>
+						</div>
+					<?php } ?>
+				<?php } ?>
+
+				<?php if (!empty($lycra_ads)) { ?>
+					<?php foreach($lycra_ads as $key => $value) {?>
+						<div class='item'>
+							<h4 class='desc'><strong>Date created: </strong><?=$value['create_date']?></h4>
+							<h4 class='desc'><strong>Category: </strong>Lycra</h4>
+							<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
+							<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
+							<a href="/ads.show.php?table=lycra&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
+							<a href="/ads.create.php?table=lycra&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
+							<hr>
+						</div>
+					<?php } ?>
+				<?php } ?>
+
+				<?php if (!empty($pyrotechnics_ads)) { ?>
+					<?php foreach($pyrotechnics_ads as $key => $value) {?>
+						<div class='item'>
+							<h4 class='desc'><strong>Date created: </strong><?=$value['create_date']?></h4>
+							<h4 class='desc'><strong>Category: </strong>Pyrotchnics</h4>
+							<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
+							<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
+							<a href="/ads.show.php?table=pyrotechnics&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
+							<a href="/ads.create.php?table=pyrotechnics&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
+							<hr>
+						</div>
+					<?php } ?>
+				<?php } ?>
+
+				<?php if (!empty($venues_ads)) { ?>
+					<?php foreach($venues_ads as $key => $value) {?>
+						<div class='item'>
+							<h4 class='desc'><strong>Date created: </strong><?=$value['create_date']?></h4>
+							<h4 class='desc'><strong>Category: </strong>Venues</h4>
+							<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
+							<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
+							<a href="/ads.show.php?table=venues&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
+							<a href="/ads.create.php?table=venues&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
+							<hr>
+						</div>
+					<?php } ?>
+				<?php } ?>
+
+				
 			</div> <!-- end col-xs-12 col-sm-6 col-md-8 -->
 
 			<div class="col-xs-12 col-sm-6 col-md-6">
