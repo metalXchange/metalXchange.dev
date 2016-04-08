@@ -1,11 +1,71 @@
 <?php
 
+	session_start();
 	require '../bootstrap.php';
 
 	$table = $_GET['table'];
 	$id = $_GET['id'];
 
 	function pageController($table, $id) {
+
+		$temp = [];
+
+		if (isset($_POST['delete']) && $_SESSION['authenticate'] == true) {
+
+			switch ($table) {
+			case 'guitars' : 
+				$itemDisplay = Guitar::delete($id);
+				break;
+			case 'leather' : 
+				$itemDisplay = Leather::delete($id);
+				break;
+			case 'lycra' : 
+				$itemDisplay = Lycra::delete($id);
+				break;
+			case 'pyrotechnics' : 
+				$itemDisplay = Pyrotechnics::delete($id);
+				break;
+			case 'venues' : 
+				$itemDisplay = Venues::delete($id);
+				break;
+			}
+
+			unset($_SESSION['authenticate']);
+			header('Location: /users.show.php');
+			die();
+		}
+
+
+		if (Auth::isLoggedIn())	{
+
+			$user_id = $_SESSION['LOGGED_IN_USER_ID'];
+			
+			switch ($table) {
+			case 'guitars' : 
+				$ad = Guitar::find($id);
+				break;
+			case 'leather' : 
+				$ad = Leather::find($id);
+				break;
+			case 'lycra' : 
+				$ad = Lycra::find($id);
+				break;
+			case 'pyrotechnics' : 
+				$ad = Pyrotechnics::find($id);
+				break;
+			case 'venues' : 
+				$ad = Venues::find($id);
+				break;
+			}			
+
+			if ($user_id == $ad->user_id) {
+				// $temp['authenticate'] = true;
+				$_SESSION['authenticate'] = true;
+			} else {
+				$_SESSION['authenticate'] = false;
+			}
+		}	
+
 
 		$itemDisplay = [];
 		switch ($table) {
@@ -25,7 +85,7 @@
 				$itemDisplay = Venues::find($id);
 				break;
 		}
-		$temp = [];
+		
 		$temp['item'] = $itemDisplay;
 
 		return $temp;
@@ -69,6 +129,13 @@
 	<?php } ?>
 
 	<a href="/ads.create.php?table=<?=$table?>&id=<?=$id?>"><span class="badge">Edit Ad</span></a>
+	<?php if (isset($_SESSION['authenticate'])) { ?>
+		<?php if ($_SESSION['authenticate'] == true) { ?>
+			<form method='post' action=''>
+				<button name='delete' value='delete'>Delete Ad</button>
+			</form>
+		<?php } ?>
+	<?php } ?>
 		<hr></a>
 
 	<?php include '../views/partials/footer.php' ?>

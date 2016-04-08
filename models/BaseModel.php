@@ -77,17 +77,6 @@ abstract class BaseModel
 
     }
 
-    public function delete()
-    {
-        $stmt = self::$dbc->prepare("DELETE FROM users WHERE id = :id");
-
-        $stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_STR);
-
-        $stmt->execute();
-
-        // @TODO: You will need to iterate through all the attributes to build the prepared query
-    }
-
 
     public static function uploadFile()
     {
@@ -146,4 +135,5 @@ abstract class BaseModel
      * NOTE: Because this method is abstract, any child class MUST have it defined.
      */
     protected abstract function update();
+    
 }
