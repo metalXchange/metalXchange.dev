@@ -77,7 +77,7 @@
 
 		<div class="input-group">
 		 	<span class="input-group-addon"></span>
-		 	<textarea type="text" class="form-control" name='password' aria-describedby="basic-addon4"><?= $password ?></textarea> 
+		 	<textarea type="password" class="form-control" name='password' aria-describedby="basic-addon4"><?= $password ?></textarea> 
 		</div>
 
 		<div class="input-group">

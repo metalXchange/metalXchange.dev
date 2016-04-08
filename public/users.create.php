@@ -43,31 +43,34 @@ if (Auth::isLoggedIn()) {
  <body>
 	<?php include '../views/partials/header.php' ?>
 	<?php include '../views/partials/navbar.php' ?>
- 	
+
+
+<main>
+
  	<form action='' method='post'>
  		<div class="input-group">
-		 	<span class="input-group-addon"></span>
-		 	<input type="text" class="form-control" placeholder="First name" name='first_name' aria-describedby="basic-addon1">
+			<span class="input-group-addon"></span>
+			<input name="first_name" type="text" placeholder="First Name" class="form-control" aria-label="Descriptive Headline">
 		</div>
 
 		<div class="input-group">
-		 	<span class="input-group-addon"></span>
-		 	<input type="text" class="form-control" placeholder="Last name" name='last_name' aria-describedby="basic-addon2">
+			<span class="input-group-addon"></span>
+			<input name="last_name" type="text" placeholder="Last Name" class="form-control" aria-label="Descriptive Headline">
 		</div>
 
 		<div class="input-group">
-		 	<span class="input-group-addon"></span>
-		 	<input type="text" class="form-control" placeholder="Username" name='user_name' aria-describedby="basic-addon3">
+			<span class="input-group-addon"></span>
+			<input name="user_name" type="text" placeholder="Username" class="form-control" aria-label="Descriptive Headline">
 		</div>
 
 		<div class="input-group">
-		 	<span class="input-group-addon"></span>
-		 	<input type="text" class="form-control" placeholder="Email" name='email' aria-describedby="basic-addon4">
+			<span class="input-group-addon"></span>
+			<input name="email" type="text" placeholder="Email" class="form-control" aria-label="Descriptive Headline">
 		</div>
 
 		<div class="input-group">
-		 	<span class="input-group-addon"></span>
-		 	<input type="password" class="form-control" placeholder="Password" name='password' aria-describedby="basic-addon5">
+			<span class="input-group-addon"></span>
+			<input name="password" type="password" placeholder="Password" class="form-control" aria-label="Descriptive Headline">
 		</div>
 
 		<div class="input-group">
@@ -76,13 +79,13 @@ if (Auth::isLoggedIn()) {
 		</div>
 
 		<div class="input-group">
-		 	<span class="input-group-addon"></span>
-		 	<input type="text" class="form-control" placeholder="Band name" name='band_name' aria-describedby="basic-addon6">
+			<span class="input-group-addon"></span>
+			<input name="band_name" type="text" placeholder="Band Name" class="form-control" aria-label="Descriptive Headline">
 		</div>
 
 		<div class="input-group">
-		 	<span class="input-group-addon"></span>
-		 	<input type="text" class="form-control" placeholder="Instrument" name='instrument' aria-describedby="basic-addon6">
+			<span class="input-group-addon"></span>
+			<input name="instrument" type="text" placeholder="Instrument" class="form-control" aria-label="Descriptive Headline">
 		</div>
 
 		<input type="radio" name="soul_possession" value=1>Yes<br>
@@ -92,6 +95,7 @@ if (Auth::isLoggedIn()) {
 			<input type='submit' class='form-control' value='Submit'>
 		</div>
 	</form>
+</main>
 
 	<?php include '../views/partials/footer.php' ?>
 
