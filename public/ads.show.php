@@ -128,15 +128,16 @@
 	<?php include '../views/partials/ven_show.php'; ?>
 	<?php } ?>
 
-	<a href="/ads.create.php?table=<?=$table?>&id=<?=$id?>"><span class="badge">Edit Ad</span></a>
-	<?php if (isset($_SESSION['authenticate'])) { ?>
-		<?php if ($_SESSION['authenticate'] == true) { ?>
-			<form method='post' action=''>
-				<button name='delete' value='delete'>Delete Ad</button>
-			</form>
+	<div class="btn_div">
+		<?php if (isset($_SESSION['authenticate'])) { ?>
+			<?php if ($_SESSION['authenticate'] == true) { ?>
+				<a href="/ads.create.php?table=<?=$table?>&id=<?=$id?>"><span class="badge">Edit Ad</span></a>
+				<form method='post' action=''>
+					<a name='delete' value='delete'><span class="badge">Delete Ad</span></a>
+				</form>
+			<?php } ?>
 		<?php } ?>
-	<?php } ?>
-		<hr></a>
+	</div>
 
 	<?php include '../views/partials/footer.php' ?>
 

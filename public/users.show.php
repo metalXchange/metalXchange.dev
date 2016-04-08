@@ -41,7 +41,7 @@
 	<?php include '../views/partials/navbar.php' ?>
 	
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="col-xs-12 col-sm-8 col-md-8">
 		 		<div class="panel panel-default">
 				<!-- Default panel contents -->
 					<div class="panel-heading"><h4 class='subhead'><?= $first_name . ' ' . $last_name ?></h4></div>
@@ -69,12 +69,16 @@
 				<?php if (!empty($guitar_ads)) { ?>
 					<?php foreach($guitar_ads as $key => $value) {?>
 						<div class='item'>
-							<h4 class='desc'><strong>Date created: </strong><?=$value['create_date']?></h4>
-							<h4 class='desc'><strong>Category: </strong>Guitars</h4>
-							<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
-							<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
-							<a href="/ads.show.php?table=guitars&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
-							<a href="/ads.create.php?table=guitars&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
+							<div>
+								<h4 class='desc'><strong>Date created: </strong><?=$value['create_date']?></h4>
+								<h4 class='desc'><strong>Category: </strong>Guitars</h4>
+								<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
+								<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
+							</div>	
+							<div class='prfl_btn_div'>
+								<a href="/ads.show.php?table=guitars&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
+								<a href="/ads.create.php?table=guitars&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
+							</div>	
 							<hr>
 						</div>
 					<?php } ?>
@@ -83,12 +87,16 @@
 				<?php if (!empty($leather_ads)) { ?>
 					<?php foreach($leather_ads as $key => $value) {?>
 						<div class='item'>
-							<h4 class='desc'><strong>Date created: </strong><?=$value['create_date']?></h4>
-							<h4 class='desc'><strong>Category: </strong>Leather</h4>
-							<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
-							<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
-							<a href="/ads.show.php?table=leather&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
-							<a href="/ads.create.php?table=leather&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
+							<div>
+								<h4 class='desc'><strong>Date created: </strong><?=$value['create_date']?></h4>
+								<h4 class='desc'><strong>Category: </strong>Leather</h4>
+								<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
+								<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
+							</div>	
+							<div class='prfl_btn_div'>
+								<a href="/ads.show.php?table=leather&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
+								<a href="/ads.create.php?table=leather&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
+							</div>	
 							<hr>
 						</div>
 					<?php } ?>
@@ -97,12 +105,17 @@
 				<?php if (!empty($lycra_ads)) { ?>
 					<?php foreach($lycra_ads as $key => $value) {?>
 						<div class='item'>
-							<h4 class='desc'><strong>Date created: </strong><?=$value['create_date']?></h4>
-							<h4 class='desc'><strong>Category: </strong>Lycra</h4>
-							<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
-							<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
-							<a href="/ads.show.php?table=lycra&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
-							<a href="/ads.create.php?table=lycra&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
+							<div>
+								<h4 class='desc'><strong>Date created: </strong><?=$value['create_date']?></h4>
+								<h4 class='desc'><strong>Category: </strong>Lycra</h4>
+								<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
+								<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
+							</div>	
+							<div class='prfl_btn_div'>
+								<a href="/ads.show.php?table=lycra&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
+								<a href="/ads.create.php?table=lycra&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
+							</div>	
+	
 							<hr>
 						</div>
 					<?php } ?>
@@ -111,12 +124,17 @@
 				<?php if (!empty($pyrotechnics_ads)) { ?>
 					<?php foreach($pyrotechnics_ads as $key => $value) {?>
 						<div class='item'>
-							<h4 class='desc'><strong>Date created: </strong><?=$value['create_date']?></h4>
-							<h4 class='desc'><strong>Category: </strong>Pyrotchnics</h4>
-							<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
-							<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
-							<a href="/ads.show.php?table=pyrotechnics&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
-							<a href="/ads.create.php?table=pyrotechnics&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
+							<div>
+								<h4 class='desc'><strong>Date created: </strong><?=$value['create_date']?></h4>
+								<h4 class='desc'><strong>Category: </strong>Pyrotchnics</h4>
+								<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
+								<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
+							</div>	
+							<div class='prfl_btn_div'>
+								<a href="/ads.show.php?table=pyrotechnics&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
+								<a href="/ads.create.php?table=pyrotechnics&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
+							</div>	
+	
 							<hr>
 						</div>
 					<?php } ?>
@@ -125,12 +143,17 @@
 				<?php if (!empty($venues_ads)) { ?>
 					<?php foreach($venues_ads as $key => $value) {?>
 						<div class='item'>
-							<h4 class='desc'><strong>Date created: </strong><?=$value['create_date']?></h4>
-							<h4 class='desc'><strong>Category: </strong>Venues</h4>
-							<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
-							<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
-							<a href="/ads.show.php?table=venues&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
-							<a href="/ads.create.php?table=venues&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
+							<div>
+								<h4 class='desc'><strong>Date created: </strong><?=$value['create_date']?></h4>
+								<h4 class='desc'><strong>Category: </strong>Venues</h4>
+								<h4 class='desc'><strong>Type: </strong><?=$value['type']?></h4>
+								<h4 class='desc'><strong>Price: </strong>$<?=$value['price']?></h4>
+							</div>	
+							<div class='prfl_btn_div'>
+								<a href="/ads.show.php?table=venues&id=<?=$value['id']?>"><span class="badge">See Detail</span></a>
+								<a href="/ads.create.php?table=venues&id=<?=$value['id']?>"><span class="badge">Edit</span></a>
+							</div>	
+	
 							<hr>
 						</div>
 					<?php } ?>
@@ -139,7 +162,7 @@
 				
 			</div> <!-- end col-xs-12 col-sm-6 col-md-8 -->
 
-			<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="col-xs-12 col-sm-4 col-md-4">
 				<img class="image" src=<?=$image_url?> alt="">
 			</div> <!-- end col-xs-12 col-sm-6 col-md-8 -->
 

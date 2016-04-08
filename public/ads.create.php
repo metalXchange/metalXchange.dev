@@ -4,23 +4,30 @@
 
 	require_once '../bootstrap.php';
 
+// redirect to login.php for users not logged in
+
 	if (!Auth::isLoggedIn()) {
 	header("Location: /users.show.php");
 	die();
 	}
 
+// setting $category for table determination
 	$category = "";
+
+// checking $_GET for table and id values
 	if (Input::has('table')) {
 		$category = Input::get('table');
 		$id = Input::get('id');
 	}
 
+// building new objects for each cagtegory
 	$guitar = new Guitar();
 	$leather= new Leather();
 	$lycra = new Lycra();
 	$pyrotechnics = new Pyrotechnics();
 	$venues = new Venues();
 
+// $category loop for editing existing objects
 	if($category == 'guitars')
 	{
 		$guitar = Guitar::find($id);
@@ -43,7 +50,8 @@
 	}
 
 	$errors = [];
-			
+
+// try and catch input exceptions for Guitar
 	if($_POST && $category == 'guitars') {
 
 		try {
@@ -100,8 +108,7 @@
 			$errors[] = $e->getMessage();
 		}
 
-		// var_dump($errors);
-
+//assigning column values and saving objects
 		if (empty($errors)) {
 			$guitar->user_id = $_SESSION['LOGGED_IN_USER_ID'];
 			$guitar->type = Input::get('gtr_type');
@@ -117,6 +124,7 @@
 			$guitar->save();
 		}
 
+// try and catch input exceptions for Leather
 	} else if($_POST && $category == 'leather') {
 
 		try {
@@ -169,6 +177,8 @@
 
 		if (empty($errors)) 
 		{
+
+//assigning column values and saving objects
 			$leather->user_id = $_SESSION['LOGGED_IN_USER_ID'];
 			$leather->type = Input::get('lth_type');
 			$leather->headline = Input::get('lth_hdln');
@@ -183,6 +193,7 @@
 			$leather->save();
 		}
 
+// try and catch input exceptions for Lycra
 	} else if($_POST && $category == 'lycra') {
 
 		try {
@@ -234,6 +245,8 @@
 		}
 		if (empty($errors)) 
 		{
+			
+//assigning column values and saving objects
 			$lycra->user_id = $_SESSION['LOGGED_IN_USER_ID'];
 			$lycra->type = Input::get('lyc_type');
 			$lycra->headline = Input::get('lyc_hdln');
@@ -248,6 +261,7 @@
 			$lycra->save();			
 		}
 
+// try and catch input exceptions for Pyrotechnics
 	} else if($_POST && $category == 'pyrotechnics') {
 
 		try {
@@ -299,6 +313,8 @@
 		}
 		if (empty($errors)) 
 		{
+			
+//assigning column values and saving objects
 			$pyrotechnics->user_id = $_SESSION['LOGGED_IN_USER_ID'];
 			$pyrotechnics->type = Input::get('pyr_type');
 			$pyrotechnics->headline = Input::get('pyr_hdln');
@@ -313,6 +329,7 @@
 			$pyrotechnics->save();
 		}
 
+// try and catch input exceptions for Venues
 	} else if($_POST && $category == 'venues') {
 
 		try {
@@ -376,6 +393,8 @@
 		}
 		if (empty($errors)) 
 		{
+			
+//assigning column values and saving objects
 			$venues->user_id = $_SESSION['LOGGED_IN_USER_ID'];
 			$venues->type = Input::get('ven_type');
 			$venues->headline = Input::get('ven_hdln');
@@ -408,94 +427,90 @@
 	<?php include '../views/partials/navbar.php' ?>
 
 	<main>
-		<h1 class='headline'>Add an Item for Sale/Trade</h1>
-		<div class="container">
-			<div class="btn-group">
-				<button type="button" class="btn btn-default">Gear Type</button>
-				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<span class="caret"></span>
-					<span class="sr-only">Toggle Dropdown</span>
-				</button>
-				<ul class="dropdown-menu">
-					<li><a id="tgr_gtr" href="#">Guitars</a></li>
-					<li><a id="tgr_lth" href="#">Leather</a></li>
-					<li><a id="tgr_lyc" href="#">Lycra</a></li>
-					<li><a id="tgr_pyr" href="#">Pyrotechnics</a></li>
-					<li><a id="tgr_ven" href="#">Venue</a></li>
-<!-- 					<li id="hidden_field"></li>
- -->				</ul>
+		<h1 class='headline'><?= isset($id) ? "Edit an Item" : "Add an Item for Sale/Trade" ?></h1>
+		<?php if(!isset($id)) { ?>
+			<div class="container">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default">Gear Type</button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="caret"></span>
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a id="tgr_gtr" href="#">Guitars</a></li>
+						<li><a id="tgr_lth" href="#">Leather</a></li>
+						<li><a id="tgr_lyc" href="#">Lycra</a></li>
+						<li><a id="tgr_pyr" href="#">Pyrotechnics</a></li>
+						<li><a id="tgr_ven" href="#">Venue</a></li>
+					</ul>
+				</div>
 			</div>
-		</div>
+		<?php } ?>
 
 <!-- 		<form method="post">
  -->		<form action="ads.create.php" method="post" enctype="multipart/form-data">
 			 <!-- DO NOT DELETE LINE BELOW!!! -->
  			<input type="text" hidden name="category" class="hidden" value="<?= $category ?>" id="category">
+
+<!-- input form for guitars -->
 			<div id="guitars">
-				<h2 class='headline'>Guitars</h2>
+				<h2 class='headline'>Guitar</h2>
 				<hr>
-				<div class="col-xs-12 col-sm-6 col-md-4">
-					<div>
-						<label for="gtr_type">Types of Guitar</label>
-						<select name="gtr_type">
-						  <option disabled selected>- select type -</option>
-						  <option value="Flying V's">Flying V's</option>
-						  <option value="Random Pointy">Random Pointy</option>
-						  <option value="Generally Scary">Generally Scary</option>
-						  <option value="Novelty">Novelty</option>
-						</select>
-					</div>
-
-						<div class="input-group">
-							<span class="input-group-addon">Headline</span>
-							<input name="gtr_hdln" type="text" value="<?= $guitar->headline ?>" class="form-control" aria-label="Descriptive Headline">
-						</div>
-
-						<div class="input-group">
-							<span class="input-group-addon">Brand</span>
-							<input name="gtr_brand" type="text" value="<?= $guitar->brand ?>" class="form-control" aria-label="Screen name displayed to public">
-						</div>
-
-						<div class="input-group">
-							<span class="input-group-addon">No. of Strings</span>
-							<input name="num_strings" type="text" value="<?= $guitar->num_strings ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
-						</div>
-
-						<div class="input-group">
-							<span class="input-group-addon">No. of Necks</span>
-							<input name="num_necks" type="text" value="<?= $guitar->num_necks ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
-						</div>
-
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title">Item Description</h3>
-							</div>
-							<div class="panel-body">
-								<input name="gtr_description" type="text" value="<?= $guitar->item_description ?>">
-							</div>
-						</div>
-
-						<div class="input-group">
-							<span class="input-group-addon">Image</span>
-							<input name="gtr_url" type="text" value="<?= $guitar->image_url ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
-						</div>
-
-						<div class="price">
-							<div class="input-group">
-								<span class="input-group-addon">$</span>
-								<input name="gtr_price" type="text" value="<?= $guitar->price ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
-								<span class="input-group-addon">.00</span>
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon">
-									<input name="gtr_trade" type="radio" aria-label="..." value="<?= $guitar->trade ?>">
-								</span>
-								<span class="input-group-addon" id="basic-addon1">Trade?</span>
-								<input name="gtr_trade_desc" type="text" value="<?= $guitar->trade_desc ?>" class="form-control" aria-label="...">
-							</div><!-- /input-group -->
-							<button type="submit" class="btn btn-default">Submit</button>
+				<div class="row"></div>
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div>
+							<label for="gtr_type">Types of Guitar</label>
+							<select name="gtr_type">
+								<option disabled selected>- select type -</option>
+								<option value="Flying V's">Flying V's</option>
+								<option value="Random Pointy">Random Pointy</option>
+								<option value="Generally Scary">Generally Scary</option>
+								<option value="Novelty">Novelty</option>
+							</select>
 						</div>
 					</div>
+
+				<div class="input-group">
+					<span class="input-group-addon">Headline</span>
+					<input name="gtr_hdln" type="text" value="<?= $guitar->headline ?>" class="form-control" aria-label="Descriptive Headline">
+				</div>
+
+				<div class="input-group">
+					<span class="input-group-addon">Brand</span>
+					<input name="gtr_brand" type="text" value="<?= $guitar->brand ?>" class="form-control" aria-label="Screen name displayed to public">
+				</div>
+
+				<div class="input-group">
+					<span class="input-group-addon">No. of Strings</span>
+					<input name="num_strings" type="text" value="<?= $guitar->num_strings ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+				</div>
+
+				<div class="input-group">
+					<span class="input-group-addon">No. of Necks</span>
+					<input name="num_necks" type="text" value="<?= $guitar->num_necks ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+				</div>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Item Description</h3>
+					</div>
+					<div class="panel-body">
+						<input name="gtr_description" type="text" value="<?= $guitar->item_description ?>">
+					</div>
+				</div>
+
+				<div class="input-group">
+					<span class="input-group-addon">$</span>
+					<input name="gtr_price" type="text" value="<?= $guitar->price ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+					<span class="input-group-addon">.00</span>
+				</div>
+
+				<div class="input-group">
+					<span class="input-group-addon">
+						<input name="gtr_trade" type="radio" aria-label="..." value="<?= $guitar->trade ?>">
+					</span>
+					<span class="input-group-addon" id="basic-addon1">Trade?</span>
+					<input name="gtr_trade_desc" type="text" value="<?= $guitar->trade_desc ?>" class="form-control" aria-label="...">
 				</div>
 			</div> <!-- end of guitar div -->
 
@@ -759,8 +774,10 @@
 			<div id="fileUpload">
 				Select image to upload:
 			    <input type="file" name="image_url">
-<!-- 			    <input type="submit" value="Upload Image" name="submit">
- -->		    </div>
+			    <div class='top_margin'>
+				    <button type="submit" class="btn btn-default">Submit</button>
+			    </div>
+			</div>
 		</form>
 
 	</main>
@@ -833,6 +850,7 @@
 		var category = $('#category').val();
 		if (category == 'guitars') {
 			$('.hidden').val('guitars');
+			$('.category').val('Guitars');
 			$(gtr).slideDown();
 			$(lth).hide();
 		 	$(lyc).hide();
@@ -841,6 +859,7 @@
 			$(iu).slideDown();
 		} else if (category == 'leather') {
 			$('.hidden').val('leather');
+			$('.category').val('Leather');
 			$(gtr).hide();
 			$('#leather').slideDown();
 			$(lyc).hide();
@@ -849,6 +868,7 @@
 			$(iu).slideDown();
 		} else if (category == 'lycra') {
 			$('.hidden').val('lycra');
+			$('.category').val('Lycra');
 			$(gtr).hide();
 			$(lth).hide();
 			$('#lycra').slideDown();
@@ -857,6 +877,7 @@
 			$(iu).slideDown();
 		} else if (category == 'pyrotechnics') {
 			$('.hidden').val('pyrotechnics');
+			$('.category').val('Pyrotechnics');
 			$(gtr).hide();
 			$(lth).hide();
 			$(lyc).hide();
@@ -865,6 +886,7 @@
 			$(iu).slideDown();
 		} else if (category == 'venues') {
 			$('.hidden').val('venues');
+			$('.category').val('Venues');
 			$(gtr).hide();
 			$(lth).hide();
 			$(lyc).hide();

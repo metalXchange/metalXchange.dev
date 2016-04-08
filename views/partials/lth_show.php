@@ -10,7 +10,7 @@
 				<li class="list-group-item"><strong>Color: </strong> <?= $item->color ?> </li>
 				<li class="list-group-item"><strong>Spikes? </strong> <?= $item->spikes ?> </li>
 				<li class="list-group-item"><strong>Price: </strong> $<?= $item->price ?> </li>
-				<li class="list-group-item"><strong>Trade?: </strong> <?= $item->trade ?> </li>
+				<li class="list-group-item"><strong>Trade?: </strong> <?php echo $item->trade ? 'yes' : 'no'; ?></li>
 				<li class="list-group-item"><strong>What for?: </strong> <?= $item->trade_desc ?> </li>
 				</ul>
 			<!-- description and photo -->
