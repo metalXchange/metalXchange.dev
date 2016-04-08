@@ -129,7 +129,8 @@ abstract class BaseModel
             }
         }
 
-        Log::error($message);
+        $log = new Log();
+        $log->error($message);
     }
 
     /**

@@ -25,8 +25,10 @@
 				$itemDisplay = Venues::find($id);
 				break;
 		}
+		$temp = [];
+		$temp['item'] = $itemDisplay;
 
-		return $itemDisplay;
+		return $temp;
 	}
 
 	extract(pageController($table, $id));
@@ -65,6 +67,9 @@
 	<?php if($table == 'venues') { ?>
 	<?php include '../views/partials/ven_show.php'; ?>
 	<?php } ?>
+
+	<a href="/ads.create.php?table=<?=$table?>&id=<?=$id?>"><span class="badge">Edit Ad</span></a>
+		<hr></a>
 
 	<?php include '../views/partials/footer.php' ?>
 
