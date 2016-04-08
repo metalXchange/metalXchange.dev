@@ -10,7 +10,7 @@
 
 		$temp = [];
 
-		if (Input::has('delete')) {
+		if (isset($_POST['delete']) && $_SESSION['authenticate'] == true) {
 
 			switch ($table) {
 			case 'guitars' : 
@@ -30,6 +30,7 @@
 				break;
 			}
 
+			unset($_SESSION['authenticate']);
 			header('Location: /users.show.php');
 			die();
 		}
@@ -58,7 +59,10 @@
 			}			
 
 			if ($user_id == $ad->user_id) {
-				$temp['authenticate'] = true;
+				// $temp['authenticate'] = true;
+				$_SESSION['authenticate'] = true;
+			} else {
+				$_SESSION['authenticate'] = false;
 			}
 		}	
 
@@ -125,8 +129,12 @@
 	<?php } ?>
 
 	<a href="/ads.create.php?table=<?=$table?>&id=<?=$id?>"><span class="badge">Edit Ad</span></a>
-	<?php if (isset($authenticate)) { ?>
-		<a href="/ads.show.php?table=<?=$table?>&id=<?=$id?>&delete=1"><span class="badge">Delete Ad</span></a>
+	<?php if (isset($_SESSION['authenticate'])) { ?>
+		<?php if ($_SESSION['authenticate'] == true) { ?>
+			<form method='post' action=''>
+				<button name='delete' value='delete'>Delete Ad</button>
+			</form>
+		<?php } ?>
 	<?php } ?>
 		<hr></a>
 
