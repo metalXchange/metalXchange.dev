@@ -8,6 +8,8 @@
 
 	function pageController($table, $id) {
 
+		$temp = [];
+
 		if (Input::has('delete')) {
 
 			switch ($table) {
@@ -33,6 +35,34 @@
 		}
 
 
+		if (Auth::isLoggedIn())	{
+
+			$user_id = $_SESSION['LOGGED_IN_USER_ID'];
+			
+			switch ($table) {
+			case 'guitars' : 
+				$ad = Guitar::find($id);
+				break;
+			case 'leather' : 
+				$ad = Leather::find($id);
+				break;
+			case 'lycra' : 
+				$ad = Lycra::find($id);
+				break;
+			case 'pyrotechnics' : 
+				$ad = Pyrotechnics::find($id);
+				break;
+			case 'venues' : 
+				$ad = Venues::find($id);
+				break;
+			}			
+
+			if ($user_id == $ad->user_id) {
+				$temp['authenticate'] = true;
+			}
+		}	
+
+
 		$itemDisplay = [];
 		switch ($table) {
 			case 'guitars' : 
@@ -51,7 +81,7 @@
 				$itemDisplay = Venues::find($id);
 				break;
 		}
-		$temp = [];
+		
 		$temp['item'] = $itemDisplay;
 
 		return $temp;
@@ -95,7 +125,7 @@
 	<?php } ?>
 
 	<a href="/ads.create.php?table=<?=$table?>&id=<?=$id?>"><span class="badge">Edit Ad</span></a>
-	<?php if (Auth::isLoggedIn()) { ?>
+	<?php if (isset($authenticate)) { ?>
 		<a href="/ads.show.php?table=<?=$table?>&id=<?=$id?>&delete=1"><span class="badge">Delete Ad</span></a>
 	<?php } ?>
 		<hr></a>
