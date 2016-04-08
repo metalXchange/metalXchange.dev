@@ -16,7 +16,7 @@
 	}
 
 	$guitar = new Guitar();
-	$leather = new Leather();
+	$leather= new Leather();
 	$lycra = new Lycra();
 	$pyrotechnics = new Pyrotechnics();
 	$venues = new Venues();
@@ -24,23 +24,25 @@
 	if($category == 'guitars')
 	{
 		$guitar = Guitar::find($id);
-	} elseif ($category == 'leathers')
+
+	} elseif ($category == 'leather')
 	{
-		$guitar = Leather::find($id);
+		$leather = Leather::find($id);
+
 	} elseif ($category == 'lycra')
 	{
-		$guitar = Lycra::find($id);
+		$lycra = Lycra::find($id);
+
 	} elseif ($category == 'pyrotechnics')
 	{
-		$guitar = Pyrotechnics::find($id);
+		$pyrotechnics = Pyrotechnics::find($id);
+
 	} elseif ($category == 'venues')
 	{
-		$guitar = Venues::find($id);
+		$venues = Venues::find($id);
 	}
 
 	$errors = [];
-
-	// var_dump($guitar);
 			
 	if($_POST && $category == 'guitars') {
 
@@ -98,7 +100,7 @@
 			$errors[] = $e->getMessage();
 		}
 
-		var_dump($errors);
+		// var_dump($errors);
 
 		if (empty($errors)) {
 			$guitar->user_id = $_SESSION['LOGGED_IN_USER_ID'];
@@ -165,18 +167,21 @@
 			$errors[] = $e->getMessage();
 		}
 
-		$leather->user_id = $_SESSION['LOGGED_IN_USER_ID'];
-		$leather->type = Input::get('lth_type');
-		$leather->headline = Input::get('lth_hdln');
-		$leather->size = Input::get('lth_size');
-		$leather->color = Input::get('lth_color');
-		$leather->spikes = Input::get('spikes');
-		$leather->item_description = Input::get('lth_description');
-		$leather->price = Input::get('lth_price');
-		$leather->trade = Input::get('lth_trade');
-		$leather->trade_desc = Input::get('lth_trade_desc');
-		$leather->image_url = Leather::uploadFile();
-		$leather->save();
+		if (empty($errors)) 
+		{
+			$leather->user_id = $_SESSION['LOGGED_IN_USER_ID'];
+			$leather->type = Input::get('lth_type');
+			$leather->headline = Input::get('lth_hdln');
+			$leather->size = Input::get('lth_size');
+			$leather->color = Input::get('lth_color');
+			$leather->spikes = Input::get('spikes');
+			$leather->item_description = Input::get('lth_description');
+			$leather->price = Input::get('lth_price');
+			$leather->trade = Input::get('lth_trade');
+			$leather->trade_desc = Input::get('lth_trade_desc');
+			$leather->image_url = Leather::uploadFile();
+			$leather->save();
+		}
 
 	} else if($_POST && $category == 'lycra') {
 
@@ -227,19 +232,21 @@
 		} catch (Exception $e) {
 			$errors[] = $e->getMessage();
 		}
-
-		$lycra->user_id = $_SESSION['LOGGED_IN_USER_ID'];
-		$lycra->type = Input::get('lyc_type');
-		$lycra->headline = Input::get('lyc_hdln');
-		$lycra->size = Input::get('lyc_size');
-		$lycra->color = Input::get('lyc_color');
-		$lycra->animal_stripe = Input::get('animal_stripe');
-		$lycra->item_description = Input::get('lyc_description');
-		$lycra->price = Input::get('lyc_price');
-		$lycra->trade = Input::get('lyc_trade');
-		$lycra->trade_desc = Input::get('lyc_trade_desc');
-		$lycra->image_url = Lycra::uploadFile();
-		$lycra->save();
+		if (empty($errors)) 
+		{
+			$lycra->user_id = $_SESSION['LOGGED_IN_USER_ID'];
+			$lycra->type = Input::get('lyc_type');
+			$lycra->headline = Input::get('lyc_hdln');
+			$lycra->size = Input::get('lyc_size');
+			$lycra->color = Input::get('lyc_color');
+			$lycra->animal_stripe = Input::get('animal_stripe');
+			$lycra->item_description = Input::get('lyc_description');
+			$lycra->price = Input::get('lyc_price');
+			$lycra->trade = Input::get('lyc_trade');
+			$lycra->trade_desc = Input::get('lyc_trade_desc');
+			$lycra->image_url = Lycra::uploadFile();
+			$lycra->save();			
+		}
 
 	} else if($_POST && $category == 'pyrotechnics') {
 
@@ -290,19 +297,21 @@
 		} catch (Exception $e) {
 			$errors[] = $e->getMessage();
 		}
-
-		$pyrotechnics->user_id = $_SESSION['LOGGED_IN_USER_ID'];
-		$pyrotechnics->type = Input::get('pyr_type');
-		$pyrotechnics->headline = Input::get('pyr_hdln');
-		$pyrotechnics->brand = Input::get('pyr_brand');
-		$pyrotechnics->homemade = Input::get('homemade');
-		$pyrotechnics->casualties = Input::get('casualties');
-		$pyrotechnics->item_description = Input::get('pyr_description');
-		$pyrotechnics->price = Input::get('pyr_price');
-		$pyrotechnics->trade = Input::get('pyr_trade');
-		$pyrotechnics->trade_desc = Input::get('pyr_trade_desc');
-		$pyrotechnics->image_url = Pyrotechnics::uploadFile();
-		$pyrotechnics->save();
+		if (empty($errors)) 
+		{
+			$pyrotechnics->user_id = $_SESSION['LOGGED_IN_USER_ID'];
+			$pyrotechnics->type = Input::get('pyr_type');
+			$pyrotechnics->headline = Input::get('pyr_hdln');
+			$pyrotechnics->brand = Input::get('pyr_brand');
+			$pyrotechnics->homemade = Input::get('homemade');
+			$pyrotechnics->casualties = Input::get('casualties');
+			$pyrotechnics->item_description = Input::get('pyr_description');
+			$pyrotechnics->price = Input::get('pyr_price');
+			$pyrotechnics->trade = Input::get('pyr_trade');
+			$pyrotechnics->trade_desc = Input::get('pyr_trade_desc');
+			$pyrotechnics->image_url = Pyrotechnics::uploadFile();
+			$pyrotechnics->save();
+		}
 
 	} else if($_POST && $category == 'venues') {
 
@@ -365,25 +374,23 @@
 		} catch (Exception $e) {
 			$errors[] = $e->getMessage();
 		}
-
-		$venues->user_id = $_SESSION['LOGGED_IN_USER_ID'];
-		$venues->type = Input::get('ven_type');
-		$venues->headline = Input::get('ven_hdln');
-		$venues->capacity = Input::get('capacity');
-		$venues->lighting = Input::get('homemade');
-		$venues->pa_systems = Input::get('pa_systems');
-		$venues->beverages = Input::get('beverages');
-		$venues->item_description = Input::get('ven_description');
-		$venues->price = Input::get('ven_price');
-		$venues->trade = Input::get('ven_trade');
-		$venues->trade_desc = Input::get('ven_trade_desc');
-		$venues->image_url = Venues::uploadFile();
-		$venues->save();
+		if (empty($errors)) 
+		{
+			$venues->user_id = $_SESSION['LOGGED_IN_USER_ID'];
+			$venues->type = Input::get('ven_type');
+			$venues->headline = Input::get('ven_hdln');
+			$venues->capacity = Input::get('capacity');
+			$venues->lighting = Input::get('homemade');
+			$venues->pa_systems = Input::get('pa_systems');
+			$venues->beverages = Input::get('beverages');
+			$venues->item_description = Input::get('ven_description');
+			$venues->price = Input::get('ven_price');
+			$venues->trade = Input::get('ven_trade');
+			$venues->trade_desc = Input::get('ven_trade_desc');
+			$venues->image_url = Venues::uploadFile();
+			$venues->save();
+		}
 	}
-
-	// var_dump($guitar);
-
-	// var_dump($guitar->headline);
 
  ?>
 
@@ -509,22 +516,22 @@
 
 					<div class="input-group">
 						<span class="input-group-addon">Headline</span>
-						<input name="lth_hdln" type="text" value="<?= isset($leather->headline) ? $leather->headline : '' ?>" class="form-control" aria-label="Descriptive Headline">
+						<input name="lth_hdln" type="text" value="<?= $leather->headline ?>" class="form-control" aria-label="Descriptive Headline">
 					</div>
 
 					<div class="input-group">
 						<span class="input-group-addon">Size</span>
-						<input name="lth_size" type="text" value="<?= isset($leather->size) ? $leather->size : '' ?>" class="form-control" aria-label="Screen name displayed to public">
+						<input name="lth_size" type="text" value="<?= $leather->size ?>" class="form-control" aria-label="Screen name displayed to public">
 					</div>
 
 					<div class="input-group">
 						<span class="input-group-addon">Color</span>
-						<input name="lth_color" type="text" value="<?= isset($leather->color) ? $leather->color : '' ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+						<input name="lth_color" type="text" value="<?= $leather->color ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
 					</div>
 
 					<div class="input-group">
 						<span class="input-group-addon">Spikes?</span>
-						<input name="spikes" type="text" value="<?= isset($leather->spikes) ? $leather->spikes : '' ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+						<input name="spikes" type="text" value="<?= $leather->spikes ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
 					</div>
 
 					<div class="panel panel-default">
@@ -532,22 +539,22 @@
 							<h3 class="panel-title">Item Description</h3>
 						</div>
 						<div class="panel-body">
-							<input name="lth_description" type="text" value="<?= isset($leather->item_description) ? $leather->item_description : '' ?>">
+							<input name="lth_description" type="text" value="<?= $leather->item_description ?>">
 						</div>
 					</div>
 
 					<div class="price">
 						<div class="input-group">
 							<span class="input-group-addon">$</span>
-							<input name="lth_price" type="text" value="<?= isset($leather->price) ? $leather->price : '' ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+							<input name="lth_price" type="text" value="<?= $leather->price ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
 							<span class="input-group-addon">.00</span>
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon">
-								<input name="lth_trade" type="radio" aria-label="..." value="<?= isset($leather->trade) ? $leather->trade : '' ?>">
+								<input name="lth_trade" type="radio" aria-label="..." value="<?= $leather->trade ?>">
 							</span>
 							<span class="input-group-addon" id="basic-addon1">Trade?</span>
-							<input name="lth_trade_desc" type="text" value="<?= isset($leather->trade_desc) ? $leather->trade_desc : '' ?>" class="form-control" aria-label="...">
+							<input name="lth_trade_desc" type="text" value="<?= $leather->trade_desc ?>" class="form-control" aria-label="...">
 						</div><!-- /input-group -->
 						<button type="submit" class="btn btn-default">Submit</button>
 					</div>
@@ -572,22 +579,22 @@
 
 					<div class="input-group">
 						<span class="input-group-addon">Headline</span>
-						<input name="lyc_hdln" type="text" value="<?= isset($lycra->headline) ? $lycra->headline : '' ?>" class="form-control" aria-label="Descriptive Headline">
+						<input name="lyc_hdln" type="text" value="<?= $lycra->headline ?>" class="form-control" aria-label="Descriptive Headline">
 					</div>
 
 					<div class="input-group">
 						<span class="input-group-addon">Size</span>
-						<input name="lyc_size" type="text" value="<?= isset($lycra->size) ? $lycra->size : '' ?>" class="form-control" aria-label="Screen name displayed to public">
+						<input name="lyc_size" type="text" value="<?= $lycra->size ?>" class="form-control" aria-label="Screen name displayed to public">
 					</div>
 
 					<div class="input-group">
 						<span class="input-group-addon">Color</span>
-						<input name="lyc_color" type="text" value="<?= isset($lycra->color) ? $lycra->color : '' ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+						<input name="lyc_color" type="text" value="<?= $lycra->color ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
 					</div>
 
 					<div class="input-group">
 						<span class="input-group-addon">Animal stripe pattern?</span>
-						<input name="animal_stripe" type="text" value="<?= isset($lycra->animal_stripe) ? $lycra->animal_stripe : '' ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+						<input name="animal_stripe" type="text" value="<?= $lycra->animal_stripe ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
 					</div>
 
 					<div class="panel panel-default">
@@ -595,22 +602,22 @@
 							<h3 class="panel-title">Item Description</h3>
 						</div>
 						<div class="panel-body">
-							<input name="lyc_description" type="text" value="<?= isset($lycra->item_description) ? $lycra->item_description : '' ?>">
+							<input name="lyc_description" type="text" value="<?= $lycra->item_description ?>">
 						</div>
 					</div>
 
 					<div class="price">
 						<div class="input-group">
 							<span class="input-group-addon">$</span>
-							<input name="lyc_price" type="text" value="<?= isset($lycra->price) ? $lycra->price : '' ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+							<input name="lyc_price" type="text" value="<?= $lycra->price ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
 							<span class="input-group-addon">.00</span>
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon">
-								<input name="lyc_trade" type="radio" aria-label="..." value="<?= isset($lycra->trade) ? $lycra->trade : '' ?>">
+								<input name="lyc_trade" type="radio" aria-label="..." value="<?= $lycra->trade ?>">
 							</span>
 							<span class="input-group-addon" id="basic-addon1">Trade?</span>
-							<input name="lyc_trade_desc" type="text" value="<?= isset($lycra->trade_desc) ? $lycra->trade_desc : '' ?>" class="form-control" aria-label="...">
+							<input name="lyc_trade_desc" type="text" value="<?= $lycra->trade_desc ?>" class="form-control" aria-label="...">
 						</div><!-- /input-group -->
 						<button type="submit" class="btn btn-default">Submit</button>
 					</div>
@@ -635,22 +642,22 @@
 
 					<div class="input-group">
 						<span class="input-group-addon">Headline</span>
-						<input name="pyr_hdln" type="text" value="<?= isset($pyrotechnics->headline) ? $pyrotechnics->headline : '' ?>" class="form-control" aria-label="Descriptive Headline">
+						<input name="pyr_hdln" type="text" value="<?= $pyrotechnics->headline ?>" class="form-control" aria-label="Descriptive Headline">
 					</div>
 
 					<div class="input-group">
 						<span class="input-group-addon">Brand</span>
-						<input name="pyr_brand" type="text" value="<?= isset($pyrotechnics->brand) ? $pyrotechnics->brand : '' ?>" class="form-control" aria-label="Screen name displayed to public">
+						<input name="pyr_brand" type="text" value="<?= $pyrotechnics->brand ?>" class="form-control" aria-label="Screen name displayed to public">
 					</div>
 
 					<div class="input-group">
 						<span class="input-group-addon">Homemade?</span>
-						<input name="homemade" type="text" value="<?= isset($pyrotechnics->homemade) ? $pyrotechnics->homemade : '' ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+						<input name="homemade" type="text" value="<?= $pyrotechnics->homemade ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
 					</div>
 
 					<div class="input-group">
 						<span class="input-group-addon">Casulties?</span>
-						<input name="casualties" type="text" value="<?= isset($pyrotechnics->casualties) ? $pyrotechnics->casualties : '' ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+						<input name="casualties" type="text" value="<?= $pyrotechnics->casualties ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
 					</div>
 
 					<div class="panel panel-default">
@@ -658,22 +665,22 @@
 							<h3 class="panel-title">Item Description</h3>
 						</div>
 						<div class="panel-body">
-							<input name="pyr_description" type="text" value="<?= isset($pyrotechnics->item_description) ? $pyrotechnics->item_description : '' ?>">
+							<input name="pyr_description" type="text" value="<?= $pyrotechnics->item_description ?>">
 						</div>
 					</div>
 
 					<div class="price">
 						<div class="input-group">
 							<span class="input-group-addon">$</span>
-							<input name="pyr_price" type="text" value="<?= isset($pyrotechnics->price) ? $pyrotechnics->price : '' ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+							<input name="pyr_price" type="text" value="<?= $pyrotechnics->price ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
 							<span class="input-group-addon">.00</span>
 						</div>
 						<div class="input-group">
 						<span class="input-group-addon">
-						  <input name="pyr_trade" type="radio" aria-label="..." value="<?= isset($pyrotechnics->trade) ? $pyrotechnics->trade : '' ?>">
+						  <input name="pyr_trade" type="radio" aria-label="..." value="<?= $pyrotechnics->trade ?>">
 						</span>
 						<span class="input-group-addon" id="basic-addon1">Trade?</span>
-							<input name="pyr_trade_desc" type="text" value="<?= isset($pyrotechnics->trade_desc) ? $pyrotechnics->trade_desc : '' ?>" class="form-control" aria-label="...">
+							<input name="pyr_trade_desc" type="text" value="<?= $pyrotechnics->trade_desc ?>" class="form-control" aria-label="...">
 						</div><!-- /input-group -->
 						<button type="submit" class="btn btn-default">Submit</button>
 					</div>
@@ -698,27 +705,27 @@
 
 					<div class="input-group">
 						<span class="input-group-addon">Headline</span>
-						<input name="ven_hdln" type="text" value="<?= isset($venue->headline) ? $venue->headline : '' ?>" class="form-control" aria-label="Descriptive Headline">
+						<input name="ven_hdln" type="text" value="<?= $venues->headline ?>" class="form-control" aria-label="Descriptive Headline">
 					</div>
 
 					<div class="input-group">
 						<span class="input-group-addon">Capacity</span>
-						<input name="capacity" type="text" value="<?= isset($venue->capacity) ? $venue->capacity : '' ?>" class="form-control" aria-label="Screen name displayed to public">
+						<input name="capacity" type="text" value="<?= $venues->capacity ?>" class="form-control" aria-label="Screen name displayed to public">
 					</div>
 
 					<div class="input-group">
 						<span class="input-group-addon">Lighting</span>
-						<input name="lighting" type="text" value="<?= isset($venue->lighting) ? $venue->lighting : '' ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+						<input name="lighting" type="text" value="<?= $venues->lighting ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
 					</div>
 
 					<div class="input-group">
 						<span class="input-group-addon">PA System</span>
-						<input name="pa_systems" type="text" value="<?= isset($venue->pa_systems) ? $venue->pa_systems : '' ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+						<input name="pa_systems" type="text" value="<?= $venues->pa_systems ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
 					</div>
 
 					<div class="input-group">
 						<span class="input-group-addon">Beverages?</span>
-						<input name="beverages" type="text" value="<?= isset($venue->beverages) ? $venue->beverages : '' ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+						<input name="beverages" type="text" value="<?= $venues->beverages ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
 					</div>
 
 					<div class="panel panel-default">
@@ -726,22 +733,22 @@
 							<h3 class="panel-title">Item Description</h3>
 						</div>
 						<div class="panel-body">
-							<input name="ven_description" type="text" value="<?= isset($venue->item_description) ? $venue->item_description : '' ?>">
+							<input name="ven_description" type="text" value="<?= $venues->item_description ?>">
 						</div>
 					</div>
 
 					<div class="price">
 						<div class="input-group">
 							<span class="input-group-addon">$</span>
-							<input name="ven_price" type="text" value="<?= isset($venue->price) ? $venue->price : '' ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
+							<input name="ven_price" type="text" value="<?= $venues->price ?>" class="form-control" aria-label="Amount (to the nearest dollar)">
 							<span class="input-group-addon">.00</span>
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon">
-								<input name="ven_trade" type="radio" aria-label="..." value="<?= isset($venue->trade) ? $venue->trade : '' ?>">
+								<input name="ven_trade" type="radio" aria-label="..." value="<?= $venues->trade ?>">
 							</span>
 							<span class="input-group-addon" id="basic-addon1">Trade?</span>
-							<input name="ven_trade_desc" type="text" value="<?= isset($venue->trade_desc) ? $venue->trade_desc : '' ?>" class="form-control" aria-label="...">
+							<input name="ven_trade_desc" type="text" value="<?= $venues->trade_desc ?>" class="form-control" aria-label="...">
 						</div><!-- /input-group -->
 						<button type="submit" class="btn btn-default">Submit</button>
 					</div>
@@ -766,62 +773,62 @@
  	<script>
  		"use strict";
 
-			var gtr = $("#guitars");
-			var lth = $("#leather");
-			var lyc = $("#lycra");
-			var pyr = $("#pyro");
-			var ven = $("#venue");
-			var iu = $("#fileUpload")
+		var gtr = $("#guitars");
+		var lth = $("#leather");
+		var lyc = $("#lycra");
+		var pyr = $("#pyro");
+		var ven = $("#venue");
+		var iu = $("#fileUpload")
 
-			// set my event listeners
+		// set my event listeners
 
-				$(document).ready(function() {
-					$('#tgr_gtr').click(function() {
-					  $('.hidden').val('guitars');
-					  $(gtr).slideDown();
-					  $(lth).hide();
-					  $(lyc).hide();
-					  $(pyr).hide();
-					  $(ven).hide();
-					  $(iu).slideDown();
-					});
-					$('#tgr_lth').click(function() {
-  					  $('.hidden').val('leather');
-  					  $(gtr).hide();
-					  $('#leather').slideDown();
-					  $(lyc).hide();
-					  $(pyr).hide();
-					  $(ven).hide();
-					  $(iu).slideDown();
-					});
-					$('#tgr_lyc').click(function() {
-  					  $('.hidden').val('lycra');
-  					  $(gtr).hide();
-					  $(lth).hide();
-					  $('#lycra').slideDown();
-					  $(pyr).hide();
-					  $(ven).hide();
-					  $(iu).slideDown();
-					});
-					$('#tgr_pyr').click(function() {
-  					  $('.hidden').val('pyrotechnics');
-  					  $(gtr).hide();
-					  $(lth).hide();
-					  $(lyc).hide();
-					  $('#pyro').slideDown();
-					  $(ven).hide();
-					  $(iu).slideDown();
-					});
-					$('#tgr_ven').click(function() {
-  					  $('.hidden').val('venues');
-  					  $(gtr).hide();
-					  $(lth).hide();
-					  $(lyc).hide();
-					  $(pyr).hide();
-					  $('#venue').slideDown();
-					  $(iu).slideDown();
-					});
-				});
+		$(document).ready(function() {
+			$('#tgr_gtr').click(function() {
+			  $('.hidden').val('guitars');
+			  $(gtr).slideDown();
+			  $(lth).hide();
+			  $(lyc).hide();
+			  $(pyr).hide();
+			  $(ven).hide();
+			  $(iu).slideDown();
+			});
+			$('#tgr_lth').click(function() {
+				  $('.hidden').val('leather');
+				  $(gtr).hide();
+			  $('#leather').slideDown();
+			  $(lyc).hide();
+			  $(pyr).hide();
+			  $(ven).hide();
+			  $(iu).slideDown();
+			});
+			$('#tgr_lyc').click(function() {
+				  $('.hidden').val('lycra');
+				  $(gtr).hide();
+			  $(lth).hide();
+			  $('#lycra').slideDown();
+			  $(pyr).hide();
+			  $(ven).hide();
+			  $(iu).slideDown();
+			});
+			$('#tgr_pyr').click(function() {
+				  $('.hidden').val('pyrotechnics');
+				  $(gtr).hide();
+			  $(lth).hide();
+			  $(lyc).hide();
+			  $('#pyro').slideDown();
+			  $(ven).hide();
+			  $(iu).slideDown();
+			});
+			$('#tgr_ven').click(function() {
+				  $('.hidden').val('venues');
+				  $(gtr).hide();
+			  $(lth).hide();
+			  $(lyc).hide();
+			  $(pyr).hide();
+			  $('#venue').slideDown();
+			  $(iu).slideDown();
+			});
+		});
 
 		var category = $('#category').val();
 		if (category == 'guitars') {
