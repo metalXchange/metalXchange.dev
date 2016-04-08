@@ -1,6 +1,6 @@
 <?php 
 
-// this is where any necessary embedded PHP will be included
+session_start();
 
  ?>
 

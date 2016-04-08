@@ -1,5 +1,7 @@
 <?php
 
+	session_start();
+
 	require '../bootstrap.php';
 
 	$table = $_GET['table'];

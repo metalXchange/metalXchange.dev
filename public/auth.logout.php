@@ -1,8 +1,8 @@
 <?php 
 
-require_once '../bootstrap.php';
-
 session_start();
+
+require_once '../bootstrap.php';
 
 Auth::logout();
 

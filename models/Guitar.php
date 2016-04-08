@@ -158,6 +158,8 @@ class Guitar extends BaseModel
 
     public static function delete($id)
     {
+        self::dbConnect();
+
         $stmt = self::$dbc->prepare("DELETE FROM guitars WHERE id = :id");
 
         $stmt->bindValue(':id', $id, PDO::PARAM_STR);
