@@ -22,6 +22,11 @@ $query = "CREATE TABLE users (
 
 $dbc->exec($query);
 
+$query = "ALTER TABLE users
+			ADD UNIQUE (user_name);";
+
+$dbc->exec($query);
+
 
 
 ?>
