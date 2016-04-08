@@ -11,7 +11,7 @@
 				<li class="list-group-item"><strong>P.A. System? </strong> <?= $item->pa_systems ?> </li>
 				<li class="list-group-item"><strong>Beverages? </strong> <?= $item->beverages ?> </li>
 				<li class="list-group-item"><strong>Price: </strong> $<?= $item->price ?> </li>
-				<li class="list-group-item"><strong>Trade?: </strong> <?= $item->trade ?> </li>
+				<li class="list-group-item"><strong>Trade?: </strong> <?php echo $item->trade ? 'yes' : 'no'; ?></li>
 				<li class="list-group-item"><strong>What for?: </strong> <?= $item->trade_desc ?> </li>
 				</ul>
 			<!-- description and photo -->
