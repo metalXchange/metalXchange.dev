@@ -1,11 +1,37 @@
 <?php
 
+	session_start();
 	require '../bootstrap.php';
 
 	$table = $_GET['table'];
 	$id = $_GET['id'];
 
 	function pageController($table, $id) {
+
+		if (Input::has('delete')) {
+
+			switch ($table) {
+			case 'guitars' : 
+				$itemDisplay = Guitar::delete($id);
+				break;
+			case 'leather' : 
+				$itemDisplay = Leather::delete($id);
+				break;
+			case 'lycra' : 
+				$itemDisplay = Lycra::delete($id);
+				break;
+			case 'pyrotechnics' : 
+				$itemDisplay = Pyrotechnics::delete($id);
+				break;
+			case 'venues' : 
+				$itemDisplay = Venues::delete($id);
+				break;
+			}
+
+			header('Location: /users.show.php');
+			die();
+		}
+
 
 		$itemDisplay = [];
 		switch ($table) {
@@ -69,6 +95,9 @@
 	<?php } ?>
 
 	<a href="/ads.create.php?table=<?=$table?>&id=<?=$id?>"><span class="badge">Edit Ad</span></a>
+	<?php if (Auth::isLoggedIn()) { ?>
+		<a href="/ads.show.php?table=<?=$table?>&id=<?=$id?>&delete=1"><span class="badge">Delete Ad</span></a>
+	<?php } ?>
 		<hr></a>
 
 	<?php include '../views/partials/footer.php' ?>
